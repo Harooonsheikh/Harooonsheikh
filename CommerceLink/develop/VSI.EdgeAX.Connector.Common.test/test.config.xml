@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://visionetsystems.com/EdgeAX/CommerceLink/Configuration">
+  <!--Setting Group Application-->
+  <SettingGroup Name="ECOM">
+    <Setting SortOrder="1">
+      <Key>Root_Category_Id</Key>
+      <Value>9977553311</Value>
+      <Name>Test Root Category</Name>
+      <ScreenName>TestRootCategory</ScreenName>
+      <Required>true</Required>
+      <DataType>STRING</DataType>
+    </Setting>
+  </SettingGroup>
+</Configuration>

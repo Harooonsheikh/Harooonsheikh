@@ -1,0 +1,132 @@
+<header id="header">
+  <div class="container-fluid">
+    <div class="row align-items-center">
+      <div class="col-4">
+        <a href="#" class="logo"><img src="../../../../assets/images/logo.png" alt="TeamViewer"></a>
+      </div>
+      <div class="col-8 text-right">
+        <ul class="top-links list-inlilne">
+          <li class="list-inline-item">
+            <a href="javascript:void(0);" (click)="openModal(content);LoadSaleOrders();" class="order-history"><img src="../../../../assets/images/history.png"
+                alt=""> <span>My Sales Activity</span></a>
+          </li>
+          <li class="list-inline-item">
+            <a class="profile-name">
+              <span class="avatar">{{this.salesRepFirstletter | uppercase }}</span>
+              <span class="name">{{this.salesRepName | titlecase }}</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <div class="container">
+    <div class="head clearfix">
+      <ul class="main-tabs text-uppercase list-inlilne">
+        <li class="list-inline-item">
+          <a [routerLink]="['/customer/' + CustomerId + '/quote/0/'+this.salesRepName + '/' + SalesRepId]">
+            <span class="icon-bill"></span>
+            quote
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a class="active">
+            <span class="icon-shopping-cart"></span>
+            cart
+          </a>
+        </li>
+      </ul>
+      <ul class="reference-list list-unstyled">
+        <li>Account Name: <span>{{this.customerInfo?.Name}}</span></li>
+        <li>Account # <span>{{this.customerInfo?.AccountNumber}}</span></li>
+      </ul>
+    </div>
+    <div class="main-content">
+      <!-- all section has collapsable class with contend dive inside it (customer info section)-->
+      <div class="collapsable customer-info">
+        <strong class="heading-tag"><span class="opener" [attr.aria-expanded]="!customerCollapsed" (click)="customerCollapsed = !customerCollapsed"></span>Customer
+          Information</strong>
+        <app-customer-information [ngbCollapse]="customerCollapsed"></app-customer-information>
+      </div>
+      <!-- ends here -->
+      <!-- New Purchase Cart section -->
+      <div class="collapsable new-cart">
+        <strong class="heading-tag"><span class="opener" [attr.aria-expanded]="!cartCollapsed" (click)="cartCollapsed = !cartCollapsed"></span>
+          New Purchase Cart</strong>
+        <app-purchase-cart [ngbCollapse]="cartCollapsed" [customerInfo]="customerInfo"></app-purchase-cart>
+      </div>
+      <!-- ends here -->
+      <!-- Custom Order Details -->
+      <div class="collapsable order-details ">
+        <strong class="heading-tag"> <span class="opener" [attr.aria-expanded]="!SaleOrderCollapsed" (click)="SaleOrderCollapsed = !SaleOrderCollapsed"></span>Custom
+          Order Details</strong>
+        <div class="content" [ngbCollapse]="SaleOrderCollapsed">
+          <div class="footer-form">
+            <div class="row">
+              <div class="col-lg">
+                <label for="description">Comments for Order</label>
+                <textarea id="description" [(ngModel)]="commentsForOrder"></textarea>
+                <div class="text-right w-limit">Word Limit: 500</div>
+              </div>
+              <div class="col-lg">
+                <label for="comments">Comments for Email </label>
+                <textarea id="comments" [(ngModel)]="commentsForEmail"></textarea>
+                <div class="text-right w-limit">Word Limit: 500</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ends here -->
+      <div class="btn-submit row align-items-center justify-content-center">
+        <!-- <div class="order-status">
+            <input type="checkbox">
+            <p>Default payment terms: <span class="days">14</span> days</p>
+          </div> -->
+        <div class="order-status">
+          <!-- <input type="checkbox" (change)="changePaymentTerms($event)" >
+              <p *ngIf="this.changePaymentTermsandExpiray" class="not-condition">Payment Terms <input
+                      type="text" name="paymentTerms" class="days" value="{{this.paymentTermsDays}}"
+                      [(ngModel)]="paymentTerms"> days, Expiray date <input type="text" class="form-control"
+                      [minDate]="minDate" [maxDate]="maxDate" #dp="bsDatepicker" bsDatepicker
+                      [(bsValue)]="expiryDateValue"></p>-->
+          <p class="not-condition">Default payment terms: <input type="text" class="terms-days" value="{{customerInfo?.TermsOfPayment}}"
+              disabled>
+            days</p>
+        </div>
+        <input type="button" (click)="createSalesOrder();" value="Confirm Order" class="btn btn-primary  btn-lg"
+          [disabled]="buttonDisabled">
+        <div *ngIf="this.orderCreated" class="order-info col-12 text-center">
+          <p>Your Order # is <b>{{this.saleOrderNumber}}</b></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<ng-template #content let-modal style="max-width: 75%">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">My Sales Activity</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <jqxGrid #GridMyOrders [source]='dataAdapter' [pageable]='true' [autoheight]='true' [sortable]='true' [columns]='columns'
+      [filterable]="true" [showfilterrow]="true" [altrows]="false" [width]="getWidth()" [selectionmode]="'selectedcell'"
+      [editable]="true" [editmode]="'selectedcell'" [handlekeyboardnavigation]="handleKeys">
+    </jqxGrid>
+
+  </div>
+  <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="modal.close('Save click')">Save</button>
+    </div> -->
+</ng-template>
+
+<!-- footer -->
+<!-- <footer id="footer">
+  <p class="right">All Rights Reserved</p>
+</footer> -->

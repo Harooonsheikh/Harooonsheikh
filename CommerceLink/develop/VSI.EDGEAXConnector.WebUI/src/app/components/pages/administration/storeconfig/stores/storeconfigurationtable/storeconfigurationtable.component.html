@@ -1,0 +1,216 @@
+<div class="m-form__actions add-button-div" align="right">
+        <button (click)="showModalForSyncPaymentConnectors()" [disabled]="callInProgress" class="btn btn-primary">Sync Payment Connectors</button>
+        <button (click)="showModalForAdd()" class="btn btn-primary">Add New</button>
+</div>
+
+<div class="m-portlet m-portlet--mobile">
+        <div class="m-portlet__body">
+                <!--begin: Datatable -->
+                <div class="m_datatable" id="storeConfigMethod"></div>
+                <!--end: Datatable -->
+        </div>
+</div>
+
+<div class="modal fade" style="width:100%;" id="storeConfigModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                        <div style="height:60px;" class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">
+                                        Manage Store - {{modalMode}}
+                                </h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">
+                                                &times;
+                                        </span>
+                                </button>
+                        </div>
+                        <div class="modal-body">
+
+                                <form (ngSubmit)="onSubmit(f.valid);" id="pmForm" #f="ngForm" class="m-login__form m-form">
+                                        <div class="form-group">
+                                                <small *ngIf="showERPCodeError" class="text-danger">
+                                                        {{errorMessage}}
+                                                </small>
+                                        </div>
+                                        <div class="form-group">
+                                                <label class="form-control-label">
+                                                        Name :
+                                                </label>
+                                                <input maxlength="100" type="text" (input)="resetError()" (blur)="verifyStoreName(Name.value, Name.valid, storeConfigMethod.StoreId)"
+                                                        class="form-control" ngModel required name="Name" #Name="ngModel" [(ngModel)]="storeConfigMethod.Name"
+                                                        autocomplete="off">
+                                                <small *ngIf="(Name.invalid) && (showError)" class="text-danger">
+                                                        Name is required.
+                                                </small>
+                                                <small *ngIf="(isStoreNameTaken && Name.valid)" class="text-danger">
+                                                        Store name is already taken. Please try another store name.
+                                                </small>
+                                        </div>
+                                        <div class="form-group">
+                                                <label class="form-control-label">
+                                                        Description :
+                                                </label>
+
+                                                <textarea maxlength="1024" type="text" class="form-control" ngModel name="Description" #DBName="ngModel" [(ngModel)]="storeConfigMethod.Description"
+                                                        autocomplete="off"></textarea>
+                                        </div>
+                                        
+
+                                        <div *ngIf="formMode=='Add'" class="form-group">
+                                                <label class="form-control-label">
+                                                        Duplicate Of :
+                                                </label>
+                                                
+                                                <select (change)="getDuplicateId($event.target.value)" [(ngModel)]="storeConfigMethod.DuplicateOf" #duplicateOf="ngModel" class="form-control m-input m-input--air" style="box-shadow:0px 0px 0px 0px;"
+                                                        name="duplicateOf">
+                                                        <option value="-1" [ngValue]="1" selected>Please Select</option>
+                                                        <option *ngFor="let store of storeConfigMethods;" [value]="store.StoreId" [ngValue]="store.StoreId">{{store.Name}}</option>
+                                                </select>
+                                             
+
+                                         
+                                                
+                                        </div>
+
+
+                                        <div class="form-group" *ngFor="let setting of ApplicationSettingList;let index = index;" >
+                                                <label class="form-control-label">{{ApplicationSettingList[index].Name}}</label><input type="text" class="form-control" ngModel name={{ApplicationSettingList[index].Value}} #{{ApplicationSettingList[index].Value}}="ngModel" [(ngModel)]="ApplicationSettingList[index].Value">
+                                        </div>
+
+
+                                        
+                                        
+                                        <!--    <div class="form-group">
+                                                <label class="form-control-label">
+                                                        Store Key :
+                                                </label>
+                                                <input type="text" maxlength="256" (input)="resetStoreKeyError()" (blur)="verifyStoreKey(StoreKey.value, StoreKey.valid, storeConfigMethod.StoreId)"
+                                                        class="form-control m-input" ngModel required name="StoreKey" #StoreKey="ngModel"
+                                                        [(ngModel)]="storeConfigMethod.StoreKey" autocomplete="off">
+
+                                                <small *ngIf="(StoreKey.invalid) && (showError)" class="text-danger">
+                                                        Store Key Value is required.
+                                                </small>
+                                                <small *ngIf="(isStoreKeyTaken && StoreKey.valid)" class="text-danger">
+                                                        Provided Store Key is already used for another store. Please provide unique Store Key.
+                                                </small>
+                                        </div>
+                                        <div class="form-group">
+                                                <label class="form-control-label">
+                                                        ECOM Type :
+                                                </label>
+                                                <select [(ngModel)]="selectedEcomID" #ecom="ngModel" class="form-control m-input m-input--air" style="box-shadow:0px 0px 0px 0px;"
+                                                        name="ecom">
+                                                        <option value="-1" selected>Please Select</option>
+                                                        <option *ngFor="let ecomType of ecomTypeKeyValue;" [ngValue]="ecomType.Key">{{ecomType.Value}}</option>
+                                                </select>
+                                                <small *ngIf="selectedEcomID == '-1' && showError" class="text-danger">
+                                                        ECOM Type is required.
+                                                </small>
+                                        </div> -->
+                                        
+                                        <div class="modal-footer footer-padding">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                                        Close
+                                                </button>
+                                                <button type="submit" class="btn btn-primary">
+                                                        {{buttonText}}
+                                                </button>
+                                        </div>
+                                        
+                                </form>
+                        </div>
+                </div>
+        </div>
+</div>
+<div class="modal fade" id="storeConfigDeleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div style="max-width:42.7%;" class="modal-dialog" role="document">
+                <div class="m-alert m-alert--icon m-alert--icon-solid m-alert--outline alert alert-danger alert-dismissible fade show" role="alert">
+                        <div class="m-alert__icon">
+                                <i class="flaticon-exclamation-1"></i>
+                                <span></span>
+                        </div>
+                        <div style="padding:0px 0px 0px 10px;" class="m-alert__text">
+                                Are you sure to disable this store?
+                        </div>
+                        <div class="m-alert__actions" style="width: 175px;">
+                                <button type="button" class="btn btn-success btn-sm m-btn m-btn--pill m-btn--wide" data-dismiss="modal" aria-label="Close">
+                                        No
+                                </button>
+                                <button (click)="disableConfirmedByUser()" type="button" class="btn btn-danger btn-sm m-btn m-btn--pill m-btn--wide" data-dismiss="modal"
+                                        aria-label="Close">
+                                        Yes
+                                </button>
+                        </div>
+                </div>
+        </div>
+</div>
+
+<div class="modal fade" style="width:100%;" id="storePaymentConnectorModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                        <div style="height:60px;" class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">
+                                        Sync Payment Connectors
+                                </h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">
+                                                &times;
+                                        </span>
+                                </button>
+                        </div>
+                        <div class="modal-body">
+                                <form (ngSubmit)="syncPaymentConnectors()" #f="ngForm">
+                                        <div>
+                                                <label class="form-control-label">
+                                                        Please select stores for payment connectors synchronization :
+                                                </label>
+                                                <label class="checkbox-label-color m-checkbox m-checkbox--focus">
+                                                        <input type="checkbox" name="selectAll" [(ngModel)]="selectAll"
+                                                                (change)="UpdateStoreSelection()">Select All
+                                                        <span></span>
+                                                </label>
+                                                <br>
+                                                <small *ngIf="NoStoreSelectedError" class="text-danger">
+                                                        At least one store should be selected to send the request.
+                                                </small>
+                                                <hr style="margin-top: -1px">
+                                        </div>
+                                        <div *ngFor="let setting of syncStorePaymentConnector;let index = index;" class="form-group m-form__group">
+                                                <div class="row" *ngIf="index%2==0">
+                                                        <div *ngIf="index<=arrayLength" class="col-lg-6">
+                                                                <label class="checkbox-label-color m-checkbox m-checkbox--focus">
+                                                                        <input (change)="updateSelectAll()" [ngModelOptions]="{standalone: true}"
+                                                                                type="checkbox" name={{syncStorePaymentConnector[index].Name}}
+                                                                                #{{syncStorePaymentConnector[index].Name}}="ngModel"
+                                                                                [(ngModel)]="syncStorePaymentConnector[index].IsSelected">
+                                                                        {{syncStorePaymentConnector[index].Name}}
+                                                                        <span></span>
+                                                                </label>
+                                                        </div>
+                                                        <div *ngIf="(index+1)<=arrayLength" class="col-lg-6">
+                                                                <label class="checkbox-label-color m-checkbox m-checkbox--focus">
+                                                                        <input (change)="updateSelectAll()" [ngModelOptions]="{standalone: true}"
+                                                                                type="checkbox" name={{syncStorePaymentConnector[index+1].Name}}
+                                                                                #{{syncStorePaymentConnector[index+1].Name}}="ngModel"
+                                                                                [(ngModel)]="syncStorePaymentConnector[index+1].IsSelected">
+                                                                        {{syncStorePaymentConnector[index+1].Name}}
+                                                                        <span></span>
+                                                                </label>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                        <div class="modal-footer footer-padding">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                                        Close
+                                                </button>
+                                                <button type="submit" class="btn btn-primary">
+                                                        Submit
+                                                </button>
+                                        </div>
+                                </form>
+
+                        </div>
+                </div>
+        </div>
+</div>

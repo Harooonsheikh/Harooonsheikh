@@ -1,0 +1,227 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Targets>
+  <!--ErpSalesOrder Properties-->
+  <Target property="ErpSalesOrder~Id" source-path="//orders/order[@order-no]" attribute-name="order-no"/>
+  <Target property="ErpSalesOrder~OrderPlacedDate" source-path="//orders/order/order-date"/>
+  <!--<Target property="ErpSalesOrder~InventoryLocationId" source-path="//orders/order/InventLocationId"/>-->
+  <Target property="ErpSalesOrder~InventoryLocationId" source-path="//orders/order/custom-attributes/custom-attribute[@attribute-id='InventLocationId']"/>
+  <!--It should be used for store pick up-->
+  <!--<Target property="ErpSalesOrder~StoreId" source-path="//orders/order/InventLocationId"/>-->
+  <Target property="ErpSalesOrder~StoreId" source-path="//orders/order/custom-attributes/custom-attribute[@attribute-id='InventLocationId']"/>
+
+
+  <Target property="ErpSalesOrder~ChannelReferenceId" source-path="//orders/order/original-order-no"/>
+  <Target property="ErpSalesOrder~CurrencyCode" source-path="//orders/order/currency"/>
+  <Target property="ErpSalesOrder~CustomerId" source-path="//orders/order/customer/customer-no"/>
+  <Target property="ErpSalesOrder~CustomerName" source-path="//orders/order/customer/customer-name"/>
+  <Target property="ErpSalesOrder~CustomerEmail" source-path="//orders/order/customer/customer-email"/>
+  <Target property="ErpSalesOrder~ReceiptEmail" source-path="//orders/order/customer/customer-email"/>
+  <Target property="ErpSalesOrder~Status" source-path="//orders/order/status/order-status"/>
+  <Target property="ErpSalesOrder~ChannelReferenceId" source-path="//orders/order/current-order-no"/>
+  
+  <Target property="ErpSalesOrder~TotalAmount" source-path="//orders/order/totals/order-total/gross-price"/>
+  <Target property="ErpSalesOrder~TaxAmount" source-path="//orders/order/totals/order-total/tax"/>
+  <Target property="ErpSalesOrder~NetAmountWithNoTax" source-path="//orders/order/totals/order-total/net-price"/>
+  <Target property="ErpSalesOrder~NetAmountWithTax" source-path="//orders/order/totals/order-total/gross-price"/>
+  <!--Order Discount-->
+  <Target property="ErpSalesOrder~DiscountAmount" source-path="//orders/order/totals/merchandize-total/price-adjustments/price-adjustment/gross-price"/>
+  <Target property="ErpSalesOrder~DiscountCode" source-path="//orders/order/totals/merchandize-total/price-adjustments/price-adjustment/promotion-id"/>
+
+  <!--ErpSalesOrder Products-->
+  <Target property="ErpSalesOrder~SalesLines" source-path="//orders/order/product-lineitems/product-lineitem" target-source="ErpSalesLine" repeat="true" >
+    <Properties>
+      <Target property="ErpSalesLine~NetAmount" source-path="net-price"/>
+      <Target property="ErpSalesLine~TaxAmount" source-path="tax"/>
+      <Target property="ErpSalesLine~TotalAmount" source-path="gross-price"/>
+      <Target property="ErpSalesLine~BasePrice" source-path="base-price"/>
+      <Target property="ErpSalesLine~Price" source-path="base-price"/>
+      <Target property="ErpSalesLine~LineNumber" source-path="position"/>
+      <Target property="ErpSalesLine~Description" source-path="product-id"/>
+      <Target property="ErpSalesLine~ItemId" source-path="product-id"/>
+      <Target property="ErpSalesLine~Quantity" source-path="quantity"/>
+      <Target property="ErpSalesLine~QuantityOrdered" source-path="quantity"/>
+      <Target property="ErpSalesLine~TaxRatePercent" source-path="tax-rate"/>
+      <Target property="ErpSalesLine~IsGiftCardLine" source-path="gift"/>
+      <Target property="ErpSalesLine~ShipmentId" source-path="shipment-id"/>
+
+      <Target property="ErpSalesLine~RequestedDeliveryDate" source-path="custom-attributes/custom-attribute[@attribute-id='deliveryDate']"/>
+      <Target property="ErpSalesLine~InventoryLocationId" source-path="custom-attributes/custom-attribute[@attribute-id='default-warehouse']"/>
+
+      <Target property="ErpSalesLine~CustomeAttributes" source-path="custom-attributes/custom-attribute[@attribute-id='mfiPosCost']" is-custom-attribute="true" attribute-id="mfiPosCost"/>
+
+      <Target property="ErpSalesLine~CustomeAttributes" source-path="custom-attributes/custom-attribute[@attribute-id='deliveryDate']" is-custom-attribute="true" attribute-id="mfiRequestedDeliveryDate"/>
+      <Target property="ErpSalesLine~CustomeAttributes" source-path="custom-attributes/custom-attribute[@attribute-id='deliveryDate']" is-custom-attribute="true" attribute-id="mfiATPLeadDate"/>
+      <Target property="ErpSalesLine~CustomeAttributes" source-path="custom-attributes/custom-attribute[@attribute-id='carrierCustomInfo']" is-custom-attribute="true" attribute-id="carrierCustomInfo"/>
+      <Target property="ErpSalesLine~CustomeAttributes" source-path="custom-attributes/custom-attribute[@attribute-id='manufacturerSKU']" is-custom-attribute="true" attribute-id="manufacturerSKU"/>
+      <Target property="ErpSalesLine~CustomeAttributes" source-path="custom-attributes/custom-attribute[@attribute-id='orderDiscounts']" is-custom-attribute="true" attribute-id="orderDiscounts"/>
+      <Target property="ErpSalesLine~CustomeAttributes" source-path="custom-attributes/custom-attribute[@attribute-id='fromStoreId']" is-custom-attribute="true" attribute-id="fromStoreId"/>
+      <Target property="ErpSalesLine~CustomeAttributes" source-path="custom-attributes/custom-attribute[@attribute-id='priceAdjustments']" is-custom-attribute="true" attribute-id="priceAdjustments"/>
+      <Target property="ErpSalesLine~CustomeAttributes" source-path="custom-attributes/custom-attribute[@attribute-id='shipMethod']" is-custom-attribute="true" attribute-id="shipMethod"/>
+      <Target property="ErpSalesLine~CustomeAttributes" source-path="custom-attributes/custom-attribute[@attribute-id='shipType']" is-custom-attribute="true" attribute-id="shipType"/>
+      <Target property="ErpSalesLine~CustomeAttributes" source-path="custom-attributes/custom-attribute[@attribute-id='validZone']" is-custom-attribute="true" attribute-id="validZone"/>
+
+      <!--Reading options of product-->
+      <Target property="ErpSalesOrder~Options" source-path="option-lineitems/option-lineitem" target-source="ErpSalesLine" repeat="true" >
+        <Properties>
+          <Target property="ErpSalesLine~Price" source-path="base-price"/>
+          <Target property="ErpSalesLine~NetAmount" source-path="net-price"/>
+          <Target property="ErpSalesLine~TaxAmount" source-path="tax"/>
+          <Target property="ErpSalesLine~TotalAmount" source-path="gross-price"/>
+          <Target property="ErpSalesLine~BasePrice" source-path="base-price"/>
+          <!--<Target property="ErpSalesLine~VariantId" source-path="value-id"/>-->
+          <Target property="ErpSalesLine~ItemId" source-path="product-id"/>
+          <Target property="ErpSalesLine~Quantity" constant-value="1" />
+
+          <!--No need this it creates exception while transforming ERP to CRT object-->
+          <!--Reading variant of option-->
+          <!--<Target property="ErpSalesLine~Variant" source-path="same" target-source="ErpProductVariant" repeat="false" >
+            <Properties>
+              <Target property="ErpProductVariant~VariantId" source-path="value-id"/>
+            </Properties>
+          </Target>-->
+
+          <!--Reading discount of option-->
+          <Target property="ErpSalesLine~DiscountLines" source-path="price-adjustments/price-adjustment" target-source="ErpDiscountLine" repeat="true" >
+            <Properties>
+              <Target property="ErpDiscountLine~Amount" source-path="gross-price"/>
+              <Target property="ErpDiscountLine~DiscountCode" source-path="promotion-id"/>
+              <Target property="ErpDiscountLine~OfferId" source-path="campaign-id"/>
+            </Properties>
+          </Target>
+
+          <Target property="ErpSalesLine~RequestedDeliveryDate" source-path="custom-attributes/custom-attribute[@attribute-id='deliveryDate']"/>
+          <Target property="ErpSalesLine~InventoryLocationId" source-path="custom-attributes/custom-attribute[@attribute-id='default-warehoust']"/>
+
+          <Target property="ErpSalesLine~CustomeAttributes" source-path="custom-attributes/custom-attribute[@attribute-id='mfiPosCost']" is-custom-attribute="true" attribute-id="mfiPosCost"/>
+
+          <Target property="ErpSalesLine~CustomeAttributes" source-path="custom-attributes/custom-attribute[@attribute-id='deliveryDate']" is-custom-attribute="true" attribute-id="mfiRequestedDeliveryDate"/>
+          <Target property="ErpSalesLine~CustomeAttributes" source-path="custom-attributes/custom-attribute[@attribute-id='deliveryDate']" is-custom-attribute="true" attribute-id="mfiATPLeadDate"/>
+          <Target property="ErpSalesLine~CustomeAttributes" source-path="custom-attributes/custom-attribute[@attribute-id='carrierCustomInfo']" is-custom-attribute="true" attribute-id="carrierCustomInfo"/>
+          <Target property="ErpSalesLine~CustomeAttributes" source-path="custom-attributes/custom-attribute[@attribute-id='manufacturerSKU']" is-custom-attribute="true" attribute-id="manufacturerSKU"/>
+          <Target property="ErpSalesLine~CustomeAttributes" source-path="custom-attributes/custom-attribute[@attribute-id='orderDiscounts']" is-custom-attribute="true" attribute-id="orderDiscounts"/>
+          <Target property="ErpSalesLine~CustomeAttributes" source-path="custom-attributes/custom-attribute[@attribute-id='fromStoreId']" is-custom-attribute="true" attribute-id="fromStoreId"/>
+          <Target property="ErpSalesLine~CustomeAttributes" source-path="custom-attributes/custom-attribute[@attribute-id='priceAdjustments']" is-custom-attribute="true" attribute-id="priceAdjustments"/>
+          <Target property="ErpSalesLine~CustomeAttributes" source-path="custom-attributes/custom-attribute[@attribute-id='shipMethod']" is-custom-attribute="true" attribute-id="shipMethod"/>
+          <Target property="ErpSalesLine~CustomeAttributes" source-path="custom-attributes/custom-attribute[@attribute-id='shipType']" is-custom-attribute="true" attribute-id="shipType"/>
+          <Target property="ErpSalesLine~CustomeAttributes" source-path="custom-attributes/custom-attribute[@attribute-id='validZone']" is-custom-attribute="true" attribute-id="validZone"/>
+        </Properties>
+      </Target>
+
+      <!--Reading discount of product-->
+      <Target property="ErpSalesLine~DiscountLines" source-path="price-adjustments/price-adjustment" target-source="ErpDiscountLine" repeat="true" >
+        <Properties>
+          <Target property="ErpDiscountLine~Amount" source-path="gross-price"/>
+          <Target property="ErpDiscountLine~DiscountCode" source-path="promotion-id"/>
+          <Target property="ErpDiscountLine~OfferId" source-path="campaign-id"/>
+        </Properties>
+      </Target>
+      
+    </Properties>
+  </Target>
+  
+  <!--New mapping with orders/order/shipping-lineitems/shipping-lineitem-->
+  <Target property="ErpSalesOrder~SalesLines" source-path="//orders/order/shipping-lineitems/shipping-lineitem" target-source="ErpSalesLine" repeat="true" >
+    <Properties>
+      <Target property="ErpSalesLine~Price" source-path="base-price"/>
+      <Target property="ErpSalesLine~NetAmount" source-path="net-price"/>
+      <Target property="ErpSalesLine~TaxAmount" source-path="tax"/>
+      <Target property="ErpSalesLine~TaxRatePercent" source-path="tax-rate"/>
+      <Target property="ErpSalesLine~TotalAmount" source-path="gross-price"/>
+      <Target property="ErpSalesLine~BasePrice" source-path="base-price"/>
+      <Target property="ErpSalesLine~ItemId" source-path="item-id"/>
+      <Target property="ErpSalesLine~ShipmentId" source-path="shipment-id"/>
+      <Target property="ErpSalesLine~Quantity" constant-value="1"/>
+      <Target property="ErpSalesLine~Comment" constant-value="DeliveryItem"/>
+    </Properties>
+  </Target>
+
+  <!--ErpSalesOrder ShippingAddress-->
+  <Target property="ErpSalesOrder~ShippingAddress" source-path="//orders/order/customer/billing-address" target-source="ErpAddress" repeat="false">
+    <Properties>
+      <Target property="ErpAddress~Name" source-path="first-name"/>
+      <Target property="ErpAddress~Name" source-path="last-name" concatenate="true"/>
+      <Target property="ErpAddress~Street" source-path="address1"/>
+      <Target property="ErpAddress~City" source-path="city"/>
+      <Target property="ErpAddress~ZipCode" source-path="postal-code"/>
+      <Target property="ErpAddress~State" source-path="state-code"/>
+      <!--Confirm it from DemandWare-->
+      <Target property="ErpAddress~ThreeLetterISORegionName" constant-value="USA"/>
+      <Target property="ErpAddress~phone" source-path="phone"/>
+    </Properties>
+  </Target>
+  
+  <!--ErpSalesOrder Shipments-->
+  <Target property="ErpSalesOrder~Shipments" source-path="//orders/order/shipments/shipment" target-source="ErpShipment" repeat="true" >
+    <Properties>
+      <Target property="ErpShipment~ShipmentId" source-path="" attribute-name="shipment-id"/>
+      <Target property="ErpShipment~DeliveryMode" source-path="shipping-method" default-value="FlatRate"/>
+      <Target property="ErpShipment~ShippingStatus" source-path="status/shipping-status"/>
+      <Target property="ErpShipment~IsGift" source-path="gift"/>
+
+      <Target property="ErpShipment~DeliveryAddress" source-path="shipping-address" target-source="ErpAddress" repeat="false">
+        <Properties>
+          <Target property="ErpAddress~Name" source-path="first-name"/>
+          <Target property="ErpAddress~Name" source-path="last-name" concatenate="true"/>
+          <Target property="ErpAddress~Street" source-path="address1"/>
+          <Target property="ErpAddress~City" source-path="city"/>
+          <Target property="ErpAddress~ZipCode" source-path="postal-code"/>
+          <Target property="ErpAddress~State" source-path="state-code"/>
+          <!--Confirm it from DemandWare-->
+          <Target property="ErpAddress~ThreeLetterISORegionName" constant-value="USA"/>
+          <Target property="ErpAddress~phone" source-path="phone"/>
+          <Target property="ErpAddress~email" source-path="custom-attributes/custom-attribute[@attribute-id='email']"/>
+        </Properties>
+      </Target>
+      <Target property="ErpShipment~CustomeAttributes" source-path="custom-attributes/custom-attribute[@attribute-id='carrierCustomInfo']" is-custom-attribute="true" attribute-id="carrierCustomInfo"/>
+      <Target property="ErpShipment~CustomeAttributes" source-path="custom-attributes/custom-attribute[@attribute-id='deliveryDate']" is-custom-attribute="true" attribute-id="mfiDeliveryDate"/>
+      <Target property="ErpShipment~CustomeAttributes" source-path="custom-attributes/custom-attribute[@attribute-id='shipType']" is-custom-attribute="true" attribute-id="mfiShipType"/>
+      <Target property="ErpShipment~CustomeAttributes" source-path="custom-attributes/custom-attribute[@attribute-id='fromStoreId']" is-custom-attribute="true" attribute-id="mfiFromStoreId"/>
+      <Target property="ErpShipment~CustomeAttributes" source-path="custom-attributes/custom-attribute[@attribute-id='shipMethod']" is-custom-attribute="true" attribute-id="mfiShipMethod"/>
+      <Target property="ErpShipment~CustomeAttributes" source-path="custom-attributes/custom-attribute[@attribute-id='shipmentType']" is-custom-attribute="true" attribute-id="mfiShipmentType"/>
+      <Target property="ErpShipment~CustomeAttributes" source-path="custom-attributes/custom-attribute[@attribute-id='storePickupMessage']" is-custom-attribute="true" attribute-id="mfiStorePickupMessage"/>
+    </Properties>
+  </Target>
+
+  <!--ErpSalesOrder Payments-->
+  <Target property="ErpSalesOrder~TenderLines" source-path="//orders/order/payments/payment" target-source="ErpTenderLine" repeat="true" >
+    <Properties>
+      <Target property="ErpTenderLine~CardTypeId" source-path="credit-card/card-type"/>
+      <Target property="ErpTenderLine~TenderTypeId" source-path="credit-card/card-type"/>
+      <Target property="ErpTenderLine~MaskedCardNumber" source-path="credit-card/card-number"/>
+      <Target property="ErpTenderLine~CardOrAccount" source-path="credit-card/card-holder"/>
+      <Target property="ErpTenderLine~Amount" source-path="amount"/>
+
+      <Target property="ErpTenderLine~CustomeAttributes" source-path="custom-attributes/custom-attribute[@attribute-id='mfiPlanId']" is-custom-attribute="true" attribute-id="mfiPlanId"/>
+      <Target property="ErpTenderLine~CustomeAttributes" source-path="custom-attributes/custom-attribute[@attribute-id='authCode']" is-custom-attribute="true" attribute-id="mfiCreditCardAuthCode"/>
+      <Target property="ErpTenderLine~CustomeAttributes" source-path="custom-attributes/custom-attribute[@attribute-id='authAmount']" is-custom-attribute="true" attribute-id="mfiAuthorizedAmount"/>
+
+      <Target property="ErpTenderLine~CustomeAttributes" source-path="custom-attributes/custom-attribute[@attribute-id='approvalStatus']" is-custom-attribute="true" attribute-id="approvalStatus"/>
+      <Target property="ErpTenderLine~CustomeAttributes" source-path="custom-attributes/custom-attribute[@attribute-id='authDateTime']" is-custom-attribute="true" attribute-id="authDateTime"/>
+      <Target property="ErpTenderLine~CustomeAttributes" source-path="custom-attributes/custom-attribute[@attribute-id='authReasonCode']" is-custom-attribute="true" attribute-id="authReasonCode"/>
+      <Target property="ErpTenderLine~CustomeAttributes" source-path="custom-attributes/custom-attribute[@attribute-id='authReconciliationID']" is-custom-attribute="true" attribute-id="authReconciliationID"/>
+      <Target property="ErpTenderLine~CustomeAttributes" source-path="custom-attributes/custom-attribute[@attribute-id='cardType']" is-custom-attribute="true" attribute-id="mfiCardType"/>
+      <Target property="ErpTenderLine~CustomeAttributes" source-path="custom-attributes/custom-attribute[@attribute-id='requestId']" is-custom-attribute="true" attribute-id="requestId"/>
+      <Target property="ErpTenderLine~CustomeAttributes" source-path="custom-attributes/custom-attribute[@attribute-id='requestToken']" is-custom-attribute="true" attribute-id="requestToken"/>
+      <Target property="ErpTenderLine~CustomeAttributes" source-path="custom-attributes/custom-attribute[@attribute-id='subscriptionID']" is-custom-attribute="true" attribute-id="subscriptionID"/>
+      <Target property="ErpTenderLine~CustomeAttributes" source-path="custom-attributes/custom-attribute[@attribute-id='paypalBillingAgreement']" is-custom-attribute="true" attribute-id="paypalBillingAgreement"/>
+      <Target property="ErpTenderLine~CustomeAttributes" source-path="custom-attributes/custom-attribute[@attribute-id='paypalEmail']" is-custom-attribute="true" attribute-id="paypalEmail"/>
+      <Target property="ErpTenderLine~CustomeAttributes" source-path="custom-attributes/custom-attribute[@attribute-id='paypalExpDate']" is-custom-attribute="true" attribute-id="paypalExpDate"/>
+    </Properties>
+  </Target>
+
+  <!--ErpSalesOrder Custom Attributes-->
+  <Target property="ErpSalesOrder~CustomeAttributes" source-path="//orders/order/status/payment-status" is-custom-attribute="true" attribute-id="mfiTransactionStatus"/>
+  <Target property="ErpSalesOrder~CustomeAttributes" source-path="//orders/order/totals/order-total/gross-price" is-custom-attribute="true" attribute-id="mfiTotalAppliedAmt"/>
+  <Target property="ErpSalesOrder~CustomeAttributes" source-path="//orders/order/totals/order-total/tax" is-custom-attribute="true" attribute-id="mfiTaxAmount"/>
+  <Target property="ErpSalesOrder~CustomeAttributes" source-path="//orders/order/totals/merchandize-total/tax" is-custom-attribute="true" attribute-id="mfiOrderNetTaxAmount"/>
+  
+  <Target property="ErpSalesOrder~CustomeAttributes" source-path="//orders/order/custom-attributes/custom-attribute[@attribute-id='basketUUID']" is-custom-attribute="true" attribute-id="basketUUID"/>
+  <Target property="ErpSalesOrder~CustomeAttributes" source-path="//orders/order/custom-attributes/custom-attribute[@attribute-id='customerExternalID']" is-custom-attribute="true" attribute-id="customerExternalID"/>
+  <Target property="ErpSalesOrder~CustomeAttributes" source-path="//orders/order/custom-attributes/custom-attribute[@attribute-id='deliveryNotes']" is-custom-attribute="true" attribute-id="deliveryNotes"/>
+  <Target property="ErpSalesOrder~CustomeAttributes" source-path="//orders/order/custom-attributes/custom-attribute[@attribute-id='masterStoreCode']" is-custom-attribute="true" attribute-id="masterStoreCode"/>
+  <Target property="ErpSalesOrder~CustomeAttributes" source-path="//orders/order/custom-attributes/custom-attribute[@attribute-id='mfiIsEcomStore']" is-custom-attribute="true" attribute-id="mfiIsEcomStore"/>
+  <Target property="ErpSalesOrder~CustomeAttributes" source-path="//orders/order/custom-attributes/custom-attribute[@attribute-id='mfiIsReturnOrder']" is-custom-attribute="true" attribute-id="mfiIsReturnOrder"/>
+  <Target property="ErpSalesOrder~CustomeAttributes" source-path="//orders/order/custom-attributes/custom-attribute[@attribute-id='mfiIsReturnOrderModified']" is-custom-attribute="true" attribute-id="mfiIsReturnOrderModified"/>
+  <Target property="ErpSalesOrder~CustomeAttributes" source-path="//orders/order/custom-attributes/custom-attribute[@attribute-id='mfiFinAccountAnumber']" is-custom-attribute="true" attribute-id="mfiFinAccountAnumber"/>
+
+</Targets>

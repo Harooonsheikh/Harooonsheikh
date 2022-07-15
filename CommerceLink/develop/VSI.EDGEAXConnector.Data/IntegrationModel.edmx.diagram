@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1735fa01acf44bed8dbdb3d7b1bd3a26" Name="Diagram1" ZoomLevel="82" ShowGrid="true">
+        <EntityTypeShape EntityType="VSI.EDGEAXConnector.Data.ApplicationSetting" Width="1.5" PointX="11" PointY="1" />
+        <EntityTypeShape EntityType="VSI.EDGEAXConnector.Data.ConfigurableObject" Width="1.5" PointX="5.25" PointY="47" />
+        <EntityTypeShape EntityType="VSI.EDGEAXConnector.Data.DeliveryMethod" Width="1.5" PointX="5.25" PointY="39" />
+        <EntityTypeShape EntityType="VSI.EDGEAXConnector.Data.DimensionSet" Width="1.5" PointX="5.25" PointY="43.125" />
+        <EntityTypeShape EntityType="VSI.EDGEAXConnector.Data.EcomType" Width="1.5" PointX="0.75" PointY="21" />
+        <EntityTypeShape EntityType="VSI.EDGEAXConnector.Data.EmailSubscriber" Width="1.5" PointX="5.25" PointY="10.25" />
+        <EntityTypeShape EntityType="VSI.EDGEAXConnector.Data.EmailTemplate" Width="1.5" PointX="5.25" PointY="21.75" />
+        <EntityTypeShape EntityType="VSI.EDGEAXConnector.Data.EntityFileNameParameter" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="VSI.EDGEAXConnector.Data.ERPType" Width="1.5" PointX="0.75" PointY="24" />
+        <EntityTypeShape EntityType="VSI.EDGEAXConnector.Data.FieldType" Width="1.5" PointX="8.75" PointY="1.75" />
+        <EntityTypeShape EntityType="VSI.EDGEAXConnector.Data.FieldValue" Width="1.5" PointX="13.25" PointY="1.5" />
+        <EntityTypeShape EntityType="VSI.EDGEAXConnector.Data.IntegrationKey" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="VSI.EDGEAXConnector.Data.Job" Width="1.5" PointX="7.75" PointY="9.375" />
+        <EntityTypeShape EntityType="VSI.EDGEAXConnector.Data.JobSchedule" Width="1.5" PointX="10" PointY="7.125" />
+        <EntityTypeShape EntityType="VSI.EDGEAXConnector.Data.JobType" Width="1.5" PointX="0.75" PointY="8.75" />
+        <EntityTypeShape EntityType="VSI.EDGEAXConnector.Data.MappingTemplate" Width="1.5" PointX="5.25" PointY="34.625" />
+        <EntityTypeShape EntityType="VSI.EDGEAXConnector.Data.MappingTypeTemplate" Width="1.5" PointX="0.75" PointY="11.75" />
+        <EntityTypeShape EntityType="VSI.EDGEAXConnector.Data.Organization" Width="1.5" PointX="12.75" PointY="5.75" />
+        <EntityTypeShape EntityType="VSI.EDGEAXConnector.Data.PaymentMethod" Width="1.5" PointX="5.75" PointY="27.875" />
+        <EntityTypeShape EntityType="VSI.EDGEAXConnector.Data.State" Width="1.5" PointX="12.75" PointY="9.75" />
+        <EntityTypeShape EntityType="VSI.EDGEAXConnector.Data.Store" Width="1.5" PointX="3" PointY="22" />
+        <EntityTypeShape EntityType="VSI.EDGEAXConnector.Data.Subscriber" Width="1.5" PointX="5.25" PointY="6.625" />
+        <EntityTypeShape EntityType="VSI.EDGEAXConnector.Data.sysdiagrams" Width="1.5" PointX="12.75" PointY="13.75" />
+        <EntityTypeShape EntityType="VSI.EDGEAXConnector.Data.WorkFlowState" Width="1.5" PointX="6.875" PointY="2.875" />
+        <EntityTypeShape EntityType="VSI.EDGEAXConnector.Data.WorkFlowTransition" Width="1.5" PointX="8.25" PointY="23.625" />
+        <AssociationConnector Association="VSI.EDGEAXConnector.Data.FK_ApplicationSetting_Store" />
+        <AssociationConnector Association="VSI.EDGEAXConnector.Data.FK_FieldValue_FieldValue" />
+        <AssociationConnector Association="VSI.EDGEAXConnector.Data.FK_ConfigurableObject_Store" />
+        <AssociationConnector Association="VSI.EDGEAXConnector.Data.FK_DeliveryMethod_Store" />
+        <AssociationConnector Association="VSI.EDGEAXConnector.Data.FK_DimensionSet_Store" />
+        <AssociationConnector Association="VSI.EDGEAXConnector.Data.FK_Store_EcomType" />
+        <AssociationConnector Association="VSI.EDGEAXConnector.Data.FK_EmailSubscriber_Store" />
+        <AssociationConnector Association="VSI.EDGEAXConnector.Data.FK_EmailTemplate_Store" />
+        <AssociationConnector Association="VSI.EDGEAXConnector.Data.FK_EntityFileNameParameter_EntityFileNameParameter" />
+        <AssociationConnector Association="VSI.EDGEAXConnector.Data.FK_Store_Type" />
+        <AssociationConnector Association="VSI.EDGEAXConnector.Data.FK_JobSchedule_Store" />
+        <AssociationConnector Association="VSI.EDGEAXConnector.Data.FK_Log_Store" />
+        <AssociationConnector Association="VSI.EDGEAXConnector.Data.FK_MappingTemplate_Store" />
+        <AssociationConnector Association="VSI.EDGEAXConnector.Data.FK_PaymentMethod_Store" />
+        <AssociationConnector Association="VSI.EDGEAXConnector.Data.FK_Subscriber_Store" />
+        <AssociationConnector Association="VSI.EDGEAXConnector.Data.FK_WorkFlowTransition_Store" />
+        <AssociationConnector Association="VSI.EDGEAXConnector.Data.FK_WorkFlowTransition_WorkFlowState" />
+        <AssociationConnector Association="VSI.EDGEAXConnector.Data.FK_IntegrationKey_Store" />
+        <EntityTypeShape EntityType="VSI.EDGEAXConnector.Data.WorkFlow" Width="1.5" PointX="3.375" PointY="2.75" />
+        <AssociationConnector Association="VSI.EDGEAXConnector.Data.FK_WorkFlowState_WorkFlow" />
+        <EntityTypeShape EntityType="VSI.EDGEAXConnector.Data.Entity" Width="1.5" PointX="15.375" PointY="0.75" />
+        <EntityTypeShape EntityType="VSI.EDGEAXConnector.Data.DataDirection" Width="1.5" PointX="14.375" PointY="13.75" />
+        <EntityTypeShape EntityType="VSI.EDGEAXConnector.Data.ActionRequest" Width="1.5" PointX="5.25" PointY="0.75" />
+        <AssociationConnector Association="VSI.EDGEAXConnector.Data.FK_ActionRequest_Store" />
+        <EntityTypeShape EntityType="VSI.EDGEAXConnector.Data.JobLogStatus" Width="1.5" PointX="0.75" PointY="15.875" />
+        <EntityTypeShape EntityType="VSI.EDGEAXConnector.Data.JobLog" Width="1.5" PointX="10" PointY="12" />
+        <AssociationConnector Association="VSI.EDGEAXConnector.Data.FK_JobLog_Job" />
+        <AssociationConnector Association="VSI.EDGEAXConnector.Data.FK_JobLog_JobLogStatus" />
+        <EntityTypeShape EntityType="VSI.EDGEAXConnector.Data.Archive_RequestResponse" Width="1.5" PointX="15.375" PointY="4.75" />
+        <EntityTypeShape EntityType="VSI.EDGEAXConnector.Data.PaymentConnector" Width="1.5" PointX="5.375" PointY="13.75" />
+        <EntityTypeShape EntityType="VSI.EDGEAXConnector.Data.LogMapper" Width="1.5" PointX="5.375" PointY="16.75" />
+        <EntityTypeShape EntityType="VSI.EDGEAXConnector.Data.CountryNames" Width="1.5" PointX="5.25" PointY="51.75" />
+        <AssociationConnector Association="VSI.EDGEAXConnector.Data.FK_CountryNames_Store" />
+        <EntityTypeShape EntityType="VSI.EDGEAXConnector.Data.DataDelete" Width="1.5" PointX="7.375" PointY="16.75" />
+        <EntityTypeShape EntityType="VSI.EDGEAXConnector.Data.CatalogLogs" Width="1.5" PointX="15.375" PointY="10.75" />
+        <EntityTypeShape EntityType="VSI.EDGEAXConnector.Data.ThirdPartyEnvironmentWithStatus" Width="1.5" PointX="11.375" PointY="16.75" />
+        <EntityTypeShape EntityType="VSI.EDGEAXConnector.Data.AosUrlSetting" Width="1.5" PointX="16.375" PointY="13.75" />
+        <EntityTypeShape EntityType="VSI.EDGEAXConnector.Data.ServiceBusRequestLog" Width="1.5" PointX="13.375" PointY="16.75" />
+        <EntityTypeShape EntityType="VSI.EDGEAXConnector.Data.MandatoryStateCountry" Width="1.5" PointX="17.375" PointY="0.75" />
+        <EntityTypeShape EntityType="VSI.EDGEAXConnector.Data.SingleCatalogProductStaging" Width="1.5" PointX="17.375" PointY="3.75" />
+        <EntityTypeShape EntityType="VSI.EDGEAXConnector.Data.Log" Width="1.5" PointX="17.375" PointY="7.75" />
+        <EntityTypeShape EntityType="VSI.EDGEAXConnector.Data.CountryCode" Width="1.5" PointX="18.375" PointY="12.75" />
+        <EntityTypeShape EntityType="VSI.EDGEAXConnector.Data.RequestResponse" Width="1.5" PointX="17.375" PointY="16.75" />
+        <EntityTypeShape EntityType="VSI.EDGEAXConnector.Data.ThirdPartyMessage" Width="1.5" PointX="19.375" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<MapTemplate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Map FieldName="sku" Heading="sku" />
+  <Map FieldName="special_price" Heading="special_price" />
+  <Map FieldName="special_from_date" Heading="special_from_date" />
+  <Map FieldName="special_to_date" Heading="special_to_date" />
+  <Map FieldName="ax_discount_code" Heading="ax_discount_code"/>
+</MapTemplate>

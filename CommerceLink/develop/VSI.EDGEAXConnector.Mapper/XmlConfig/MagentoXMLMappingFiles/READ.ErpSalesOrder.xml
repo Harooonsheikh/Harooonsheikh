@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Targets>
+  <Target property="ErpSalesOrder~Id" source-path="//ORDER/ORDER_ID"/>
+  <Target property="ErpSalesOrder~ChannelReferenceId" source-path="//ORDER/ORDER_ID"/>
+  <Target property="ErpSalesOrder~CustomerName" source-path="//ORDER/CUSTOMER_NAME"/>
+  <Target property="ErpSalesOrder~CustomerId" source-path="//ORDER/CUSTOMER_CODE"/>
+  <Target property="ErpSalesOrder~OrderPlacedDate" source-path="//ORDER/ORDER_DATE"/>
+  <Target property="ErpSalesOrder~CustomerEmail" source-path="//ORDER/EMAIL"/>
+  <Target property="ErpSalesOrder~ReceiptEmail" source-path="//ORDER/EMAIL"/>
+  <Target property="ErpSalesOrder~TotalAmount" source-path="//ORDER/TOTAL"/>
+  <Target property="ErpSalesOrder~TaxAmount" source-path="//ORDER/TAX_CHARGE"/>
+  <Target property="ErpSalesOrder~NetAmountWithNoTax" source-path="//ORDER/NET_AMOUNT"/>
+  <Target property="ErpSalesOrder~DiscountAmount" source-path="//ORDER/DISCOUNT_AMOUNT"/>
+  <Target property="ErpSalesOrder~DiscountCode" source-path="//ORDER/DISCOUNT_CODE"/>
+  <Target property="ErpSalesOrder~DeliveryMode" source-path="//ORDER/CARRIER"/>
+  <Target property="ErpSalesOrder~DeliveryModeChargeAmount" source-path="//ORDER/SHIPPING_CHARGE"/>
+  <Target property="ErpSalesOrder~ChargeAmount" source-path="//ORDER/SHIPPING_CHARGE"/>
+  <!--<Target property="ErpSalesOrder~OrderDiscounts" source-path="//order" target-source="ErpDiscountLine" repeat="true" >
+    <Properties>
+      <Target property="ErpDiscountLine~EffectiveAmount" source-path="DISCOUNT_AMOUNT"/>
+      <Target property="ErpDiscountLine~Tax" source-path="TAX_CHARGE"/>
+    </Properties>
+  </Target>-->
+  <Target property="ErpSalesOrder~SalesLines" source-path="//ORDER/LINE_ITEMS/LINE_ITEM" target-source="ErpSalesLine" repeat="true" >
+    <Properties>
+      <Target property="ErpSalesLine~ItemId" source-path="SKU"/>
+      <Target property="ErpSalesLine~NetAmount" source-path="NET_AMOUNT"/>
+      <Target property="ErpSalesLine~TaxAmount" source-path="TAX"/>
+      <Target property="ErpSalesLine~TotalAmount" source-path="NET_AMOUNT"/>
+      <Target property="ErpSalesLine~BasePrice" source-path="PRICE"/>
+      <Target property="ErpSalesLine~Price" source-path="PRICE"/>
+      <Target property="ErpSalesLine~MonogramInitials" source-path="MONOGRAM_INITIALS"/>
+      <Target property="ErpSalesLine~MonogramFont" source-path="MONOGRAM_FONT"/>
+      <Target property="ErpSalesLine~MonogramThread" source-path="MONOGRAM_THREAD_COLOR"/>
+      <Target property="ErpSalesLine~Monogram_Price" source-path="MONOGRAM_PRICE"/>
+      <Target property="ErpSalesLine~DiscountAmount" source-path="DISCOUNT_AMOUNT"/>
+      <Target property="ErpSalesLine~Quantity" source-path="QUANTITY"/>
+      <!-- <Target property="ErpSalesLine~ItemTaxGroupId" source-path="TAX_GROUP"/> -->
+
+      <!--<Target property="ErpSalesLine~DiscountLines" source-path="//order/LINE_ITEMS/LINE_ITEM" target-source="ErpDiscountLine" repeat="true" >
+        <Properties>
+          <Target property="ErpDiscountLine~Amount" source-path="DISCOUNT_AMOUNT"/>
+          <Target property="ErpDiscountLine~Tax" source-path="TAX"/>
+        </Properties>
+      </Target>-->
+    </Properties>
+  </Target>
+  <Target property="ErpSalesOrder~StoreId" source-path="//ORDER/STORE_ID"/>
+  <Target property="ErpSalesOrder~Carrier" source-path="//ORDER/CARRIER"/>
+  <Target property="ErpSalesOrder~TaxAmount" source-path="//ORDER/TAX_CHARGE"/>
+  <Target property="ErpSalesOrder~Shipping_Tax" source-path="//ORDER/SHIPPING_TAX_AMOUNT"/>
+
+  <Target property="ErpSalesOrder~BillingAddress" source-path="//ORDER" target-source="ErpAddress" repeat="false">
+    <Properties>
+      <Target property="ErpAddress~Name" source-path="//ORDER/CUSTOMER_NAME"/>
+      <Target property="ErpAddress~Street" source-path="//ORDER/CUSTOMER_ADDRESS_1"/>
+      <Target property="ErpAddress~City" source-path="//ORDER/CUSTOMER_ADDRESS_CITY"/>
+      <Target property="ErpAddress~Company" source-path="//ORDER/CUSTOMER_ADDRESS_COMPANY"/>
+      <Target property="ErpAddress~ZipCode" source-path="//ORDER/CUSTOMER_ADDRESS_ZIP"/>
+      <Target property="ErpAddress~State" source-path="//ORDER/CUSTOMER_ADDRESS_STATE"/>
+      <!-- <Target property="ErpAddress~TwoLetterISORegionName" source-path="country-code"/> -->
+      <Target property="ErpAddress~ThreeLetterISORegionName" source-path="//ORDER/DELIVERY_ADDRESS_COUNTRY"/>
+      <Target property="ErpAddress~Phone" source-path="//ORDER/CUSTOMER_TELEPHONE"/>
+      <Target property="ErpAddress~EcomAddressId" source-path="//ORDER/BILLING_ADDRESSID"/>
+    </Properties>
+  </Target>
+
+  <Target property="ErpSalesOrder~Shipments" source-path="//ORDER" target-source="ErpShipment" repeat="true" >
+    <Properties>
+      <Target property="ErpShipment~ShipDate" source-path="//ORDER/EST_SHIPPING_DATE"/>
+      <Target property="ErpShipment~DeliveryMode" source-path="//ORDER/CARRIER"/>
+      <Target property="ErpShipment~DeliveryAddress" source-path="//ORDER" target-source="ErpAddress" repeat="false">
+        <Properties>
+          <Target property="ErpAddress~Name" source-path="//ORDER/DELIVERY_NAME"/>
+          <Target property="ErpAddress~Street" source-path="//ORDER/DELIVERY_ADDRESS_1"/>
+          <Target property="ErpAddress~City" source-path="//ORDER/DELIVERY_ADDRESS_CITY"/>
+          <!-- <Target property="ErpAddress~Company" source-path="//ORDER/CUSTOMER_ADDRESS_COMPANY"/> -->
+          <Target property="ErpAddress~ZipCode" source-path="//ORDER/DELIVERY_ADDRESS_ZIP"/>
+          <Target property="ErpAddress~State" source-path="//ORDER/DELIVERY_ADDRESS_STATE"/>
+          <Target property="ErpAddress~ThreeLetterISORegionName" source-path="//ORDER/DELIVERY_ADDRESS_COUNTRY"/>
+          <Target property="ErpAddress~Phone" source-path="//ORDER/DELIVERY_TELEPHONE"/>
+          <Target property="ErpAddress~EcomAddressId" source-path="//ORDER/DELIVERY_ADDRESSID"/>
+        </Properties>
+      </Target>
+    </Properties>
+  </Target>
+  <Target property="ErpSalesOrder~TenderLines" source-path="//ORDER" target-source="ErpTenderLine" repeat="true" >
+    <Properties>
+      <!--Common for all Payment methods-->
+      <Target property="ErpTenderLine~TenderTypeId" source-path="//ORDER/PAYMENT_METHOD"/>
+      <Target property="ErpTenderLine~Amount" source-path="//ORDER/AMOUNT_PAID"/>
+      <Target property="ErpTenderLine~CardTypeId" source-path="//ORDER/CARD_TYPE"/>
+      <Target property="ErpTenderLine~MaskedCardNumber" source-path="//ORDER/LAST_FOUR_CARD_DIGITS"/>
+      <Target property="ErpTenderLine~CardOrAccount" source-path="//ORDER/CARD_HOLDER_NAME"/>
+    </Properties>
+  </Target>
+</Targets>

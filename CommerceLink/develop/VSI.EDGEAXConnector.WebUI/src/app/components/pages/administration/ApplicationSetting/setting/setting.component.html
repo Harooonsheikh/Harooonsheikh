@@ -1,0 +1,116 @@
+<div class="m-subheader">
+    <div class="d-flex align-items-center">
+        <div class="mr-auto">
+            <h3 class="m-subheader__title m-subheader__title--separator">
+                {{screenName}}
+            </h3>
+            <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+                <li class="m-nav__item m-nav__item--home">
+                    <a href="#" class="m-nav__link m-nav__link--icon">
+                        <i class="m-nav__link-icon flaticon-list-2"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+<div class="m-content">
+    <div class="m-portlet m-portlet--mobile">
+        <div class="m-portlet__body">
+            <form (ngSubmit)="saveForm(f.valid)" #f="ngForm">
+                <div *ngFor="let setting of model;let index = index;" class="form-group m-form__group">
+                    <div class="row" *ngIf="index%2==0">
+                        <div class="col-lg-6">
+                            <small>
+                                <label>
+                                    {{model[index].Name}}
+                                </label>
+                                <small *ngIf="(model[index].FieldType=='boolean')" class="form-group m-form__group">
+                                    <br>
+                                    <span class="m-switch">
+                                        <label>
+                                            <input [checked]="model[index].Value=='TRUE'" (change)="OnSwitch(model[index])" type="checkbox">
+                                            <span></span>
+                                        </label>
+                                    </span>
+                                </small>
+                                <small *ngIf="(model[index].FieldType=='text')" class="text-danger">
+                                    <input name={{model[index].Name}} #{{model[index].Value}}="ngModel" type="text" [(ngModel)]="model[index].Value" class="form-control m-input"
+                                        aria-describedby="emailHelp">
+
+                                </small>
+                                <small *ngIf="(model[index].FieldType=='password')" class="text-danger">
+                                    <div class="field">
+                                        <input name={{model[index].Name}} passwordToggle #{{model[index].Value}}="ngModel" type="password" [(ngModel)]="model[index].Value"
+                                            class="form-control m-input" aria-describedby="emailHelp">
+                                    </div>
+                                </small>
+                                <small *ngIf="(model[index].FieldType=='url')" class="text-danger">
+                                    <input name={{model[index].Name}} #{{model[index].Value}}="ngModel" pattern="https?://...+" type="text" [(ngModel)]="model[index].Value"
+                                        class="form-control m-input" aria-describedby="emailHelp">
+                                    <label class="text-danger">
+                                        URL should be like https://xyz
+                                    </label>
+                                </small>
+                                <small *ngIf="(model[index].FieldType=='email')" class="text-danger">
+                                    <input name={{model[index].Name}} #{{model[index].Value}}="ngModel" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+                                        type="text" [(ngModel)]="model[index].Value" class="form-control m-input" aria-describedby="emailHelp">
+                                    <label class="text-danger">
+                                        Email should be like abc@xyz.com
+                                    </label>
+                                </small>
+                            </small>
+                        </div>
+                        <div class="col-lg-6">
+                            <small *ngIf="model[index+1]">
+                                <label>
+                                    {{model[index+1].Name}}
+                                </label>
+                                <small *ngIf="(model[index+1].FieldType=='boolean')" class="form-group m-form__group">
+                                    <br>
+                                    <span class="m-switch">
+                                        <label>
+                                            <input [checked]="model[index+1].Value=='TRUE'" (change)="OnSwitch(model[index+1])" type="checkbox">
+                                            <span></span>
+                                        </label>
+                                    </span>
+                                </small>
+                                <small *ngIf="(model[index+1].FieldType=='text')" class="text-danger">
+                                    <input name={{model[index+1].Name}} #{{model[index+1].Value}}="ngModel" type="text" [(ngModel)]="model[index+1].Value" class="form-control m-input"
+                                        aria-describedby="emailHelp">
+                                </small>
+                                <small *ngIf="(model[index+1].FieldType=='password')" class="text-danger">
+                                    <div class="field">
+                                        <input name={{model[index+1].Name}} #{{model[index+1].Value}}="ngModel" type="password" [(ngModel)]="model[index+1].Value"
+                                            class="form-control m-input" aria-describedby="emailHelp" passwordToggle required>
+                                    </div>
+                                </small>
+                                <small *ngIf="(model[index+1].FieldType=='url')" class="text-danger">
+                                    <input name={{model[index+1].Name}} #{{model[index+1].Value}}="ngModel" pattern="https?://...+" type="text" [(ngModel)]="model[index+1].Value"
+                                        class="form-control m-input" aria-describedby="emailHelp">
+                                    <label class="text-danger">
+                                        URL should be like https://xyz
+                                    </label>
+                                </small>
+                                <small *ngIf="(model[index+1].FieldType=='email')" class="text-danger">
+                                    <input name={{model[index+1].Name}} #{{model[index+1].Value}}="ngModel" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+                                        type="text" [(ngModel)]="model[index+1].Value" class="form-control m-input" aria-describedby="emailHelp">
+                                    <label class="text-danger">
+                                        Email should be like abc@xyz.com
+                                    </label>
+                                </small>
+                            </small>
+                        </div>
+                    </div>
+                </div>
+                <div class="m-form__actions">
+                    <button type="submit" class="btn btn-primary">
+                        Update
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>

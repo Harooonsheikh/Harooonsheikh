@@ -1,0 +1,67 @@
+<div class="m-subheader">
+    <div class="d-flex align-items-center">
+        <div class="mr-auto">
+            <h3 class="m-subheader__title m-subheader__title--separator">
+                Application Logs
+            </h3>
+            <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+                <li class="m-nav__item m-nav__item--home">
+                    <a href="#" class="m-nav__link m-nav__link--icon">
+                        <i class="m-nav__link-icon la la-home"></i>
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+        <div style="width:20%">
+            <div class="m-dropdown--align-right m-dropdown--align-push" data-dropdown-toggle="hover" aria-expanded="true">
+
+                <select (change)="changeMenu($event.target.value)" class="form-control m-input m-input--air">
+                    <option value="1" selected>Last 1 Day</option>
+                    <option value="3">Last 3 Days</option>
+                    <option value="7">Last Week</option>
+                    <option value="15">Last 15 Days</option>
+                    <option value="30">Last Month</option>
+                    <option value="90">Last 3 Months</option>
+                    <option value="-1">All</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="m-content" style="padding-top:15px;">
+    <div class="m-portlet m-portlet--mobile">
+        <div class="m-portlet__body">
+            <!--begin: Datatable -->
+            <div class="m_datatable" id="appLogs"></div>
+            <!--end: Datatable -->
+        </div>
+        <div class="modal fade" id="appLogsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div style="max-width:60%;" class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">
+                            {{title}} Details
+                        </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">
+                                &times;
+                            </span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="390">
+                            <p>{{exceptionDetails}}</p>
+                        </div>
+                    </div>
+                    <div style="padding:10px 10px 10px 10px;" class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

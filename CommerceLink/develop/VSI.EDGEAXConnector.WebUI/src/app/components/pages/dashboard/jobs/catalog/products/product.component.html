@@ -1,0 +1,124 @@
+<div class="m-portlet m-portlet--mobile">
+    <div class="m-portlet__head">
+        <div class="m-portlet__head-caption">
+            <div class="m-portlet__head-title">
+                <h3 class="m-portlet__head-text">
+                    Product Details
+                    <small>
+                        All Master Variant Data Details
+                    </small>
+                </h3>
+            </div>
+        </div>
+        <div class="form-group m-form__group row align-items-center">
+            <div class="col-md-6"></div>
+            <div class="col-md-6" style="margin-top:1.2rem;">
+                <div class="m-input-icon m-input-icon--left">
+                    <input (keyup)="searchData($event)" name="searchQuery" [(ngModel)]="searchQuery" class="form-control m-input m-input--solid"
+                        placeholder="Product Id or Name" id="m_form_search">
+                    <span (click)="searchData($event)" style="cursor: pointer; cursor: hand;" class="m-input-icon__icon m-input-icon__icon--left">
+                        <span>
+                            <i class="la la-search"></i>
+                        </span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="m-portlet__body">
+        <!--begin: Search Form -->
+
+        <!--end: Search Form 
+        begin: Datatable -->
+        <!-- <table id="productLog" class="m_datatable" width="100%" cellspacing="0">
+
+        </table> -->
+        <div class="m_datatable" id="productLog"></div>
+
+        <!--end: Datatable -->
+    </div>
+</div>
+
+
+<div class="modal fade" id="m_modal_1_2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">
+                    {{selectedProduct.ProdId}}
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">
+                        &times;
+                    </span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="400">
+                    <table class="table table-sm">
+                        <tr>
+                            <td>Name :</td>
+                            <td>{{selectedProduct.Name}}</td>
+                        </tr>
+                        <tr>
+                            <td>Item ID :</td>
+                            <td>{{selectedProduct.ProdId}}</td>
+                        </tr>
+                        <tr>
+                            <td>Short Description :</td>
+                            <td>{{selectedProduct.shortDescription}}</td>
+                        </tr>
+                        <tr>
+                            <td>Long Description :</td>
+                            <td>{{selectedProduct.longDescription}}</td>
+                        </tr>
+                        <tr>
+                            <td>SKU :</td>
+                            <td>{{selectedProduct.sku}}</td>
+                        </tr>
+                        <tr>
+                            <td>Color :</td>
+                            <td>{{selectedProductColor}}</td>
+                        </tr>
+                        <tr>
+                            <td>Size :</td>
+                            <td>{{selectedProductSize}}</td>
+                        </tr>
+                        <tr>
+                            <td>Style :</td>
+                            <td>{{selectedProductStyle}}</td>
+                        </tr>
+                        <tr *ngIf="selectedProduct.variants.length>0">
+                            <td>Variants: </td>
+                            <td>
+                                <span *ngFor="let item of selectedProduct.variants">{{item}}, </span>
+                            </td>
+                        </tr>
+                        <tr *ngIf="selectedProduct.variations.length>0" >
+                            <td>Variations: </td>
+                            <td>
+                                <div class="row">
+                                    <div class="col-lg-6" *ngFor="let item of uniqueKeys(selectedProduct.variations,'Key')">
+                                        {{item}}
+                                        <ul>
+                                            <ng-container *ngFor="let v of selectedProduct.variations">
+                                                <li *ngIf="v.Key==item">{{v.Value}}
+                                                </li>
+                                            </ng-container>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    Close
+                </button>
+
+            </div>
+        </div>
+    </div>
+</div>

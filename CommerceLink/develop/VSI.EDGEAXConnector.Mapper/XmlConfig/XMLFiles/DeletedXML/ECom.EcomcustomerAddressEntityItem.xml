@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Address>
+  <FirstName>EcomcustomerAddressEntityItem~firstname</FirstName>
+  <LastName>EcomcustomerAddressEntityItem~lastname</LastName>
+  <Phone>EcomcustomerAddressEntityItem~telephone</Phone>
+  <Street>EcomcustomerAddressEntityItem~street</Street>
+  <City>EcomcustomerAddressEntityItem~city</City>
+  <Zipcode>EcomcustomerAddressEntityItem~postcode</Zipcode>
+  <State>EcomcustomerAddressEntityItem~region</State>
+  <Country>EcomcustomerAddressEntityItem~country_id</Country>
+</Address>

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<category category-id="EcomcatalogCategoryEntityCreate~categoryId">
+  <display-name xml:lang="x-default">EcomcatalogCategoryEntityCreate~name</display-name>
+  <online-flag>EcomcatalogCategoryEntityCreate~is_active</online-flag>
+  <parent>EcomcatalogCategoryEntityCreate~parentCategoryId</parent>
+  <custom-attributes>
+    <custom-attribute attribute-id="headerMenuOrientation">value</custom-attribute>
+    <custom-attribute attribute-id="showInMenu">value</custom-attribute>
+  </custom-attributes>
+</category>

@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<catalog xmlns="http://www.demandware.com/xml/impex/catalog/2006-10-31" catalog-id="SleepysEmpSalesCatalog-catalog">
+  <!-- Header -->
+  <header>
+    <image-settings>
+      <internal-location base-path="/images" />
+      <view-types>
+        <view-type>large</view-type>
+        <view-type>medium</view-type>
+        <view-type>small</view-type>
+        <view-type>swatch</view-type>
+        <view-type>hi-res</view-type>
+      </view-types>
+      <!-- variation-attribute-id>size</variation-attribute-id -->
+      <!-- variation-attribute-id>foundation</variation-attribute-id -->
+      <alt-pattern>${productname}, ${variationvalue}, ${viewtype}
+			</alt-pattern>
+      <title-pattern>${productname}, ${variationvalue}</title-pattern>
+    </image-settings>
+  </header>
+  <category repeat="true" data-source="ErpCatalog~Categories" category-id="ErpCategory~EcomCategoryId">
+    <display-name xml:lang="x-default">ErpCategory~Name</display-name>
+    <online-flag>ErpCategory~IsActive</online-flag>
+    <parent>ErpCategory~EcomParentCategoryId</parent>
+    <custom-attributes>
+      <custom-attribute attribute-id="headerMenuOrientation">value</custom-attribute>
+      <custom-attribute attribute-id="showInMenu">value</custom-attribute>
+    </custom-attributes>
+  </category>
+  <product repeat="true" data-source="ErpCatalog~Products" product-id="ErpProduct~EcomProductId" mode="ErpProduct~Mode">
+    <ean />
+    <upc />
+    <unit />
+    <min-order-quantity constant-value="true">1</min-order-quantity>
+    <step-quantity constant-value="true">1</step-quantity>
+    <display-name xml:lang="x-default">ErpProduct~ProductName</display-name>
+    <short-description xml:lang="x-default">ErpProduct~ProductName</short-description>
+    <long-description xml:lang="x-default">ErpProduct~Description</long-description>
+    <online-flag constant-value="true">true</online-flag>
+    <available-flag expression="true">sourceObject.AvailableQuantity &gt; 0 ? true : false</available-flag>
+    <searchable-flag constant-value="true">true</searchable-flag>
+    <tax-class-id expression="true">sourceObject.CustomAttributes.Find(s =&gt;s.Key.Equals("tax_class_id")).Value</tax-class-id>
+    <brand></brand>
+    <manufacturer-name></manufacturer-name>
+    <manufacturer-sku>ErpProduct~SKU</manufacturer-sku>
+    <page-attributes></page-attributes>
+    <custom-attributes>
+      <custom-attribute attribute-id="Product name" xmlns="">value</custom-attribute>
+      <custom-attribute attribute-id="Description" xmlns="">value</custom-attribute>
+      <custom-attribute attribute-id="Item number" xmlns="">value</custom-attribute>
+      <custom-attribute attribute-id="WebStatus" xmlns="">value</custom-attribute>
+      <custom-attribute attribute-id="tax_class_id" xmlns="">value</custom-attribute>
+      <custom-attribute attribute-id="weight" xmlns="">value</custom-attribute>
+      <custom-attribute attribute-id="configurable_attributes" xmlns="">value</custom-attribute>
+      <custom-attribute attribute-id="attribute_set" xmlns="">value</custom-attribute>
+    </custom-attributes>
+    <variations show-node="(sourceObject.IsMasterProduct || sourceObject.MasterProductId == 0) ? true : false">
+      <attributes file-source="ERP.ErpProductDimensionSet.xml" data-source="ErpProduct~DimensionSets"></attributes>
+      <!-- DWVariantList -->
+      <variants>
+        <variant repeat="true" data-source="ErpProduct~ProductVariants" product-id="ErpProduct~VariantId" />
+      </variants>
+    </variations>
+  </product>
+  <variation-attribute repeat="true" data-source="ErpCatalog~DimensionSets" attribute-id="ErpProductDimensionSet~DimensionKey" variation-attribute-id="ErpProductDimensionSet~DimensionKey">
+    <display-name xml:lang="x-default">ErpProductDimensionSet~DimensionKey</display-name>
+    <variation-attribute-values merge-mode="merge">
+      <variation-attribute-value value="ErpProductDimensionValueSet~DimensionValue">
+        <display-value xml:lang="x-default" repeat="true" data-source="ErpProductDimensionSet~DimensionValues">ErpProductDimensionValueSet~DimensionValue</display-value>
+      </variation-attribute-value>
+    </variation-attribute-values>
+  </variation-attribute>
+  <category-assignment repeat="true" data-source="ErpCatalog~CategoryAssignments" category-id="ErpCategoryAssignment~CategoryId" product-id="ErpCategoryAssignment~ProductId">
+    <primary-flag constant-value="true">false</primary-flag>
+  </category-assignment>
+</catalog>

@@ -1,0 +1,17 @@
+################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+bin
+obj
+packages
+.vs
+*.winmd
+
+*.exe
+*.suo
+*.user
+*.cache
+*.pdb
+/develop/PrecompiledWeb/VSI.EDGEAXConnector.Web
+/develop/VSI.EDGEAXConnector.Web/Properties/PublishProfiles

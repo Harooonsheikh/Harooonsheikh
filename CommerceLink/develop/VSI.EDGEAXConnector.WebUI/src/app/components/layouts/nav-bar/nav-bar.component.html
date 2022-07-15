@@ -1,0 +1,284 @@
+<!-- BEGIN: Left Aside -->
+<button class="m-aside-left-close  m-aside-left-close--skin-dark" id="m_aside_left_close_btn" appunwraptag="">
+    <i class="la la-close"></i>
+</button>
+<div id="m_aside_left" class="m-grid__item    m-aside-left  m-aside-left--skin-dark">
+    <!-- BEGIN: Aside Menu -->
+    <div id="m_ver_menu" class="m-aside-menu  m-aside-menu--skin-dark m-aside-menu--submenu-skin-dark" data-menu-vertical="true"
+        data-menu-scrollable="false" data-menu-dropdown-timeout="500">
+        <ul class="m-menu__nav  m-menu__nav--dropdown-submenu-arrow">
+            <li class="m-menu__section">
+                <h4 class="m-menu__section-text">
+                    Dashboards
+                </h4>
+                <i class="m-menu__section-icon flaticon-more-v3"></i>
+            </li>
+            <li class="m-menu__item  " routerLinkActive="m-menu__item--active" routerLinkActiveOptions="{ exact: true }" aria-haspopup="true">
+                <a routerLink="/merchandise" class="m-menu__link">
+                    <i class="m-menu__link-icon flaticon-line-graph"></i>
+                    <span class="m-menu__link-title">
+                        <span class="m-menu__link-wrap">
+                            <span class="m-menu__link-text">
+                                Merchandise
+                            </span>
+                        </span>
+                    </span>
+                </a>
+            </li>
+            <!-- <li class="m-menu__item  " routerLinkActive="m-menu__item--active" routerLinkActiveOptions="{ exact: true }" aria-haspopup="true">
+                <a routerLink="/saleorder" class="m-menu__link">
+                    <i class="m-menu__link-icon flaticon-line-graph"></i>
+                    <span class="m-menu__link-title">
+                        <span class="m-menu__link-wrap">
+                            <span class="m-menu__link-text">
+                                Sales Order
+                            </span>
+          
+                        </span>
+                    </span>
+                </a>
+            </li> -->
+            <li class="m-menu__section">
+                <h4 class="m-menu__section-text">
+                    Administration
+                </h4>
+                <i class="m-menu__section-icon flaticon-more-v3"></i>
+            </li>
+
+            <ng-container *ngIf="isSuperAdmin || isAdmin">
+                <li class="m-menu__item  m-menu__item--submenu" routerLinkActive="m-menu__item--active" routerLinkActiveOptions="{ exact: true }"
+                    aria-haspopup="true" data-menu-submenu-toggle="hover" [ngClass]="{'m-menu__item--open' : expandAppSetting}">
+                    <a href="#" class="m-menu__link m-menu__toggle">
+                        <i class="m-menu__link-icon flaticon-settings"></i>
+                        <span class="m-menu__link-text">
+                            Application Setting
+                        </span>
+                        <i class="m-menu__ver-arrow la la-angle-right"></i>
+                    </a>
+                    <div class="m-menu__submenu">
+                        <span class="m-menu__arrow"></span>
+                        <ul class="m-menu__subnav">
+                            <li class="m-menu__item  m-menu__item--parent" routerLinkActive="m-menu__item--active" routerLinkActiveOptions="{ exact: true }"
+                                aria-haspopup="true">
+                                <a href="#" class="m-menu__link">
+                                    <span class="m-menu__link-text">
+                                        Application Setting
+                                    </span>
+                                </a>
+                            </li>
+
+                            <li *ngFor="let setting of model;let index = index;" (click)="routeScreen(setting)" [ngClass]="{'m-menu__item--active' : selectedAppSetting == setting}"
+                                class="m-menu__item" routerLinkActive="m-menu__item--active" routerLinkActiveOptions="{ exact: true }"
+                                aria-haspopup="true">
+
+                                <!-- <a routerLink="/configurations/datafile/" class="m-menu__link"> -->
+                                <a class="m-menu__link">
+                                    <i class="m-menu__link-bullet m-menu__link-bullet--dot">
+                                        <span></span>
+                                    </i>
+
+                                    <span class="m-menu__link-text">
+                                        {{setting}}
+                                    </span>
+
+                                </a>
+
+
+                            </li>
+
+
+                        </ul>
+                    </div>
+                </li>
+            </ng-container>
+            <li class="m-menu__item  m-menu__item--submenu" routerLinkActive="m-menu__item--active" routerLinkActiveOptions="{ exact: true }"
+                aria-haspopup="true" data-menu-submenu-toggle="hover">
+                <a href="#" class="m-menu__link m-menu__toggle">
+                    <i class="m-menu__link-icon socicon-mail"></i>
+                    <span class="m-menu__link-text">
+                        Email Config
+                    </span>
+                    <i class="m-menu__ver-arrow la la-angle-right"></i>
+                </a>
+                <div class="m-menu__submenu">
+                    <span class="m-menu__arrow"></span>
+                    <ul class="m-menu__subnav">
+                        <li class="m-menu__item" routerLinkActive="m-menu__item--active" routerLinkActiveOptions="{ exact: true }" aria-haspopup="true">
+                            <a routerLink="/emailconfig/subscriber" class="m-menu__link">
+                                <i class="m-menu__link-bullet m-menu__link-bullet--dot">
+                                    <span></span>
+                                </i>
+                                <span class="m-menu__link-text">
+                                    Subscribers
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="m-menu__submenu">
+                    <span class="m-menu__arrow"></span>
+                    <ul class="m-menu__subnav">
+                        <li class="m-menu__item" routerLinkActive="m-menu__item--active" routerLinkActiveOptions="{ exact: true }" aria-haspopup="true">
+                            <a routerLink="/emailconfig/template" class="m-menu__link">
+                                <i class="m-menu__link-bullet m-menu__link-bullet--dot">
+                                    <span></span>
+                                </i>
+                                <span class="m-menu__link-text">
+                                    Templates
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="m-menu__item  m-menu__item--submenu" routerLinkActive="m-menu__item--active" routerLinkActiveOptions="{ exact: true }"
+                aria-haspopup="true" data-menu-submenu-toggle="hover">
+                <a href="#" class="m-menu__link m-menu__toggle">
+                    <i class="m-menu__link-icon flaticon-time-2"></i>
+                    <span class="m-menu__link-text">
+                        Jobs Config
+                    </span>
+                    <i class="m-menu__ver-arrow la la-angle-right"></i>
+                </a>
+                <div class="m-menu__submenu">
+                    <span class="m-menu__arrow"></span>
+                    <ul class="m-menu__subnav">
+                        <li class="m-menu__item" routerLinkActive="m-menu__item--active" routerLinkActiveOptions="{ exact: true }" aria-haspopup="true">
+                            <a routerLink="/jobsconfig/cljobs" class="m-menu__link">
+                                <i class="m-menu__link-bullet m-menu__link-bullet--dot">
+                                    <span></span>
+                                </i>
+                                <span class="m-menu__link-text">
+                                    CommerceLink Jobs
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="m-menu__submenu">
+                    <span class="m-menu__arrow"></span>
+                    <ul class="m-menu__subnav">
+                        <li class="m-menu__item" routerLinkActive="m-menu__item--active" routerLinkActiveOptions="{ exact: true }" aria-haspopup="true">
+                            <a routerLink="/jobsconfig/filesyncjobs" class="m-menu__link">
+                                <i class="m-menu__link-bullet m-menu__link-bullet--dot">
+                                    <span></span>
+                                </i>
+                                <span class="m-menu__link-text">
+                                    File Sync Jobs
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <!-- <li class="m-menu__item  " routerLinkActive="m-menu__item--active" routerLinkActiveOptions="{ exact: true }" aria-haspopup="true">
+                <a routerLink="/storeconfig/actions" class="m-menu__link">
+                    <i class="m-menu__link-icon flaticon-transport"></i>
+                    <span class="m-menu__link-title">
+                        <span class="m-menu__link-wrap">
+                            <span class="m-menu__link-text">
+                                Store Actions
+                            </span>
+                        </span>
+                    </span>
+                </a>
+            </li> -->
+            <li class="m-menu__item  " routerLinkActive="m-menu__item--active" routerLinkActiveOptions="{ exact: true }" aria-haspopup="true">
+                <a routerLink="/storeconfig/actions" class="m-menu__link">
+                    <i class="m-menu__link-icon flaticon-transport"></i>
+                    <span class="m-menu__link-title">
+                        <span class="m-menu__link-wrap">
+                            <span class="m-menu__link-text">
+                                Manage Actions
+                            </span>
+                            <!-- <span class="m-menu__link-badge">
+                                    <span class="m-badge m-badge--danger">
+                                        2
+                                    </span>
+                                </span> -->
+                        </span>
+                    </span>
+                </a>
+            </li>
+            <li class="m-menu__item  " routerLinkActive="m-menu__item--active" routerLinkActiveOptions="{ exact: true }" aria-haspopup="true">
+                <a routerLink="/mapping/home" class="m-menu__link">
+                    <i class="m-menu__link-icon flaticon-file-1"></i>
+                    <span class="m-menu__link-title">
+                        <span class="m-menu__link-wrap">
+                            <span class="m-menu__link-text">
+                                Mapping Config
+                            </span>
+                            <!-- <span class="m-menu__link-badge">
+                                    <span class="m-badge m-badge--danger">
+                                        2
+                                    </span>
+                                </span> -->
+                        </span>
+                    </span>
+                </a>
+            </li>
+            <li class="m-menu__item  " routerLinkActive="m-menu__item--active" routerLinkActiveOptions="{ exact: true }" aria-haspopup="true">
+                <a routerLink="/paymentmethod" class="m-menu__link">
+                    <i class="m-menu__link-icon flaticon-coins"></i>
+                    <span class="m-menu__link-title">
+                        <span class="m-menu__link-wrap">
+                            <span class="m-menu__link-text">
+                                Payment Method
+                            </span>
+                        </span>
+                    </span>
+                </a>
+            </li>
+            <li class="m-menu__item  " routerLinkActive="m-menu__item--active" routerLinkActiveOptions="{ exact: true }" aria-haspopup="true">
+                <a routerLink="/dimension" class="m-menu__link">
+                    <i class="m-menu__link-icon flaticon-interface-8"></i>
+                    <span class="m-menu__link-title">
+                        <span class="m-menu__link-wrap">
+                            <span class="m-menu__link-text">
+                                Dimension Settings
+                            </span>
+                        </span>
+                    </span>
+                </a>
+            </li>
+            <li class="m-menu__item  " routerLinkActive="m-menu__item--active" routerLinkActiveOptions="{ exact: true }" aria-haspopup="true">
+                <a routerLink="/configobjects" class="m-menu__link">
+                    <i class="m-menu__link-icon flaticon-analytics"></i>
+                    <span class="m-menu__link-title">
+                        <span class="m-menu__link-wrap">
+                            <span class="m-menu__link-text">
+                                Configurable Objects
+                            </span>
+                        </span>
+                    </span>
+                </a>
+            </li>
+            <li class="m-menu__item  " routerLinkActive="m-menu__item--active" routerLinkActiveOptions="{ exact: true }" aria-haspopup="true">
+                <a routerLink="/applogs" class="m-menu__link">
+                    <i class="m-menu__link-icon flaticon-file-1"></i>
+                    <span class="m-menu__link-title">
+                        <span class="m-menu__link-wrap">
+                            <span class="m-menu__link-text">
+                                Application Logs
+                            </span>
+                        </span>
+                    </span>
+                </a>
+            </li>
+            <li class="m-menu__item  " routerLinkActive="m-menu__item--active" routerLinkActiveOptions="{ exact: true }" aria-haspopup="true">
+                <a routerLink="/apilogs" class="m-menu__link">
+                    <i class="m-menu__link-icon flaticon-file-1"></i>
+                    <span class="m-menu__link-title">
+                        <span class="m-menu__link-wrap">
+                            <span class="m-menu__link-text">
+                                API Logs
+                            </span>
+                        </span>
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- END: Aside Menu -->
+</div>
+<!-- END: Left Aside -->

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<pricebooks xmlns="http://www.demandware.com/xml/impex/pricebook/2006-10-31">
+  <pricebook>
+    <header pricebook-id="usd-sale-prices">
+      <currency>ErpDiscount~Currency</currency>
+      <display-name xml:lang="x-default">ErpDiscount~Name</display-name>
+      <online-flag to-lower="true">ErpDiscount~Online</online-flag>
+      <online-from>2016-01-01T00:00:00.0000000Z</online-from>
+      <online-to>2019-12-31T00:20:00.0000000Z</online-to>
+      <parent>usd-regular-prices</parent>
+    </header>
+    <price-tables>
+      <price-table repeat="true" data-source="ErpDiscount~Discounts" product-id="ErpProductDiscount~SKU">
+        <amount quantity="ErpProductDiscount~Quantity">ErpProductDiscount~OfferPrice</amount>
+      </price-table>
+    </price-tables>
+  </pricebook>
+</pricebooks>

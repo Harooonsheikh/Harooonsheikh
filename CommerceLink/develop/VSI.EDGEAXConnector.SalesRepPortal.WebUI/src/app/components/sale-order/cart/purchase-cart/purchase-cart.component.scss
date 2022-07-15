@@ -1,0 +1,242 @@
+.ag_grid_custom{
+    width: 100%;
+    height: 250px;
+    margin-bottom: 6px;
+    margin-top: -11px;
+    // padding-top: 30px; 
+    // box-sizing: border-box;
+}
+
+.ag-theme-balham {
+    border-top-width: 0;
+    flex-basis: 0;
+    flex-grow: 1;
+    width: inherit !important;
+}
+
+.ag-body-viewport-wrapper.ag-layout-normal {
+    overflow-x: scroll;
+  }
+  
+.customClassCompact{
+    margin-bottom: 2px;
+}
+
+.flexNoWrap{
+    flex-wrap: nowrap;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+    margin-top: 10px;
+}
+
+.customHeader{
+    height: 23px;
+    padding: 0;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.labelCustom{
+    font-size: x-small;
+}
+
+.move-left {
+    width: auto;
+    box-shadow: none;
+  }
+
+.iconCustom{
+    float: right;
+    margin-top: 4px;
+}
+
+.theadCustom{
+    font-size: 12px;
+    font-weight: bold;
+}
+.tbodyCustom{
+    font-size: 15px;
+}
+
+.paragraphCustom{
+    font-size: 10px;
+}
+
+
+
+hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .smallInputBox {
+    width: 22px;
+  }
+
+  .headingTV{
+    color: #0D89E5;
+  }
+
+  .btn-xs{
+    padding: 1px 5px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 3px;
+  }
+
+  
+.rowCustom {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+    /* margin-top: 10px; */
+}
+
+.customCardBody {
+    flex: 1 1 auto;
+    padding: 0rem 0.5rem;
+}
+
+hr {
+    margin-top: 0rem;
+    margin-bottom: 0.5rem;
+    border: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.btn-red{
+    background: red;
+    cursor: pointer;
+    border-color: red;
+}
+
+@media all and (min-width: 768px) {
+    tr  {
+      td {
+        vertical-align: middle !important;
+      }
+      span {
+        &:not([class]) {
+          padding: 1rem 1rem;
+        }
+      }
+    }
+  }
+
+  .font_{
+      font-size: 15px;
+  }
+
+::ng-deep {
+    .modal-dialog{
+        max-width: 655px;
+    }
+    .multiselect-dropdown {
+        width: 370px !important;
+        .dropdown-btn{
+            .selected-item{
+                display: inline-block;
+                vertical-align: top;
+                margin: 0 5px 5px 0 !important;
+                padding: 3px 7px 5px !important;
+                border-radius: 3px !important;
+                font-size: 14px;
+                line-height: 18px;
+                background: #0e8ee9 !important;
+                border:0 !important;
+                &:hover{
+                    box-shadow: none !important;
+                }
+                a{
+                    padding-left: 5px !important;
+                }
+            }
+            .dropdown-down{
+                margin-left: 5px !important;
+                border-top: 8px solid #0e8ee9 !important;
+                border-left: 8px solid transparent !important;
+                border-right: 8px solid transparent !important;
+            }
+            .dropdown-up{
+                margin-left: 5px !important;
+                border-bottom: 8px solid #0e8ee9 !important;
+                border-left: 8px solid transparent !important;
+                border-right: 8px solid transparent !important;
+            }
+        }
+    }
+    .dropdown-list{
+        .filter-textbox {
+            input{
+                padding: 0 0 0 10px !important;
+            }
+        }
+    }
+    .modal-header{
+        padding: 7px 15px;
+        background: #0e8ee9;
+        .close{
+            opacity: 1 !important;
+            color: #fff;
+            padding: 0;
+            margin: 0;
+        }
+    }
+    .jqx-widget-content{
+        margin: 0 auto;
+    }
+    .jqx-widget-header{
+        background: #eaeef8;
+    }
+    .jqx-fill-state-hover,
+    .jqx-fill-state-pressed,
+    .jqx-widget .jqx-grid-cell,
+    .jqx-widget .jqx-grid-column-header,
+    .jqx-widget .jqx-grid-group-cell{
+        border-color: transparent;
+    }
+    .modal-title{
+        font-size: 20px;
+        line-height: 24px;
+        color: #fff;
+    }
+    .jqx-fill-state-pressed,
+    .jqx-fill-state-hover {
+        background: #eaeef8;
+    }
+    .jqx-grid-cell-pinned{
+        background: #f7f9ff;
+    }
+    .jqx-input{
+        padding: 4px 8px;
+    }
+    .jqx-widget .jqx-grid-column-menubutton{
+        display: none;
+    }
+    .jqx-widget .jqx-grid-column-sortdescbutton,
+    .jqx-widget .jqx-grid-column-sortascbutton{
+        background-color: #fff;
+    }
+    .jqx-reset.jqx-scrollbar-state-normal {
+        .jqx-fill-state-pressed,
+        .jqx-fill-state-hover{
+            background: #efefef;
+        }
+    }
+    .jqx-rc-all,
+    .jqx-dropdownlist{
+        &.jqx-fill-state-pressed,
+        &.jqx-fill-state-hover{
+            color: #000;
+            background: #efefef;
+        }
+    }
+}

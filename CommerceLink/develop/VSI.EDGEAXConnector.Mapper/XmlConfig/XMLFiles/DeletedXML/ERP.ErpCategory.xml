@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<category category-id="ErpCategory~EcomCategoryId">
+  <display-name xml:lang="x-default">ErpCategory~Name</display-name>
+  <online-flag>ErpCategory~IsActive</online-flag>
+  <parent>ErpCategory~EcomParentCategoryId</parent>
+  <custom-attributes>
+    <custom-attribute attribute-id="headerMenuOrientation">value</custom-attribute>
+    <custom-attribute attribute-id="showInMenu">value</custom-attribute>
+  </custom-attributes>
+</category>

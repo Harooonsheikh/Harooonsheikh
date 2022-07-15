@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Customer customer-id="EcomcustomerCustomerEntity~customer_id">
+  <FirstName>EcomcustomerCustomerEntity~firstname</FirstName>
+  <MiddleName>EcomcustomerCustomerEntity~middlename</MiddleName>
+  <LastName>EcomcustomerCustomerEntity~lastname</LastName>
+  <GroupId>EcomcustomerCustomerEntity~group_id</GroupId>
+  <Email>EcomcustomerCustomerEntity~email</Email>
+  <DOB default-value="01-01-1980">EcomcustomerCustomerEntity~dob</DOB>
+  <Prefix constant-value="true">20</Prefix>
+  <Suffix>EcomcustomerCustomerEntity~suffix</Suffix>
+  <Taxvat expression="true">sourceObject.taxvat == null ? "0" : sourceObject.taxvat</Taxvat>
+  <Password expression="true">sourceObject.password_hash != null ? sourceObject.password_hash : "abc@123"</Password>
+  <Gender>EcomcustomerCustomerEntity~gender</Gender>
+  <Addresses file-source="ECom.EcomcustomerAddressEntityItem.xml" data-source="EcomcustomerCustomerEntity~addresses" exclude-tag="true"></Addresses>
+</Customer>
