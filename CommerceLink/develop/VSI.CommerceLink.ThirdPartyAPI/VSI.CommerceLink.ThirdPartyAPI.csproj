@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{45E01898-DD78-4DFF-AAC3-E67FE8CA6665}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VSI.CommerceLink.ThirdPartyAPI</RootNamespace>
+    <AssemblyName>VSI.CommerceLink.ThirdPartyAPI</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'INT|AnyCPU'">
+    <OutputPath>bin\INT\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'BEN|AnyCPU'">
+    <OutputPath>bin\BEN\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ThirdPartyAPI.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VSI.EDGEAXConnector.Common\VSI.EDGEAXConnector.Common.csproj">
+      <Project>{3b8468ac-63ef-4be7-b344-0a99a8ddcf32}</Project>
+      <Name>VSI.EDGEAXConnector.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VSI.EDGEAXConnector.Data\VSI.EDGEAXConnector.Data.csproj">
+      <Project>{06434663-4146-4879-b50b-1dfda34c8ffb}</Project>
+      <Name>VSI.EDGEAXConnector.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VSI.EDGEAXConnector.ECommerceDataModels\VSI.EDGEAXConnector.ECommerceDataModels.csproj">
+      <Project>{b93ca752-b4f3-4efa-bd0a-8beff8088d27}</Project>
+      <Name>VSI.EDGEAXConnector.ECommerceDataModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VSI.EDGEAXConnector.Enums\VSI.EDGEAXConnector.Enums.csproj">
+      <Project>{8106F75B-975B-439D-B94E-A52D962FAC5F}</Project>
+      <Name>VSI.EDGEAXConnector.Enums</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VSI.EDGEAXConnector.Logging\VSI.EDGEAXConnector.Logging.csproj">
+      <Project>{658cec52-9fb4-476a-a245-0fe714bcf5bf}</Project>
+      <Name>VSI.EDGEAXConnector.Logging</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

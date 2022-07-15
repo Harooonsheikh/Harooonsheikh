@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<category-assignment category-id="EcomCategoryAssignment~categoryId" product-id="EcomCategoryAssignment~productId">
+  <primary-flag constant-value="true">false</primary-flag>
+</category-assignment>

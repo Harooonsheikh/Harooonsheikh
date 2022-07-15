@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ObjectToCSVMapping>
+	
+	<!--Product-->
+	<ObjectInfo fullyQualifiedName="VSI.EDGEAXConnector.ERPDataModels.ErpProduct" objectCsvMappingName="ErpProduct_To_Product_CSV">
+		<CsvHeader>
+			<HeaderItem orderid="0" name="sku" />
+			<HeaderItem orderid="1" name="url_key" />
+			<HeaderItem orderid="2" name="attribute_set_code" />
+			<HeaderItem orderid="3" name="product_type" />
+			<HeaderItem orderid="4" name="categories" />
+			<HeaderItem orderid="5" name="product_websites" />
+			<HeaderItem orderid="6" name="name" />
+			<HeaderItem orderid="7" name="description" />
+			<HeaderItem orderid="8" name="short_description" />
+			<HeaderItem orderid="9" name="weight" />
+			<HeaderItem orderid="10" name="product_online" />
+			<HeaderItem orderid="11" name="tax_class_name" />
+			<HeaderItem orderid="12" name="price" />
+			<HeaderItem orderid="13" name="qty" />
+			<HeaderItem orderid="14" name="additional_attributes" />
+			<HeaderItem orderid="15" name="configurable_variations" />
+			<HeaderItem orderid="16" name="configurable_variation_labels" />
+			<HeaderItem orderid="17" name="status" />
+			<HeaderItem orderid="18" name="visibility" />
+			<HeaderItem orderid="19" name="base_image" />
+			<HeaderItem orderid="20" name="base_image_label" />
+			<HeaderItem orderid="21" name="small_image" />
+			<HeaderItem orderid="22" name="small_image_label" />
+			<HeaderItem orderid="23" name="thumbnail_image" />
+			<HeaderItem orderid="24" name="thumbnail_image_label" />
+			<HeaderItem orderid="25" name="additional_images" />
+			<HeaderItem orderid="26" name="additional_image_labels" />
+		</CsvHeader>
+
+		<DataMember headerItemOrder="0" className="string" instanceName="SKU" isPrimitveType="true" />
+		<DataMember headerItemOrder="1" className="string" instanceName="SKU" isPrimitveType="true" />
+		<DataMember headerItemOrder="2" className="string" instanceName="" isPrimitveType="true" defaultValue="Top" />
+		<DataMember headerItemOrder="3" className="string" instanceName="ProductType" isPrimitveType="true" />
+		<DataMember headerItemOrder="4" className="string" instanceName="CompleteHirarchy" isPrimitveType="true" />
+		<DataMember headerItemOrder="5" className="string" instanceName="" isPrimitveType="true" defaultValue="base"/>
+		<DataMember headerItemOrder="6" className="string" instanceName="ProductName" isPrimitveType="true" />
+		<DataMember headerItemOrder="7" className="string" instanceName="Description" isPrimitveType="true" />
+		<DataMember headerItemOrder="8" className="string" instanceName="ProductName" isPrimitveType="true" />
+		<DataMember headerItemOrder="9" className="string" instanceName="" isPrimitveType="true" defaultValue="0" />
+		<DataMember headerItemOrder="10" className="string" instanceName="" isPrimitveType="true" defaultValue="1" />
+		<DataMember headerItemOrder="11" className="int" instanceName="" isPrimitveType="true" defaultValue="Taxable Goods" />
+		<DataMember headerItemOrder="12" className="decimal" instanceName="Price" isPrimitveType="true" />
+		<DataMember headerItemOrder="13" className="decimal" instanceName="AvailableQuantity" isPrimitveType="true" />
+		<DataMember headerItemOrder="14" className="string" instanceName="AdditionalAttributes" isPrimitveType="true" />
+		<DataMember headerItemOrder="15" className="string" instanceName="ConfigurableVariations" isPrimitveType="true" />
+		<DataMember headerItemOrder="16" className="string" instanceName="ConfigurableVariationLabels" isPrimitveType="true" />
+		<DataMember headerItemOrder="17" className="string" instanceName="" isPrimitveType="true" defaultValue="1" />
+		<DataMember headerItemOrder="18" className="string" instanceName="Visibility" isPrimitveType="true" />
+		<DataMember headerItemOrder="19" className="string" instanceName="ImageUrl" isPrimitveType="true" />
+		<DataMember headerItemOrder="20" className="string" instanceName="ProductName" isPrimitveType="true" />
+		<DataMember headerItemOrder="21" className="string" instanceName="ImageUrl" isPrimitveType="true" />
+		<DataMember headerItemOrder="22" className="string" instanceName="ProductName" isPrimitveType="true" />
+		<DataMember headerItemOrder="23" className="string" instanceName="ImageUrl" isPrimitveType="true" />
+		<DataMember headerItemOrder="24" className="string" instanceName="ProductName" isPrimitveType="true" />
+		<DataMember headerItemOrder="25" className="VSI.EDGEAXConnector.ERPDataModels.ErpRichMediaLocationsRichMediaLocation" instanceName="Image" isPrimitveType="false" isCollectionObject="true" desiredCollectionIndex="all" desiredDataMember="Url" desiredCollectionDelimiter="," />
+		<DataMember headerItemOrder="26" className="VSI.EDGEAXConnector.ERPDataModels.ErpRichMediaLocationsRichMediaLocation" instanceName="Image" isPrimitveType="false" isCollectionObject="true" desiredCollectionIndex="all" desiredDataMember="AltText" desiredCollectionDelimiter="," />
+
+	</ObjectInfo>
+
+</ObjectToCSVMapping>

@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B93CA752-B4F3-4EFA-BD0A-8BEFF8088D27}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VSI.EDGEAXConnector.ECommerceDataModels</RootNamespace>
+    <AssemblyName>VSI.EDGEAXConnector.ECommerceDataModels</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'INT|AnyCPU'">
+    <OutputPath>bin\INT\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'BEN|AnyCPU'">
+    <OutputPath>bin\BEN\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ClassInfo.cs" />
+    <Compile Include="Custom\EcomCatalog.cs" />
+    <Compile Include="Custom\EcomCategoryAssignment.cs" />
+    <Compile Include="EcomapiEntity.cs" />
+    <Compile Include="EcomapiMethodEntity.cs" />
+    <Compile Include="EcomassociativeEntity.cs" />
+    <Compile Include="EcomassociativeMultiEntity.cs" />
+    <Compile Include="EcomcatalogAssignedProduct.cs" />
+    <Compile Include="EcomcatalogAttributeEntity.cs" />
+    <Compile Include="EcomcatalogAttributeOptionEntity.cs" />
+    <Compile Include="EcomcatalogCategoryAttributeCurrentStoreRequest.cs" />
+    <Compile Include="EcomcatalogCategoryAttributeCurrentStoreResponse.cs" />
+    <Compile Include="EcomcatalogCategoryCurrentStoreRequest.cs" />
+    <Compile Include="EcomcatalogCategoryCurrentStoreResponse.cs" />
+    <Compile Include="EcomcatalogCategoryEntity.cs" />
+    <Compile Include="EcomcatalogCategoryEntityCreate.cs" />
+    <Compile Include="EcomcatalogCategoryEntityNoChildren.cs" />
+    <Compile Include="EcomcatalogCategoryInfo.cs" />
+    <Compile Include="EcomcatalogCategoryTree.cs" />
+    <Compile Include="EcomcatalogInventoryStockItemEntity.cs" />
+    <Compile Include="EcomcatalogInventoryStockItemUpdateEntity.cs" />
+    <Compile Include="EcomcatalogProductAdditionalAttributesEntity.cs" />
+    <Compile Include="EcomcatalogProductAttributeCurrentStoreRequest.cs" />
+    <Compile Include="EcomcatalogProductAttributeCurrentStoreResponse.cs" />
+    <Compile Include="EcomcatalogProductAttributeEntity.cs" />
+    <Compile Include="EcomcatalogProductAttributeEntityToCreate.cs" />
+    <Compile Include="EcomcatalogProductAttributeEntityToUpdate.cs" />
+    <Compile Include="EcomcatalogProductAttributeFrontendLabelEntity.cs" />
+    <Compile Include="EcomcatalogProductAttributeMediaCreateEntity.cs" />
+    <Compile Include="EcomcatalogProductAttributeMediaCurrentStoreRequest.cs" />
+    <Compile Include="EcomcatalogProductAttributeMediaCurrentStoreResponse.cs" />
+    <Compile Include="EcomcatalogProductAttributeMediaTypeEntity.cs" />
+    <Compile Include="EcomcatalogProductAttributeOptionEntityToAdd.cs" />
+    <Compile Include="EcomcatalogProductAttributeOptionLabelEntity.cs" />
+    <Compile Include="EcomcatalogProductAttributeSetEntity.cs" />
+    <Compile Include="EcomcatalogProductCreateEntity.cs" />
+    <Compile Include="EcomcatalogProductCurrentStoreRequest.cs" />
+    <Compile Include="EcomcatalogProductCurrentStoreResponse.cs" />
+    <Compile Include="EcomcatalogProductCustomOptionAdditionalFieldsEntity.cs" />
+    <Compile Include="EcomcatalogProductCustomOptionInfoEntity.cs" />
+    <Compile Include="EcomcatalogProductCustomOptionListEntity.cs" />
+    <Compile Include="EcomcatalogProductCustomOptionToAdd.cs" />
+    <Compile Include="EcomcatalogProductCustomOptionToUpdate.cs" />
+    <Compile Include="EcomcatalogProductCustomOptionTypesEntity.cs" />
+    <Compile Include="EcomcatalogProductCustomOptionValueAddEntity.cs" />
+    <Compile Include="EcomcatalogProductCustomOptionValueInfoEntity.cs" />
+    <Compile Include="EcomcatalogProductCustomOptionValueListEntity.cs" />
+    <Compile Include="EcomcatalogProductCustomOptionValueUpdateEntity.cs" />
+    <Compile Include="EcomcatalogProductDownloadableLinkAddEntity.cs" />
+    <Compile Include="EcomcatalogProductDownloadableLinkAddSampleEntity.cs" />
+    <Compile Include="EcomcatalogProductDownloadableLinkEntity.cs" />
+    <Compile Include="EcomcatalogProductDownloadableLinkFileEntity.cs" />
+    <Compile Include="EcomcatalogProductDownloadableLinkFileInfoEntity.cs" />
+    <Compile Include="EcomcatalogProductDownloadableLinkInfoEntity.cs" />
+    <Compile Include="EcomcatalogProductDownloadableLinkSampleEntity.cs" />
+    <Compile Include="EcomcatalogProductEntity.cs" />
+    <Compile Include="EcomcatalogProductImageEntity.cs" />
+    <Compile Include="EcomcatalogProductImageFileEntity.cs" />
+    <Compile Include="EcomcatalogProductLinkAttributeEntity.cs" />
+    <Compile Include="EcomcatalogProductLinkEntity.cs" />
+    <Compile Include="EcomcatalogProductListRequest.cs" />
+    <Compile Include="EcomcatalogProductListResponse.cs" />
+    <Compile Include="EcomcatalogProductRequestAttributes.cs" />
+    <Compile Include="EcomcatalogProductReturnEntity.cs" />
+    <Compile Include="EcomcatalogProductSpecialPriceReturnEntity.cs" />
+    <Compile Include="EcomcatalogProductTagAddEntity.cs" />
+    <Compile Include="EcomcatalogProductTagInfoEntity.cs" />
+    <Compile Include="EcomcatalogProductTagListEntity.cs" />
+    <Compile Include="EcomcatalogProductTagUpdateEntity.cs" />
+    <Compile Include="EcomcatalogProductTierPriceEntity.cs" />
+    <Compile Include="EcomcatalogProductTypeEntity.cs" />
+    <Compile Include="EComCategory.cs" />
+    <Compile Include="EComCategoryCreate.cs" />
+    <Compile Include="EcomcomplexFilter.cs" />
+    <Compile Include="EcomcustomerAddressEntityCreate.cs" />
+    <Compile Include="Customer\EcomcustomerAddressEntityItem.cs" />
+    <Compile Include="Customer\EcomcustomerCustomerEntity.cs" />
+    <Compile Include="EcomcustomerCustomerEntityToCreate.cs" />
+    <Compile Include="Customer\EcomcustomerGroupEntity.cs" />
+    <Compile Include="EcomdirectoryCountryEntity.cs" />
+    <Compile Include="EcomdirectoryRegionEntity.cs" />
+    <Compile Include="EcomexistsFaltureEntity.cs" />
+    <Compile Include="Ecomfilters.cs" />
+    <Compile Include="EcomgiftMessageAssociativeProductsEntity.cs" />
+    <Compile Include="EcomgiftMessageEntity.cs" />
+    <Compile Include="EcomgiftMessageResponse.cs" />
+    <Compile Include="EcomInventoryListEntity.cs" />
+    <Compile Include="EcommagentoInfoEntity.cs" />
+    <Compile Include="EcomorderItemIdQty.cs" />
+    <Compile Include="EcomsalesOrderAddressEntity.cs" />
+    <Compile Include="EcomsalesOrderCreditmemoCommentEntity.cs" />
+    <Compile Include="EcomsalesOrderCreditmemoData.cs" />
+    <Compile Include="EcomsalesOrderCreditmemoEntity.cs" />
+    <Compile Include="EcomsalesOrderCreditmemoItemEntity.cs" />
+    <Compile Include="EcomsalesOrderEntity.cs" />
+    <Compile Include="EcomsalesOrderInvoiceCommentEntity.cs" />
+    <Compile Include="EcomsalesOrderInvoiceEntity.cs" />
+    <Compile Include="EcomsalesOrderInvoiceItemEntity.cs" />
+    <Compile Include="EcomsalesOrderItemEntity.cs" />
+    <Compile Include="EcomsalesOrderListEntity.cs" />
+    <Compile Include="EcomsalesOrderPaymentEntity.cs" />
+    <Compile Include="EcomsalesOrderShipmentAddCommentRequest.cs" />
+    <Compile Include="EcomsalesOrderShipmentAddCommentResponse.cs" />
+    <Compile Include="EcomsalesOrderShipmentCommentEntity.cs" />
+    <Compile Include="EcomsalesOrderShipmentEntity.cs" />
+    <Compile Include="EcomsalesOrderShipmentItemEntity.cs" />
+    <Compile Include="EcomsalesOrderShipmentTrackEntity.cs" />
+    <Compile Include="EcomsalesOrderStatusHistoryEntity.cs" />
+    <Compile Include="EcomshoppingCartAddressEntity.cs" />
+    <Compile Include="EcomshoppingCartCustomerAddressEntity.cs" />
+    <Compile Include="EcomshoppingCartCustomerEntity.cs" />
+    <Compile Include="EcomshoppingCartInfoEntity.cs" />
+    <Compile Include="EcomshoppingCartItemEntity.cs" />
+    <Compile Include="EcomshoppingCartLicenseEntity.cs" />
+    <Compile Include="EcomshoppingCartPaymentEntity.cs" />
+    <Compile Include="EcomshoppingCartPaymentMethodEntity.cs" />
+    <Compile Include="EcomshoppingCartPaymentMethodResponseEntity.cs" />
+    <Compile Include="EcomshoppingCartProductEntity.cs" />
+    <Compile Include="EcomshoppingCartShippingMethodEntity.cs" />
+    <Compile Include="EcomshoppingCartTotalsEntity.cs" />
+    <Compile Include="EcomstoreEntity.cs" />
+    <Compile Include="Ingram\IngramAssetConnectionAttributeResponse.cs" />
+    <Compile Include="Ingram\IngramAssetItemsAttributeResponse.cs" />
+    <Compile Include="Ingram\IngramAssetParamsAttributeResponse.cs" />
+    <Compile Include="Ingram\IngramAssetProductAttributeResponse.cs" />
+    <Compile Include="Ingram\IngramAssetTiersAttributeResponse.cs" />
+    <Compile Include="Ingram\IngramConnectionProviderAttributeResponse.cs" />
+    <Compile Include="Ingram\IngramConnectionVendorAttributeResponse.cs" />
+    <Compile Include="Ingram\IngramContactPhone_numberAttributeResponse.cs" />
+    <Compile Include="Ingram\IngramContact_infoContactAttributeResponse.cs" />
+    <Compile Include="Ingram\IngramTiersContact_infoAttributeResponse.cs" />
+    <Compile Include="Ingram\IngramSalesOrderAssetAttributeResponse.cs" />
+    <Compile Include="Ingram\IngramSalesOrderContractAttributeResponse.cs" />
+    <Compile Include="Ingram\IngramSalesOrderMarketPlaceAttributeResponse.cs" />
+    <Compile Include="Ingram\IngramSalesOrderResponse.cs" />
+    <Compile Include="Ingram\IngramTiersCustomerAttributeResponse.cs" />
+    <Compile Include="Ingram\UpdateParameterRequest.cs" />
+    <Compile Include="PartialClasses\EcomcatalogCategoryEntityCreate.cs" />
+    <Compile Include="PartialClasses\EcomcatalogProductCreateEntity.cs" />
+    <Compile Include="PartialClasses\EcomcatalogProductTierPriceEntity.cs" />
+    <Compile Include="PartialClasses\EComCategory.cs" />
+    <Compile Include="PartialClasses\EcomcustomerCustomerEntity.cs" />
+    <Compile Include="PartialClasses\EcomGiftCard.cs" />
+    <Compile Include="PartialClasses\EcomsalesOrderAddressEntity.cs" />
+    <Compile Include="PartialClasses\EcomsalesOrderEntity.cs" />
+    <Compile Include="PartialClasses\EcomsalesOrderItemEntity.cs" />
+    <Compile Include="PartialClasses\EcomstoreEntity.cs" />
+    <Compile Include="PartialClasses\EcomsalesOrderStatus.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VSI.EDGEAXConnector.Common\VSI.EDGEAXConnector.Common.csproj">
+      <Project>{3b8468ac-63ef-4be7-b344-0a99a8ddcf32}</Project>
+      <Name>VSI.EDGEAXConnector.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VSI.EDGEAXConnector.Data\VSI.EDGEAXConnector.Data.csproj">
+      <Project>{06434663-4146-4879-b50b-1dfda34c8ffb}</Project>
+      <Name>VSI.EDGEAXConnector.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\VSI.EdgeAX.CommerceLink.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

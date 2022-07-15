@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<inventory xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.demandware.com/xml/impex/inventory/2007-05-31">
+  <inventory-list>
+    <header list-id="inventory">
+      <default-instock>false</default-instock>
+      <description>Inventory List</description>
+      <use-bundle-inventory-only>false</use-bundle-inventory-only>
+    </header>
+    <records>
+      <record repeat="true" data-source="ErpInventoryProducts~Products" product-id="ErpProduct~SKU">
+        <allocation>ErpProduct~AvailableQuantity</allocation>
+        <allocation-timestamp>ErpProduct~AllocationTimeStamp</allocation-timestamp>
+        <perpetual>false</perpetual>
+        <preorder-backorder-handling>none</preorder-backorder-handling>
+        <ats>0</ats>
+        <on-order>0</on-order>
+        <turnover>0</turnover>
+      </record>
+    </records>
+  </inventory-list>
+</inventory>

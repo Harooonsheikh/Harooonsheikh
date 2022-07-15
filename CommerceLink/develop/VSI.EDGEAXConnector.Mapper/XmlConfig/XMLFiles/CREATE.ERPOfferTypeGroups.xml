@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<OFFERTYPEGROUPS xmlns="http://www.demandware.com/xml/impex/offertypegroups/2006-10-31">
+<OFFERTYPEGROUP>
+	<GROUP repeat="true" data-source="ERPOfferTypeGroups~erpOfferTypeGroup">
+		<DISPLAYORDER>erpOfferTypeGroup~DISPLAYORDER</DISPLAYORDER>
+		<NOINBARCODE>erpOfferTypeGroup~NOINBARCODE</NOINBARCODE>
+		<STYLE>erpOfferTypeGroup~STYLE</STYLE>
+		<STYLEGROUP>erpOfferTypeGroup~STYLEGROUP</STYLEGROUP>
+		<WEIGHT>erpOfferTypeGroup~WEIGHT</WEIGHT>
+		<TMVMAINOFFERTYPE>erpOfferTypeGroup~TMVMAINOFFERTYPE</TMVMAINOFFERTYPE>
+		<TMVFREELICENSE>erpOfferTypeGroup~TMVFREELICENSE</TMVFREELICENSE>
+	</GROUP>
+</OFFERTYPEGROUP>
+</OFFERTYPEGROUPS>

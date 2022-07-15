@@ -1,0 +1,165 @@
+<div class="m-subheader">
+    <div class="d-flex align-items-center">
+        <div class="mr-auto">
+            <h3 class="m-subheader__title m-subheader__title--separator">
+                Maps XML
+            </h3>
+            <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+                <li class="m-nav__item m-nav__item--home">
+                    <a href="#" class="m-nav__link m-nav__link--icon">
+                        <i class="m-nav__link-icon flaticon-list-2"></i>
+                    </a>
+                </li>
+
+            </ul>
+            <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+                <li class="m-nav__item m-nav__item--home">
+                    .
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="m-content">
+    <div class="m-portlet m-portlet--mobile">
+        <div class="m-portlet__body">
+            <div class="row">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-11" style="text-align: right">
+                    <button  class="btn btn-primary m-btn--wide" type="button" data-toggle="modal" data-target="#m_modal_5">
+                        Upload Template
+                    </button>
+                    
+                    <button class="btn btn-primary m-btn--wide" (click)="backup()" [disabled]="templates.length==0" type="button">
+                        Download Backup
+                    </button>
+                    <div class="m-dropdown m-dropdown--inline m-dropdown--arrow" data-dropdown-toggle="click" aria-expanded="true">
+                        <a class="m-dropdown__toggle btn btn-primary m-btn--wide dropdown-toggle" href="#" ng-reflect-href="#">
+                            New Map
+                        </a>
+                        <div class="m-dropdown__wrapper">
+                            <span class="m-dropdown__arrow m-dropdown__arrow--left"></span>
+                            <div class="m-dropdown__inner">
+                                <div class="m-dropdown__body">
+                                    <div class="m-dropdown__content">
+
+                                        <ul class="m-nav">
+                                            <li class="m-nav__item">
+                                                <a class="m-nav__link" (click)="loadNewMap('CREATE')" href="" ng-reflect-href="">
+                                                    <i class="m-nav__link-icon flaticon-share"></i>
+                                                    <span class="m-nav__link-text">
+                                                        Generate XML
+                                                    </span>
+                                                </a>
+                                            </li>
+                                            <li class="m-nav__item">
+                                                <a class="m-nav__link" (click)="loadNewMap('READ')" href="" ng-reflect-href="">
+                                                    <i class="m-nav__link-icon flaticon-share"></i>
+                                                    <span class="m-nav__link-text">
+                                                        Read XML
+                                                    </span>
+                                                </a>
+                                            </li>
+
+                                        </ul>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary m-btn--wide" (click)="editTemplate()" [disabled]="selectedTemplate==''" type="button">
+                        Edit Map
+                    </button>
+                    <!-- <button class="btn btn-warning m-btn--wide" (click)="deleteTemplate()" [disabled]="selectedTemplate==''" type="button">
+                        Delete Map
+                    </button> -->
+                    <button class="btn btn-warning m-btn--wide" (click)="openDialog()" [disabled]="selectedTemplate==''" type="button">
+                            Delete Map
+                        </button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            Maps :
+                        </label>
+                        <div class="list-group">
+                            <a style="word-wrap: break-word;" href="#" [ngClass]="{'active' : selectedTemplate == a}" *ngFor="let a of templates" (click)="setTemplate(a)" class="list-group-item">{{a}}</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            Source XML :
+                        </label>
+                        <!-- <textarea rows="20"  class="form-control" [ngModel]="xmlTxt | xmlBeautify" disabled></textarea> -->
+                        <div  rows="20" class="form-control m-input" ace-editor 
+                        [theme]="'eclipse'" name="editor" style="min-height: 400px; width:100%; overflow: auto;" disabled autocomplete="off" #editor  >
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="m_modal_5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-md" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">
+						Import Template
+					</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">
+							&times;
+						</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form>
+						
+						<div class="form-group">
+							<label for="message-text" class="form-control-label">
+								Select:
+							</label>
+							<input ng2FileSelect [uploader]="uploader" type="file">
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">
+						Close
+					</button>
+					<button type="button" (click)="upload()" class="btn btn-primary">
+						Upload
+					</button>
+				</div>
+			</div>
+		</div>
+    </div>
+
+    <div class="modal fade" id="TemplateDeleteModal" style="margin:200px auto 0px" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div style="max-width:42.7%;" class="modal-dialog" role="document">
+                    <div class="m-alert m-alert--icon m-alert--icon-solid m-alert--outline alert alert-danger alert-dismissible fade show" role="alert">
+                            <div class="m-alert__icon">
+                                    <i class="flaticon-exclamation-1"></i>
+                                    <span></span>
+                            </div>
+                            <div style="padding:0px 0px 0px 10px;" class="m-alert__text">
+                                    Are you sure to delete ?
+                            </div>
+                            <div class="m-alert__actions" style="width: 175px;">
+                                    <button type="button" class="btn btn-success btn-sm m-btn m-btn--pill m-btn--wide" data-dismiss="modal" aria-label="Close">
+                                            No
+                                    </button>
+                                    <button (click)="deleteTemplate()" type="button" class="btn btn-danger btn-sm m-btn m-btn--pill m-btn--wide" data-dismiss="modal"
+                                            aria-label="Close">
+                                            Yes
+                                    </button>
+                            </div>
+                    </div>
+            </div>
+    </div>

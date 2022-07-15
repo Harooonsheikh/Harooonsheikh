@@ -1,0 +1,72 @@
+﻿<Window x:Class="VSI.EDGEAXConnector.UI.ChildWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Complex Property Mapping" Height="Auto" WindowStyle="SingleBorderWindow" Width="700">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="58*"/>
+            <RowDefinition Height="363*"/>
+            <RowDefinition Height="48*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="350*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Height="25"  Text="{Binding SelectedDestEntity.Name}" Grid.ColumnSpan="1"  Grid.Row="0" Grid.RowSpan="1" Margin="5,16,0,16"></TextBlock>
+        <ComboBox Height="25" Width="200" HorizontalAlignment="Left"  ItemsSource="{Binding SrcEntities}" SelectedIndex="0" SelectedItem="{Binding SelectedSrcEntity}" DisplayMemberPath="Name"  Grid.Row="0" Grid.RowSpan="1" Grid.Column="1" Margin="5,0,0,0"/>
+
+        <DataGrid Grid.Row="1" HorizontalAlignment="Stretch" AutoGenerateColumns="False" Grid.ColumnSpan="2" ItemsSource="{Binding Transformer.Properties}" Grid.RowSpan="1" >
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="Target" Width="300">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock  Text="{Binding DestinationProperty.Name}"></TextBlock>
+                                <TextBlock Foreground="LightGray" FontStyle="Italic" Text="{Binding DestinationProperty.PropertyType}"></TextBlock>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Source" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock Text="{Binding SourceProperty.Name}"></TextBlock>
+                                <TextBlock Foreground="LightGray" FontStyle="Italic" Text="{Binding SourceProperty.PropertyType}"></TextBlock>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                    <DataGridTemplateColumn.CellEditingTemplate>
+                        <DataTemplate>
+                            <ComboBox Name="cboSourceProp"  SelectionChanged="cboSourceProp_SelectionChanged"
+                                 ItemsSource="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}, 
+                                Path=DataContext.SourceProperties}">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="{Binding Name}" />
+                                            <TextBlock Foreground="LightGray" Text="{Binding PropertyType}" Margin="5,0,0,0" />
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellEditingTemplate>
+                </DataGridTemplateColumn>
+                <!--<DataGridTemplateColumn Header="Custom Expression" >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+
+                                <TextBlock FontStyle="Italic" Text="{Binding CustomExpression}"></TextBlock>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>-->
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Name="Generate" HorizontalAlignment="Right" Margin="5,0,5,0" Grid.Row="2" Grid.Column="2" Width="100" Height="25" Click="Generate_Click" >Generate</Button>
+        <TextBlock Text="{Binding ViewModel}" Grid.Row="2"/>
+    </Grid>
+</Window>

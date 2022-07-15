@@ -1,0 +1,370 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{06434663-4146-4879-B50B-1DFDA34C8FFB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VSI.EDGEAXConnector.Data</RootNamespace>
+    <AssemblyName>VSI.EDGEAXConnector.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'INT|AnyCPU'">
+    <OutputPath>bin\INT\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'BEN|AnyCPU'">
+    <OutputPath>bin\BEN\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActionRequest.cs">
+      <DependentUpon>IntegrationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ActionRequestDAL.cs" />
+    <Compile Include="CountryCode.cs">
+      <DependentUpon>IntegrationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CountryCodeDAL.cs" />
+    <Compile Include="DTO\ApplicationSettingDto.cs" />
+    <Compile Include="DTO\StoreDto.cs" />
+    <Compile Include="Log.cs">
+      <DependentUpon>IntegrationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MandatoryStateCountryManager.cs" />
+    <Compile Include="AosUrlManager.cs" />
+    <Compile Include="AosUrlSetting.cs">
+      <DependentUpon>IntegrationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ApiLogsDAL .cs" />
+    <Compile Include="ApplicationSetting.cs">
+      <DependentUpon>IntegrationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationSettingsDAL.cs" />
+    <Compile Include="Archive_RequestResponse.cs">
+      <DependentUpon>IntegrationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BaseClass.cs" />
+    <Compile Include="CatalogLogs.cs">
+      <DependentUpon>IntegrationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CatalogService.cs" />
+    <Compile Include="CodesDAL.cs" />
+    <Compile Include="ConfigurableObject.cs">
+      <DependentUpon>IntegrationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConfigurableObjectDAL.cs" />
+    <Compile Include="CountryNames.cs">
+      <DependentUpon>IntegrationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CSVFileManager.cs" />
+    <Compile Include="CustomerDAL.cs" />
+    <Compile Include="DAL\EntityDAL.cs" />
+    <Compile Include="DataDelete.cs">
+      <DependentUpon>IntegrationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataDeleteDAL.cs" />
+    <Compile Include="DataDirection.cs">
+      <DependentUpon>IntegrationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DeliveryMethod.cs">
+      <DependentUpon>IntegrationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DimensionSet.cs">
+      <DependentUpon>IntegrationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DimensionSetDAL.cs" />
+    <Compile Include="EcomType.cs">
+      <DependentUpon>IntegrationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EcomTypeDAL.cs" />
+    <Compile Include="EmailSubscriber.cs">
+      <DependentUpon>IntegrationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmailTemplate.cs">
+      <DependentUpon>IntegrationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity.cs">
+      <DependentUpon>IntegrationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFileNameParameter.cs">
+      <DependentUpon>IntegrationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFileNameParameterDAL.cs" />
+    <Compile Include="ERPType.cs">
+      <DependentUpon>IntegrationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ERPTypeDAL.cs" />
+    <Compile Include="FieldType.cs">
+      <DependentUpon>IntegrationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FieldValue.cs">
+      <DependentUpon>IntegrationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetIntegrationKey_Result.cs" />
+    <Compile Include="GetState_Result.cs" />
+    <Compile Include="Helper\StoreHelper.cs" />
+    <Compile Include="IntegrationDBEntities.cs" />
+    <Compile Include="IntegrationKey.cs">
+      <DependentUpon>IntegrationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IntegrationModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IntegrationModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IntegrationModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IntegrationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IntegrationModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IntegrationModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Job.cs">
+      <DependentUpon>IntegrationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="JobAndScheduleModel.cs" />
+    <Compile Include="JobLog.cs">
+      <DependentUpon>IntegrationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="JobLogStatus.cs">
+      <DependentUpon>IntegrationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="JobSchedule.cs">
+      <DependentUpon>IntegrationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="JobType.cs">
+      <DependentUpon>IntegrationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LanguageCodesDAL.cs" />
+    <Compile Include="LoggingDAL.cs" />
+    <Compile Include="LogMapper.cs">
+      <DependentUpon>IntegrationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MandatoryStateCountry.cs">
+      <DependentUpon>IntegrationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MappingTemplate.cs">
+      <DependentUpon>IntegrationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MappingTemplateDAL.cs" />
+    <Compile Include="MappingTypeTemplate.cs">
+      <DependentUpon>IntegrationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Organization.cs">
+      <DependentUpon>IntegrationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentConnector.cs">
+      <DependentUpon>IntegrationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentConnectorDAL.cs" />
+    <Compile Include="PaymentMethod.cs">
+      <DependentUpon>IntegrationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentMethodDAL.cs" />
+    <Compile Include="DeliveryMethodDAL.cs" />
+    <Compile Include="DeliveryModesDAL.cs" />
+    <Compile Include="DiscountDAL.cs" />
+    <Compile Include="EmailSubscribersDAL.cs" />
+    <Compile Include="EmailTemplateDAL.cs" />
+    <Compile Include="IntegrationManager.cs" />
+    <Compile Include="JobRepository.cs" />
+    <Compile Include="JobsDAL.cs" />
+    <Compile Include="LogsDAL.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RequestResponse.cs">
+      <DependentUpon>IntegrationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceBusRequestDAL.cs" />
+    <Compile Include="ServiceBusRequestLog.cs">
+      <DependentUpon>IntegrationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SingleCatalogProductDAL.cs" />
+    <Compile Include="SingleCatalogProductStaging.cs">
+      <DependentUpon>IntegrationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StoreService.cs" />
+    <Compile Include="sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>IntegrationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams_Result.cs">
+      <DependentUpon>IntegrationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="State.cs">
+      <DependentUpon>IntegrationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Store.cs">
+      <DependentUpon>IntegrationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StoreCodesDAL.cs" />
+    <Compile Include="StoreDAL.cs" />
+    <Compile Include="Subscriber.cs">
+      <DependentUpon>IntegrationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ThirdPartyEnvironmentWithStatus.cs">
+      <DependentUpon>IntegrationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ThirdPartyEnvironmentWithStatusDAL.cs" />
+    <Compile Include="ThirdPartyMessage.cs">
+      <DependentUpon>IntegrationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ThirdPartyMessageDAL.cs" />
+    <Compile Include="TransactionLogging.cs" />
+    <Compile Include="ViewModels\AutoIncrement.cs" />
+    <Compile Include="ViewModels\Countries.cs" />
+    <Compile Include="ViewModels\EmailSubscriberVM.cs" />
+    <Compile Include="ViewModels\EmailTemplateVM.cs" />
+    <Compile Include="ViewModels\JobVM.cs" />
+    <Compile Include="ViewModels\JobWorkFlowStatistics.cs" />
+    <Compile Include="ViewModels\Product.cs" />
+    <Compile Include="ViewModels\RequestDetailsVM.cs" />
+    <Compile Include="ViewModels\StoreInfo.cs" />
+    <Compile Include="ViewModels\SubscriberVM.cs" />
+    <Compile Include="ViewModels\TransactionsLog.cs" />
+    <Compile Include="ViewModels\WorkFlowStatusGrid.cs" />
+    <Compile Include="ViewModels\XMLMap.cs" />
+    <Compile Include="WorkFlow.cs">
+      <DependentUpon>IntegrationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WorkflowManger.cs" />
+    <Compile Include="WorkFlowState.cs">
+      <DependentUpon>IntegrationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WorkFlowStateDAL.cs" />
+    <Compile Include="WorkFlowStatusDAL.cs" />
+    <Compile Include="WorkFlowTransition.cs">
+      <DependentUpon>IntegrationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WorkflowTransitionDAL.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="IntegrationModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>IntegrationModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="IntegrationModel.edmx.diagram">
+      <DependentUpon>IntegrationModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VSI.EDGEAXConnector.Enums\VSI.EDGEAXConnector.Enums.csproj">
+      <Project>{8106f75b-975b-439d-b94e-a52d962fac5f}</Project>
+      <Name>VSI.EDGEAXConnector.Enums</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VSI.EDGEAXConnector.Logging\VSI.EDGEAXConnector.Logging.csproj">
+      <Project>{658cec52-9fb4-476a-a245-0fe714bcf5bf}</Project>
+      <Name>VSI.EDGEAXConnector.Logging</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CustomerSPs.sql" />
+    <Content Include="IntegrationModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>IntegrationModel.edmx</DependentUpon>
+      <LastGenOutput>IntegrationModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="IntegrationModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>IntegrationModel.edmx</DependentUpon>
+      <LastGenOutput>IntegrationModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Debug\" />
+    <Folder Include="bin\Release\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\VSI.EdgeAX.CommerceLink.targets" />
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<customer>
+  <company_account_no>ErpCustomer~AccountNumber</company_account_no>
+  <company_name>ErpCustomer~Name</company_name>
+	<vat_tax_id>ErpCustomer~VatNumber</vat_tax_id>
+	<chamber_of_commerce_number>ErpCustomer~IdentificationNumber</chamber_of_commerce_number>
+	<email_address>ErpCustomer~Email</email_address>
+	<telephone>ErpCustomer~Phone</telephone>
+	<addresses>
+		<address repeat="true" data-source="ErpCustomer~CustomerAddresses">
+			<street>ErpAddress~Street</street>
+			<postcode>ErpAddress~ZipCode</postcode>
+			<city>ErpAddress~City</city>
+			<region_id>ErpAddress~State</region_id>
+			<country_id>ErpAddress~ThreeLetterISORegionName</country_id>
+		</address>
+	</addresses>
+</customer>

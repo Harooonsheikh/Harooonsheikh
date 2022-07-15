@@ -1,0 +1,37 @@
+<div class="m-subheader">
+    <div class="d-flex align-items-center">
+        <div class="mr-auto">
+            <h3 class="m-subheader__title m-subheader__title--separator">
+                    Merchandise
+            </h3>
+            <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+                <li class="m-nav__item m-nav__item--home">
+                    <a href="#" class="m-nav__link m-nav__link--icon">
+                        <i class="m-nav__link-icon la la-home"></i>
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+        <div style="width:20%">
+            <div class="m-dropdown--align-right m-dropdown--align-push" data-dropdown-toggle="hover" aria-expanded="true">
+
+                <select (change)="changeMenu($event.target.value)" class="form-control m-input m-input--air">
+                    <option value="1" [selected]="daysCount==1">Last 1 Day</option>
+                    <option value="3" [selected]="daysCount==3">Last 3 Days</option>
+                    <option value="7" [selected]="daysCount==7">Last Week</option>
+                    <option value="15" [selected]="daysCount==15">Last 15 Days</option>
+                    <option value="30" [selected]="daysCount==30">Last Month</option>
+                    <option value="90" [selected]="daysCount==90">Last 3 Months</option>
+                    <option value="-1" [selected]="daysCount==-1">All</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="m-content">
+    <dashboard-widgets [timeOut]="timeOut" [filterByDayCountSubject]="filterByDayCount" [filterBy]="filterBy" [allEntitiesSubject]="allEntities"></dashboard-widgets>
+
+    <workflow-table [timeOut]="timeOut" [filterByDayCountSubject]="filterByDayCount" [filterBy]="filterBy" [allEntitiesSubject]="allEntities"></workflow-table>
+</div>

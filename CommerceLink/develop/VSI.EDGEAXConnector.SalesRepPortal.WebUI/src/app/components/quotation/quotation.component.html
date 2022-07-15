@@ -1,0 +1,273 @@
+<header id="header">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-4">
+                <a href="#" class="logo"><img src="../../../../assets/images/logo.png" alt="TeamViewer"></a>
+            </div>
+            <div class="col-8 text-right">
+                <ul class="top-links list-inlilne">
+                    <li class="list-inline-item">
+                        <a href="javascript:void(0);" (click)="openModal(content1);LoadSaleOrders();" class="order-history"><img
+                                src="../../../../assets/images/history.png" alt=""> <span>My Sales Activity</span></a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a class="profile-name">
+                            <span class="avatar">{{this.salesRepFirstletter | uppercase }}</span>
+                            <span class="name">{{this.salesRepName | titlecase }}</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<main id="main">
+    <div class="container">
+        <div class="head clearfix">
+            <ul class="main-tabs text-uppercase list-inlilne">
+                <li class="list-inline-item">
+                    <a class="active">
+                        <span class="icon-bill"></span>
+                        quote
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a [routerLink]="['/customer/'+ CustomerId +'/contract/0/'+this.salesRepName + '/' + SalesRepId]">
+                        <span class="icon-shopping-cart"></span>
+                        cart
+                    </a>
+                </li>
+            </ul>
+            <ul class="reference-list list-unstyled">
+                <li>Account Name: <span>{{this.customerInfo?.Name}}</span></li>
+                <li>Account # <span>{{this.customerInfo?.AccountNumber}}</span></li>
+            </ul>
+        </div>
+        <div class="alert-box" *ngIf="this.quotationStatus == 'lost'">
+            <div class="alert alert-info text-center">
+                <p>This Quotation is lost. Please go back to CRM to corresponding oppurtunity for a new quote.</p>
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="quote-status">
+
+                <!-- <div class="spinner active">
+                        <div class="holder">
+                            <img src="../../../../assets/images/spinner1.gif"/>
+                        </div>
+                    </div> -->
+
+                    <div class="title-area">
+                        <strong class="title">Create Quote against Opportunity</strong>
+                        <ul class="list">
+                            <li>
+                                <span class="fake-select">
+                                    <select>
+                                        <option>Please Select Opportunity</option>
+                                        <option [selected]="oppurtunity.oppurtunity != null ? 'selected' : '' " >{{oppurtunity.oppurtunity}}</option>
+                                    </select>
+                                </span>
+                            </li>
+                            <li>
+                                <span class="fake-select">
+                                    <select>
+                                        <option>Please Select Quotation</option>
+                                        <option [selected]="oppurtunity.qoute != null ? 'selected' : '' ">{{oppurtunity?.qoute}}</option>
+                                    </select>
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="status-details">
+                        <div class="no-quotes" *ngIf="!qoutationCreated"> 
+                            <div class="img">
+                                <img src="assets/images/no-quote-icon.jpg" alt="">
+                            </div>
+                            <div class="description">
+                                <span class="sub-title">No Quotes have been sent Against this Opportunity</span>
+                                <!-- <a class="btn btn-primary" href="#">Send Quote Now</a> -->
+                            </div>
+                        </div>
+                        <ul class="quote-info" *ngIf="qoutationCreated" [ngClass]="quotationStatus != '' ? quotationStatus : ''" >
+                            <li class="quote-sent">
+                                <div class="icon">
+                                    <i class="icon-email"></i>
+                                </div>
+                                <strong class="sub-title">Quote Sent</strong>
+                                <p>Your Quote has been sent</p>
+                            </li>
+                            <li class="follow-up">
+                                <div class="icon">
+                                    <i class="icon-follow-up"></i>
+                                    <i class="icon-sad"></i>
+                                    <i class="icon-trophy"></i>
+                                </div>
+                                <strong class="sub-title">Follow Up</strong>
+                                <span class="fake-select">
+                                    <select [disabled]="quotationStatusSelected" (change)="onChangeFollowUpQuote($event.target.value,content2)" >
+                                        <option>Select Option</option>
+                                        <option value="true" [selected]="quotationStatus == 'won' ? 'selected' : '' ">Won</option>
+                                        <option value="false" [selected]="quotationStatus == 'lost' ? 'selected' : '' ">Lost</option>
+                                    </select>
+                                </span>
+                            </li>
+                            <li class="next-step">
+                                <div class="icon">
+                                    <i class="icon-next"></i>
+                                </div>
+                                <strong class="sub-title">Next Step</strong>
+                                <p *ngIf="this.firststep">Your Next Step depends on Followup</p>
+                                <!-- <a href="#" class="btn btn-primary create-order">Create Order</a> -->
+                                <input type="button" *ngIf="this.orderCreated" value="Quotation Confirmed" class="btn btn-primary create-order" [disabled]="buttonDisabled">
+                                <input type="button" *ngIf="!this.orderCreated && quotationStatus != 'lost'" (click)="createSalesOrder();" value="Confirm Quotation" class="btn btn-primary create-order" [disabled]="buttonDisabled">
+                                <!-- <button type="button" (click)="reloadPage();" class="btn btn-primary new-quote">Send New Quote</button> -->
+                                <p *ngIf="!this.orderCreated && quotationStatus == 'lost'">Please go back to CRM for new Quote.</p>
+                            </li>
+                        </ul>
+                    </div>
+
+
+            </div>
+            <div class="collapsable-block" [ngClass]="disablePage ? 'overlay' : ''">
+                <!-- all section has collapsable class with contend dive inside it (customer info section)-->
+                <div class="collapsable customer-info">
+                    <strong class="heading-tag"><span class="opener" [attr.aria-expanded]="!customerCollapsed" (click)="customerCollapsed = !customerCollapsed"></span>Customer
+                        Information</strong>
+                    <app-customer-information [ngbCollapse]="customerCollapsed"></app-customer-information>
+                </div>
+                <!-- ends here -->
+                <!-- New Purchase Cart section -->
+                <div class="collapsable new-cart">
+                    <strong class="heading-tag"><span class="opener" [attr.aria-expanded]="!cartCollapsed" (click)="cartCollapsed = !cartCollapsed"></span>
+                        New Quotation</strong>
+                    <app-purchase-cart [ngbCollapse]="cartCollapsed" [customerInfo]="customerInfo" [IsQuote]="true"></app-purchase-cart>
+                </div>
+                <!-- ends here -->
+                <!-- Custom Order Details -->
+                <div class="collapsable order-details ">
+                    <strong class="heading-tag"> <span class="opener" [attr.aria-expanded]="!SaleOrderCollapsed"
+                            (click)="SaleOrderCollapsed = !SaleOrderCollapsed"></span>Custom
+                        Quote Details</strong>
+                    <div class="content collapse" [ngbCollapse]="SaleOrderCollapsed">
+                        <form class="footer-form">
+                            <div class="row">
+                                <div class="col-lg">
+                                    <label for="description">Comment on Quote</label>
+                                    <textarea id="description" name="description" [(ngModel)]="commentsForOrder"></textarea>
+                                    <div class="text-right w-limit">Word Limit: 500</div>
+                                </div>
+                                <div class="col-lg">
+                                    <label for="comments">Comments for Email</label>
+                                    <textarea id="comments" name="comments" [(ngModel)]="commentsForEmail"></textarea>
+                                    <div class="text-right w-limit">Word Limit: 500</div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- ends here -->
+            </div>
+            <div class="btn-submit row align-items-center justify-content-center" *ngIf="!qoutationCreated">
+                <div class="order-status">
+                    <input type="checkbox" (change)="changePaymentTerms($event)">
+                    <p *ngIf="this.changePaymentTermsandExpiray" class="not-condition">
+                        <!-- Payment Terms <input
+                                type="text" name="paymentTerms" class="days" value="{{this.paymentTermsDays}}"
+                                [(ngModel)]="paymentTerms"> days,-->
+                        Quotation Expiration date: <input type="text" class="form-control" [minDate]="minDate"
+                            [maxDate]="maxDate" #dp="bsDatepicker" bsDatepicker [(bsValue)]="expiryDateValue"></p>
+                    <p *ngIf="!this.changePaymentTermsandExpiray" class="not-condition">
+                        <!-- Payment Terms
+                            {{customerInfo?.TermsOfPayment}} days,-->Quotation
+                        Expiration date: {{customerInfo?.ExpirtyDate |
+                        date: 'dd/MM/yyyy' }}</p>
+                </div>
+
+                <div class="order-status">
+                    <!-- <input type="checkbox" (change)="changePaymentTerms($event)" >
+                            <p *ngIf="this.changePaymentTermsandExpiray" class="not-condition">Payment Terms <input
+                                    type="text" name="paymentTerms" class="days" value="{{this.paymentTermsDays}}"
+                                    [(ngModel)]="paymentTerms"> days, Expiray date <input type="text" class="form-control"
+                                    [minDate]="minDate" [maxDate]="maxDate" #dp="bsDatepicker" bsDatepicker
+                                    [(bsValue)]="expiryDateValue"></p>-->
+                    <p class="not-condition">Default payment terms:
+                        <select class="terms-days" [(ngModel)]="paymentTerms">
+                            <option *ngFor="let payTerm of ddlPaymentTerms" value="{{payTerm.Value}}" [selected]="payTerm.Value == customerInfo?.TermsOfPayment + 'd'">
+                                {{ payTerm.Text }}
+                            </option>
+                        </select>
+                        days</p>
+                </div>
+                <input type="button" (click)="CreateQoute();" value="Send Quotation" class="btn btn-primary  btn-lg"
+                    [disabled]="buttonDisabled">
+                <div *ngIf="this.qoutationCreated" class="order-info col-12 text-center">
+                    <p>Your Quote ID is: <b>{{this.qouteId}}</b></p>
+                </div>
+            </div>
+
+            <div class="btn-submit row align-items-center justify-content-center" *ngIf="qoutationCreated">
+
+                <div class="order-status">
+                    <p class="not-condition">Quotation Expiration date: {{expirayDateLoad |
+                        date: 'dd/MM/yyyy' }}</p>
+                </div>
+                <div class="order-status">
+                    <p class="not-condition">Default payment terms:
+                        <select class="terms-days" [(ngModel)]="paymentTerms">
+                            <option *ngFor="let payTerm of ddlPaymentTerms" value="{{payTerm.Value}}" [selected]="payTerm.Value == customerInfo?.TermsOfPayment + 'd'">
+                                {{ payTerm.Text }}
+                            </option>
+                        </select>
+                        days</p>
+                </div>
+                <input type="button" (click)="createSalesOrder();" value="Confirm Quotation" class="btn btn-primary  btn-lg"
+                    [disabled]="buttonDisabled">
+                <div *ngIf="this.qoutationCreated && !this.LoadQuote" class="order-info col-12 text-center">
+                    <p>Your Quote ID is: <b>{{this.qouteId}}</b></p>
+                </div>
+                <div *ngIf="this.orderCreated && !this.LoadQuote" class="order-info col-12 text-center">
+                    <p>Your Order # is <b>{{this.saleOrderNumber}}</b></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- footer -->
+<!-- <footer id="footer">
+    <p class="right">All Rights Reserved</p>
+</footer> -->
+<ng-template #content1 let-modal style="max-width: 75%">
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">My Sales Activity</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <jqxGrid #GridMyOrders [source]='dataAdapter' [pageable]='true' [autoheight]='true' [sortable]='true' [columns]='columns'
+            [filterable]="true" [showfilterrow]="true" [altrows]="false" [width]="getWidth()" [selectionmode]="'selectedcell'"
+            [editable]="true" [editmode]="'selectedcell'" [handlekeyboardnavigation]="handleKeys">
+        </jqxGrid>
+
+    </div>
+</ng-template>
+
+<ng-template #content2 let-modal className="quation-rejection" style="max-width: 40%">
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title"></h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <span class="reject-alert">Are you sure you want to reject this quotation?</span>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)=rejectQuotation()>Ok</button>
+        <button type="button" class="btn btn-primary" (click)="modal.dismiss('Cross click')">Cancel</button>
+    </div>
+
+</ng-template>

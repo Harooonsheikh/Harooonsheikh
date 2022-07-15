@@ -1,0 +1,1 @@
+Update ApplicationSetting SET [Value] = 'TRUE' WHERE [Key] IN ('PRODUCT.Single_Consolidated_Catalog','PRODUCT.Enable_Region_Catalog','PRODUCT.Enable_Catalog_Delta') AND StoreId = 1

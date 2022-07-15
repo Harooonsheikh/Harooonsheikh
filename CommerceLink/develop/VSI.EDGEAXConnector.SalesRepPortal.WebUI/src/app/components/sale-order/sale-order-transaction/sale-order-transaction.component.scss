@@ -1,0 +1,64 @@
+.order-info{
+    padding: 25px 15px 0;
+    &:empty{
+        padding:0;
+    }
+}
+.order-status{
+    display: block;
+    margin: 0 0 20px;
+    font-size: 14px;
+    input[type="checkbox"]{
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0 5px 0 0;
+    }
+    p{
+        margin: 0;
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .days{
+        padding: 3px 5px;
+        border-radius: 5px;
+        border:1px solid #000;
+        margin: 0 8px;
+    }
+}
+.reference-list{
+    float: right;
+    color: #383838;
+    margin: 0 -15px;
+    font-size: 18px;
+    line-height: 20px;
+    font-weight: 700;
+    li{
+        padding: 0 15px;
+        display: inline-block;
+        vertical-align: top;
+        + li{
+            border-left: 1px solid #383838;
+        }
+    }
+    a{color: #383838;}
+}
+
+.terms-days{
+    padding: 3px 5px;
+    border-radius: 5px;
+    border: 1px solid #000;
+    margin: 0 8px;
+    width: 41px;
+    text-align: center;
+    height: 29px;
+    font-size: 13px;
+    display: inline-block;
+    vertical-align: middle;
+    background-color: #fff;
+}
+
+::ng-deep {
+    .modal-lg{
+        max-width: 1035px !important;
+    }
+}

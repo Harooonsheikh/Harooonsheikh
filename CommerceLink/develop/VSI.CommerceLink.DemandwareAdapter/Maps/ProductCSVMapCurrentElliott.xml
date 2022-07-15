@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<MapTemplate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Map FieldName="category_ids" Heading="category_ids" />
+  <Map FieldName="name" Heading="name" />
+  <Map FieldName="price" Heading="price" />
+  <Map FieldName="short_description" Heading="short_description" />
+  <Map FieldName="simples_skus" Heading="simples_skus" />
+  <Map FieldName="size" Heading="size" />
+  <Map FieldName="sku" Heading="sku" />
+  <Map FieldName="type" Heading="type" />
+  <Map FieldName="upc" Heading="upc" />
+  <Map FieldName="visibility" Heading="visibility" />
+  <Map FieldName="CustomAttributes" Heading="CustomAttributes" >
+    <Map FieldName="attribute_set" Heading="attribute_set" />
+    <Map FieldName="configurable_attributes" Heading="configurable_attributes" />
+    <Map FieldName="country_of_manufacture" Heading="country_of_manufacture" />
+    <Map FieldName="FabricContent" Heading="fabric_content" />
+    <Map FieldName="inseam" Heading="inseam" />
+    <Map FieldName="rise_back" Heading="rise_back" />
+    <Map FieldName="rise_front" Heading="rise_front" />
+    <Map FieldName="style" Heading="style" />
+    <Map FieldName="tax_class_id" Heading="tax_class_id" />
+    <Map FieldName="wear" Heading="wear" />
+    <Map FieldName="WebColor" Heading="color" />
+    <Map FieldName="WebDescription" Heading="description" />
+    <Map FieldName="WebStatus" Heading="status" />
+    <Map FieldName="weight" Heading="weight" />
+  </Map>
+</MapTemplate>

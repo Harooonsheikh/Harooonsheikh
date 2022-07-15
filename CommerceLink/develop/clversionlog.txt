@@ -1,0 +1,2491 @@
+0.9.0.6 - 202207041500
+=======================
+VSTS: 57470 - Create api Update Customer Portal Link.
+DB Scripts:
+DbScripts\BR03-Sprint-26\001 - LogMapping.sql
+
+0.9.0.5 - 202206211600
+=======================
+VSTS: 47288 - Create api handle RebuyContract for apple app.
+DB Scripts:
+DbScripts\BR03-Sprint-25\001 - LogMapping.sql
+
+0.9.0.4 - 202206161600
+=======================
+VSTS: 55353 - Added TMVLoginEmail Parameter in Quotation & Saleorder.
+TODO : After deployment we need to initialize commerce sceduler.
+DB Scripts:
+DbScripts\BR03-Sprint-25\002 - Ingram-MappingTemplate.sql
+DbScripts\BR03-Sprint-25\003 - SalesOrderTeemplate.sql		   
+
+0.9.0.3 - 202206101800
+=======================
+VSTS: 56796 - fix Ecom Language update issue in CreateUpdateCustomer API.
+
+0.9.0.2 - 202204041700
+=======================
+VSTS: 54418 - Added TargetPrice in ContractRenewal API.
+
+0.9.0.1 - 202203161400
+=======================
+VSTS: 51446 - Add API ProcessContractReactivate.
+DB Scripts:
+DbScripts\BR03-Sprint-22\001 - AOSUrlSetting - Insert ProcessContractReactivate.sql
+
+0.9.0.0 - 202202091600
+=======================
+VSTS:52075 - PU48 Extensions update.
+
+0.8.0.12 - 202203071800
+=======================
+VSTS:51536 - Add IsFutureTermination, Interval parameters in API ProcessContractTerminate.
+
+0.8.0.11 - 202202251500
+=======================
+VSTS:51447 - Add RequestTermination parameter in API ProcessContractTerminate.
+
+0.8.0.10 - 202202251500
+=======================
+VSTS:52256 - Made adyen approval code as optional
+
+0.8.0.9 - 202202181800
+=======================
+VSTS:52765 - Set default value Empty string for CustomerRef in ProcessContractOperation.
+
+0.8.0.8 - 202202101700
+=======================
+VSTS:51251 - Add ChannelReferenceId property in ConfirmQuotation and AddPaymentLinkForInvoice
+
+0.8.0.7 - 202202101300
+=======================
+VSTS:52096 - Calculate sbscription Coupon code status.
+
+0.8.0.6 - 202201261700
+=======================
+VSTS:50670 - Add API GetBoletoUrl.
+
+0.8.0.5 - 202101202100
+=======================
+VSTS:50670 - Add Boleto properties in API GetCustomerInvoiceDetails.
+
+0.8.0.4 - 202101142000
+=======================
+VSTS:50815 - Add Error code propty in CreateContractNewPaymentMethod and AddPaymentLinkForInvoice.
+
+0.8.0.3 - 202112141900
+=======================
+VSTS:49802 - Concurrent Payment Requests Issue Fixed
+
+0.8.0.2 - 202112111900
+=======================
+VSTS 46323 - LocalTaxId added in UpdateBillingAddress
+
+0.8.0.1 - 202111261900
+=======================
+VSTS: 47662 - PU46 Quality update reference changes.
+
+0.8.0.0 - 202111191900
+=======================
+VSTS: 47662 - PU46 Quality update changes.
+
+0.7.0.12 - 202112012100
+=======================
+VSTS: 48832 - Ingram update customer and contact person address name.
+DB Scripts:
+DbScripts\BR03-Sprint-19\01-Ingram-MappingTemplate.sql
+
+0.7.0.11 - 202111171300
+=======================
+VSTS: 46323 - GST/HST number update from Customer portal is not reflecting in ERP (Local tax id field) 
+
+0.7.0.10 - 202109292100
+=======================
+VSTS: 46377 - Add ErrorCode parameter in API AddPaymentLinkForInvoice Response.
+
+0.7.0.9 - 202109292000
+=======================
+VSTS: 47729 - CP - Add ErrorCode parameter in API CreateContractNewPaymentMethod Response.
+
+0.7.0.8 - 202109232000
+=======================
+VSTS: 38843 - Calculate Subscription contract changes for new contract dates.
+
+0.7.0.7 - 202109231900
+=======================
+VSTS: 45466 - AutoRenewContract add new paramerter IsUpdateRenewalPrice.
+
+0.7.0.6 - 202108231700
+=======================
+VSTS: 43633 - Payment Method Alipay Implementation - Made additional parameters as optional 
+
+0.7.0.5 - 202107261600
+=======================
+VSTS: 41099 - Fix MergeCustomerReseller null reference exception for empty reseller.
+
+0.7.0.4 - 202107202100
+=======================
+VSTS: 43633 - Fix Confirm quotation null reference exception for Boleto quotation.
+
+0.7.0.3 - 202107061500
+=======================
+VSTS: 43633 - Fix Confirm quotation null reference exception.
+
+0.7.0.2 - 202107021600
+=======================
+VSTS: 43633 - Payment Method Alipay Implementation (CL)
+DB Scripts:
+DbScripts\BR03-Sprint-16\004 - Alipay - PaymentMethod.sql
+
+﻿0.7.0.1 - 202107021500
+=======================
+VSTS: 43776 - Add sales origion and customer reference in Contract Renewal Api.
+
+0.7.0.0 - 202106252000
+=======================
+VSTS: 43390 - Retail server platform version upgrade 43 (PU43).
+
+0.6.0.88 - 202106232000
+=======================
+Update customer language after validating in configurable object
+
+0.6.0.87 - 202106161900
+=======================
+VSTS: 43776 - Contract Renewal new API for EDI/Prianto.
+DB Scripts:
+DbScripts\BR03-Sprint-16\003 - LogMapping.sql
+
+0.6.0.86 - 202105271430
+=======================
+VSTS: 41484 - Add "ErrorCode" parameter in ConfirmQuotation response.
+
+0.6.0.85 - 202104281800
+=======================
+VSTS: 34037 - Update site code in configurable object.
+DbScripts\BR03-Sprint-17\001 - Update Configurable object site code.sql
+
+0.6.0.84 - 202104281500
+=======================
+Sort Customer addresses by Is primary.
+
+0.6.0.83 - 202104131400
+=======================
+VSTS: 39947 - Update GetQuotation response as empty array.
+
+0.6.0.82 - 202103252100
+=======================
+VSTS:  - Add Email property in TriggerDataSync
+
+0.6.0.81 - 202103221830
+=======================
+VSTS: 39973 - Mandatory state validation.
+DB Scripts:
+DbScripts\BR03-Sprint-16\001 - ApplicationSettings - Mandatory State.sql
+DbScripts\BR03-Sprint-16\002 - MandatoryStateCountry - Add India state.sql
+
+0.6.0.80 - 202103242000
+=======================
+VSTS: 38730 - New parameter "PONumber" added in API "AutoRenewContract".
+
+0.6.0.79 - 202103292000
+=======================
+VSTS: 37404 - PU40 Quality Update changes V3.
+
+0.6.0.78 - 202103191900
+=======================
+VSTS: 38031 - Create product license changes.
+
+0.6.0.77 - 202103191930
+=======================
+Changed Dictionary to ConcurrentDictionary for Configuration Helper
+
+0.6.0.76 - 202103191900
+=======================
+Initialize RetailServerContext in d365 base controller for every request.
+
+0.6.0.75 - 202103021530
+=======================
+VSTS: 33383 - Ingram Activation link Email changes Transfer Order
+
+0.6.0.74 - 202102151830
+=======================
+Merchandize Get product image url changes
+
+0.6.0.73 - 202102151630
+=======================
+VSTS: 33383 - Ingram Activation link Email changes.
+DB Scripts:
+DbScripts\BR03-Sprint-15\Ingram-ActivationLinkEmail\001 - ThirdPartyEnvironmentWithStatus.sql
+
+0.6.0.72 - 202102081800
+=======================
+VSTS: 36791 - Changes for Reseller Tier 1 Login.
+
+0.6.0.71 - 202101181430
+=======================
+Fix production deployment issue (Store not found for inactive store)
+
+0.6.0.70 - 202101011630
+=======================
+VSTS: 34252 - Promise to pay API.
+DB Scripts:
+DbScripts\BR03-Sprint-14\002 - LogMapping.sql
+
+0.6.0.69 - 202012221600
+=======================
+VSTS: 36374 - AH: Checkout Process Contract Operation API.
+
+0.6.0.68 - 202012022200
+=======================
+VSTS: 36538 - Improve GetPaymentConnectorInfo exception handling.
+
+0.6.0.67 - 202011302100
+=======================
+VSTS : 36469 - Fix Ingram download serivce not working when distributor not found for order.
+
+0.6.0.66 - 202011261335
+=======================
+VSTS : 36227 - Veracode scan changes.
+
+0.6.0.65 - 202011232100
+=======================
+VSTS : 34050 - Ingram change brazil currency
+DB Scripts:
+DbScripts\BR03-Sprint-14\Ingram Phase 3 (Transfer Phase 2)\002 - 34050-BrazilCurrencyCode.sql
+
+0.6.0.64 - 202011131800
+=======================
+VSTS : 35288 - CL - NewRelic Instrumentation to segregate CL and ERP calls
+
+0.6.0.63 - 202011122100
+=======================
+VSTS : 33374 - Ingram Phase 2 - transfer contract Synch Renewal status
+DB Scripts:
+DbScripts\BR03-Sprint-14\Ingram Phase 3 (Transfer Phase 2)\001 - Application Setting.sql
+
+0.6.0.62 - 202011111800
+=======================
+Fix Veracode scan
+
+0.6.0.61 - 202011092200
+=======================
+Build automation
+
+0.6.0.60 - 202010272100
+=======================
+VSTS : 33374 - Ingram transfer contract
+DB Scripts:
+DbScripts\BR03-Sprint-13\Ingram Phase 3 (Transfer)\001 - ALTER TABLE ThirdPartyMessage ADD COLUMN Renewal.sql
+DbScripts\BR03-Sprint-13\Ingram Phase 3 (Transfer)\001 - ALTER TABLE Log and RequestResponse.sql
+
+0.6.0.59 - 202010192000
+=======================
+Catalog - VSTS : 35362 - product-add-button attribute translation handled
+
+0.6.0.58 - 202010141700
+=======================
+Add new route "SalesOrder/CancelContract" for EDI.
+
+0.6.0.57 - 202010051955
+=======================
+VSTS 32764 - Non clustered index on Log table
+
+0.6.0.56 - 202009302100
+=======================
+Sync service and ingram service updated to handle TotalProcessing Duration data type changed
+
+0.6.0.55 - 202009282106
+=======================
+Request Response TotalProcessing Duration data type changed and Archive
+DB Scripts:
+DbScripts\BR03-Sprint-13\005 - RequestResponseArchiveScript.sql
+
+0.6.0.54 - 202009251834
+=======================
+LogMapper Update Script added for MergeUpdateCustomerContactPerson
+DB Scripts:
+DbScripts\BR03-Sprint-13\004 - LogMapping - MergeUpdateCustomerContactPerson.sql
+
+0.6.0.53 - 202009251903
+=======================
+VSTS 33927: Create new API Partner Portal Transfer Contract.
+
+0.6.0.52 - 202009251604
+=======================
+Single Catalog: "allow_partner_portal" attribute added in Single Catalog Mapping Template
+DB Scripts:
+DbScripts\MappingTemplates\2.CatalogTemplate_SingleCatalog.sql
+
+0.6.0.51 - 202009182210
+=======================
+Application Setting Cache Refresh.
+
+0.6.0.50 - 202009211954
+=======================
+CustomerReference Added in UpdateSubscriptionContract
+
+0.6.0.49 - 202009181440
+=======================
+VSTS 33855: Create new API CreatePaymentJournal.
+
+0.6.0.48 - 202009171855
+=======================
+VSTS 34343: Missing custom attribute added in Create Customer Quotation RealTime API call
+
+0.6.0.47 - 202009162111
+=======================
+VSTS 34054: Added SalesOrigin In ProcessContractOperation
+
+0.6.0.46 - 202009152025
+=======================
+VSTS 33525: Partner Quotation Updates
+
+0.6.0.45 - 202009141753
+=======================
+Script added for New Single Catalog Region
+DB Scripts:
+DbScripts\BR03-Sprint-13\002 - CatalogRegion - ConfigObject Update.sql
+
+0.6.0.44 - 202009152025
+=======================
+VSTS 34054: Optional parameter SalesOrigin added in ProcessContractOperation RealTime Web API call
+
+0.6.0.43 - 202009112015
+=======================
+VSTS 33670: Updates for TriggerDataSync RealTime Web API call
+
+0.6.0.42 - 202008252031
+=======================
+VSTS : 32825 - DashboardAPI - Input Satization added to stop XSS Attack
+
+0.6.0.41 - 2020090311800
+=======================
+VSTS 33415: Convert Boleto Custom due date dd/MM/yyyy to formatted date yyyy-MM-dd.
+
+0.6.0.40 - 202009070138
+=======================
+FileSyncService Configuration Helper issue resolved in SFTPManager
+
+0.6.0.39 - 202009012100
+=======================
+VSTS 32794: SQL script for non clustered index on IntegrationKey table added
+
+0.6.0.38 - 202009011929
+=======================
+Prod bug 33556 fixed
+
+0.6.0.37 - 202008201700
+=======================
+Get ThreeLetter Country code from local database for ingram.
+
+0.6.0.36 - 202008192342
+=======================
+VSTS : 24537 - Added method ReadChangedProducts and Application Setting
+DB Scripts:
+DbScripts\BR03-Sprint-12\010 - ApplicationSettings - Enable Read Changed Products.sql
+DbScripts\BR03-Sprint-12\011 - OPTIONAL - Enable Read Changes Update Script.sql
+
+0.6.0.35 - 202008192342
+=======================
+VSTS : 32701, 32762 - AllPago Recurring Payment Solution Revamp
+
+0.6.0.35 - 202008192342
+=======================
+VSTS : 32701, 32762 - AllPago Recurring Payment Solution Revamp
+
+0.6.0.34 - 202008191723
+=======================
+ProcessCustomAttributeForVariant bug fixed for Price and Discount Jobs
+
+0.6.0.33 - 202008191520
+=======================
+VSTS: 32830 - LocalTaxId field added GetCustomerInvoiceDetails response
+
+0.6.0.32 - 202008182100
+=======================
+VSTS: 31125 - Terminate order status update fix
+
+0.6.0.31 - 202008180130
+=======================
+Get Error Details Issue fixed. Entity Model Updated
+
+0.6.0.30 - 202008110130
+=======================
+VSTS: 31125 - Ingram Phase 2. Ingram order cancellation and change implemntation
+
+0.6.0.29 - 202008102350
+======================
+VSTS: 32324- Contract renewal partner portal sales order id.
+
+0.6.0.28 - 202008102215
+======================
+VSTS: 32349- ProcessCustomAttributeForVariant added
+DB Scripts:
+DbScripts\BR03-Sprint-12\008 - ApplicationSettings - VariantCustomAttributes.sql
+
+0.6.0.27 - 202008060015
+======================
+VSTS: 32211- Script added to activate Price validation for all stores
+DB Scripts:
+DbScripts\BR03-Sprint-12\008 - ApplicationSettings - PriceValidationActivation
+
+0.6.0.26 - 202008060015
+======================
+VSTS: 30512- Added InvoiceId in Request and Result in response
+
+0.6.0.25 - 202008050015
+======================
+Reseller Account fix in Validate Price
+
+0.6.0.24 - 202008040015
+======================
+VSTS: 30652- Apply Validation checkes and move Customer controller to Partner Controller
+
+0.6.0.23 - 202008031305
+======================
+Single Catalog Delta and Region wise distribution
+DB Scripts:
+DbScripts\BR03-Sprint-12\001 -  CREATE SingleCatalogProduct Tables and Type.sql
+DbScripts\BR03-Sprint-12\002 - CREATE spSingleCatalogProductViewModel_Insert STORED PROCEDURE.sql
+DbScripts\BR03-Sprint-12\003 - CREATE spSingleCatalogProduct_CompareAndUpdate STORED PROCEDURE.sql
+DbScripts\BR03-Sprint-12\004 - ApplicationSettings.sql
+DbScripts\BR03-Sprint-12\005 - ConfigurableObjects SET ECOM-Regions.sql
+DbScripts\BR03-Sprint-12\006 - OPTIONAL - Enable SingleCatalog and Region For Store1.sql
+DbScripts\MappingTemplates\2.CatalogTemplate_SingleCatalog.sql
+
+0.6.0.22 - 202007302115
+======================
+VSTS: 29903- CL Development for AllPago
+
+0.6.0.21 - 202007271700
+======================
+VSTS: 30652 - Create GetOrValidatePrice API for customer portal.
+
+0.6.0.20 - 202007221430
+======================
+VSTS: 31484 - Create New API ContractActivationLog.
+
+0.6.0.19 - 202007221350
+======================
+Disable cache for Data sync service.
+
+0.6.0.18 - 202007221301
+======================
+VSTS 28708: RS Error handling and logging improvement + Bug fix
+
+0.6.0.17 - 202007211430
+======================
+Create New Web API Discount With Affiliation.
+
+0.6.0.16 - 202007201630
+======================
+VSTS 31590: Hotfix: Sales Unit item is empty in Sales Quotations and Orders.
+
+0.6.0.15 - 202007151815
+======================
+HotFix Create separate method for Payment link GetEcomLanguage and GetEcomStoreCode.
+
+0.6.0.14 - 202007132015
+======================
+VSTS: 30190 - Fix TriggerDataSync API calling issue
+
+0.6.0.13 - 202007091200
+======================
+Add "RetailChannelId" in API "GetCustomerInvoiceDetails".
+
+0.6.0.12 - 202007082353
+======================
+Sales order tender amount validation changed
+
+0.6.0.11 - 202007062025
+======================
+VSTS: 28754 - AvaTax implementation for US [DbScript: AvaTax folder +  CatalogTemplate_SingleCatalog]
+
+0.6.0.10 - 202007031919
+=======================
+29622: State validation for Create and Update Customer
+DB Scripts: BR03-Sprint-11\2 - MandatoryStateCountries Table and Data.sql
+
+0.6.0.9 - 202007021651
+=======================
+DLLs Update and Consolidation.
+RetailServer PU35 updateed DLLs
+
+========================================================================================
+--------------- TeamViewer Platform Update 35 - Starting from here ---------------------
+========================================================================================
+
+0.6.0.8 - 202005191949
+=======================
+Detailed Logging for customer portal APIs
+
+0.6.0.7 - 202004151408
+=======================
+Update packages and remove usused files and libraries from Solution.
+
+0.6.0.6 - 202004141230
+=======================
+VSTS 25336 - Selecting only required data for Query Optimization
+
+0.6.0.5 - 202004061649
+=======================
+Ingram Order status update issue fixed
+
+0.6.0.4 - 202004032055
+=======================
+File Sync store based and SSH Issue resolved
+
+0.6.0.3 - 202004011445
+=======================
+Autofac related issues fixed for Ingram
+
+0.6.0.2 - 202003222055
+=======================
+External system time logging
+
+0.6.0.1 - 202003202055
+=======================
+Automapper replacement, Autofac Removal, Async RequestResponse log and other performance updates.
+﻿
+0.5.0.26 - 202006301610
+=======================
+30512: Customer Portal Add new api "AssignCustomerPortalAccess".
+
+0.5.0.25 - 202006292300
+=======================
+Save "IsPrimary" in Contact person API's.
+
+0.5.0.24 - 202006242022
+=======================
+Get All Contact Person Address mapping change
+
+0.5.0.23 - 202006191711
+=======================
+VSTS 29435:
+1. File Sync and Data Sync Missfire issue fixed.
+2. Trace logging added for Sync Services
+3. Ignore Store Keys setting added.
+
+0.5.0.22 - 202006171700
+=======================
+VSTS 30190: Create new API Trigger Data Sync.
+
+0.5.0.21 - 202006161600
+=======================
+Get Customer Invoice Detail Error Handling for Three Letter ISO region.
+
+0.5.0.20 - 20200601000
+=======================
+VSTS:27911 - Removed low priority and code quality issues
+
+0.5.0.19 - 202006161315
+=======================
+VSTS 22814: Process Contract Operation response updates
+
+0.5.0.18 - 202005211813
+======================
+VSTS:28708 - ContactPerson, Quotation, SalesOrder and PaymentLink APIs Error Handling
+﻿
+0.5.0.17 - 202006091736
+=======================
+Address wrapper added for CreateUpdateContactPerson and Quotation exception handling
+
+﻿0.5.0.16 - 202006091600
+=======================
+VSTS 27508: Add Allpago Boleto Payment.(SalesOrder Mapping template updated).
+
+0.5.0.15 - 202006051852
+=======================
+Duplicate discount with affiliation issue fixed
+
+0.5.0.14 - 202006031920
+=======================
+Single catalog fix
+
+0.5.0.13 - 202005301439
+======================
+Prod hotfix - Sales order amount validation update
+
+0.5.0.12 - 202006011420
+=======================
+Language length check for Customer and Contact Person removed from Web Controllers
+
+0.5.0.11 - 202005212015
+======================
+Web Config transformation and NLog transformation
+
+0.5.0.10 - 202005211813
+======================
+VSTS:28708 - Customer APIs RetailServer Exception handling
+
+0.5.0.9 - 202005202015
+======================
+Add wrapper for create quotation request.
+
+0.5.0.8 - 202004072105
+=======================
+Window Service and File Sync Service Scheduler thread Improvement (App.config => <add key="ThreadCountOfJobs" value="20" />)
+
+0.5.0.7 - 202005201626
+======================
+Sales Order Payment information validation implemented
+
+0.5.0.6 - 202005181511
+======================
+NLog Nuget Package fix
+
+0.5.0.5 - 202005131225
+======================
+Target amount assignment updates for Price Validation in Web Call
+
+0.5.0.4 - 202005111509
+=======================
+Catalog Session based Generation
+GetActivePrices method for DiscountWithAffiliation 
+
+0.5.0.3 - 202005111959
+=======================
+Error message added if payment method is not configured in CL
+
+0.5.0.2 - 20200511
+=======================
+VSTS: 25939 Remove unused extensions
+﻿
+0.5.0.1 - 202005071625
+=======================
+IBM Scan report fixes.
+VSTS: 25615
+1. Actual response object returned in case of exception.
+2. Error handling at global application level
+
+﻿0.5.0.0 - 202004162000
+=======================
+IBM Scan report fixes.
+25591- Global Exception Handler
+25193-Static Code & Software Components Analysis
+	System.Text.Encodings.Web IMPORTANT one : update the dll version to latest 
+
+HtmlSanitizer - implemented for code Sanitization.
+
+0.4.0.61 - 202004270000
+=======================
+CreateSalesOrder API, change "ErpSalesOrder" object to EcomSalesOrder Object.
+
+0.4.0.60 - 202005091200
+=======================
+SQL Scripts updated to avoid multiple execution
+
+﻿﻿0.4.0.59 - 202005071810
+=======================
+Mapping Template added for CreateSalesOrder Method
+
+0.4.0.58 - 202005051810
+=======================
+VSTS: 27405 
+1- Affiliation discount does not pass with sale order in AX (CouponCode = null issue resolved for CreateMergedCart)
+
+﻿0.4.0.57 - 202005051300
+=======================
+VSTS: 26792 
+1- Handle complete TV RA logic in CL, Ecom will send TV RA add-ons for self switch and CL will manage as per AX logic
+
+﻿0.4.0.56 - 202005031810
+=======================
+VSTS: 26792 
+1- Handle all cases of coupon code for CalculateSubscriptionChange API with true status
+
+﻿﻿0.4.0.56 - 202005011810
+=======================
+Package fix: NLog version update, Web Config update and Disable Custom Message Handler
+
+0.4.0.55 - 202005011810
+=======================
+VSTS: 26792 
+1- Handle Switch operation for TV remove access product
+2- Handle discounted line scenario in case of Mix & Match 
+
+0.4.0.54 - 202004291030
+=======================
+Madatory check for phone number for customer removed in UpdateBillingAddress API call
+
+0.4.0.53 - 202004281015
+Mapping for UpdateSubscriptionContract updated in SQL Script file
+
+0.4.0.52 - 202004261615
+=======================
+Transaction Id bug fixed
+
+0.4.0.51 - 202004241815
+=======================
+VSTS 25398: Tender type update for Bank Account
+
+﻿0.4.0.50 - 202004231810
+=======================
+VSTS: 26792 
+1- Validation imporvement for TMVSubscriptionWeight
+
+﻿0.4.0.49 - 202004231810
+=======================
+VSTS: 26792 
+1- Change TMVSubscriptionWeight from int to Enum CLSubscriptionOfferType
+2. Correct TimeQuantity based on requested Date only not for time
+3. Remove validation for ReasonId for ProcessContractTerminate
+
+0.4.0.48 - 202004211500
+=======================
+Security: Home page added for Dashboard API.
+
+﻿﻿0.4.0.47 - 202004212000
+=======================
+23621: Payment Link Add new property Error Code in method "GetCustomerInvoiceDetails".
+
+0.4.0.53 - 202004201900
+=======================
+Log full CRT exception in db for Price, Discount and DiscountWithAffiliation.
+﻿
+﻿0.4.0.46 - 202004161810
+=======================
+VSTS: 26792 
+1- Change contract line field name from TMVOriginalLineAmount to TMVOldLineInvoiceAmountAndAdjustment 
+2. Handle negative values for CL amounts in response
+
+0.4.0.45 - 202004170045
+=======================
+VSTS 25398, 25484: Update web request and response from Erp classes to eCom classes
+
+0.4.0.44 - 202004162000
+=======================
+Moved to 5.0.0.0
+
+0.4.0.43 - 202004160100
+=======================
+VSTS: 26185 - Aos wrapper changed to jsonObj
+
+0.4.0.42 - 202004152225
+=======================
+Mandatory check for PAC License for new product removed from UpdateSubscriptionContract at line level Web API Call
+
+0.4.0.41 - 202004151810
+=======================
+1. VSTS: 26185 - ProcessContractTerminate API added
+2. AosBaseController request error handling
+
+﻿0.4.0.40 - 202004140000
+=======================
+VSTS: 25792
+1- Decimal rounding handling for countries like Japan & Hungry 
+2- Calculations handling in case of use existing contract dates flag is false. 
+﻿
+0.4.0.39 - 202014041810
+=======================
+Error handling for Unpublished Store, No Payment Connector found and Customer not found
+
+0.4.0.38 - 202004132030
+=======================
+VSTS 25484: Implementation of UpdateSubscriptionContract call
+VSTS 25398: Added a new parameter TenderType in CreateContractNewPaymentMethod call
+
+﻿0.4.0.37 - 202004100000
+=======================
+VSTS: 25792 Calculate Subscription Change request validation imporvement
+
+0.4.0.36 - 202004100000
+=======================
+VSTS: 25792 Implemented Calculate Subscription Change
+
+0.4.0.35 - 202004092110
+=======================
+AOSBAseController added
+
+﻿0.4.0.34 - 202008041810
+=======================
+PROD Hotfix: Home page added to WebAPI
+
+0.4.0.33 - 202004071834
+=======================
+Ingram Retry Count Application Settings [Ingram-RetryCount-ApplicationSetting.sql]
+
+0.4.0.32 - 202004071645
+=======================
+First, Middle and Last name trimmed to maximum length
+
+0.4.0.31 - 202004061621
+=======================
+Ingram Status Update Retry Count
+
+0.4.0.30 - 202004061327
+=======================
+File Sync and Data Sync Removed 32bit build Preference 
+
+0.4.0.29 - 202004040001
+=======================
+VSTS: 25396 UpdateBillingAddress Validation added and URL updated
+
+0.4.0.28 - 202004032055
+=======================
+File Sync store based and SSH Issue resolved
+
+0.4.0.27 - 202004030000
+=======================
+VSTS: 25396 UpdateBillingAddress API added
+
+0.4.0.26 - 202004030000
+=======================
+VSTS: 25398 Implemented Create Contract New Payment Method
+
+0.4.0.25 - 202003192055
+=======================
+Update Master product Image url to Variants.
+
+0.4.0.24 - 202003181245
+=======================
+Mapping for price validation updated from base price to target amount
+
+0.4.0.23 - 2020031621836
+=======================
+Security Updates in WebAPI, Dashboard App, Dashboard API
+
+0.4.0.22 - 202003161620
+=======================
+Configurable check added to send price validation call
+Updated response of price validation call
+Indirect customer added in price validation call
+
+0.4.0.21 - 202003161301
+=======================
+Price Validation code commented
+
+0.4.0.20 - 202003121615
+=======================
+Ingram distributor mapping updated from ID to Type
+
+0.4.0.19 - 202003091525
+=======================
+Product Quantity issue fixed for Ingram orders
+
+0.4.0.18 - 202003090102
+=======================
+SEPA issue Resolved
+
+0.4.0.17 - 202003031905
+=======================
+Email notification fixes
+
+0.4.0.16 - 202003031422
+=======================
+Import product Image URL
+
+0.4.0.15 - 202003021745
+=======================
+Integration with Ingram Micro
+
+0.4.0.14 - 202002251454
+=======================
+RequestResponse Connection Creation Improved
+
+0.4.0.13 - 202001150802
+=======================
+CustomerPortal Code Added
+
+0.4.0.12 - 202001201151
+=======================
+Request Managment : Request Object Exception issue
+
+0.4.0.11 - 202001131151
+=======================
+VSTS 23722 : Add Custom Attribute to SalesOrder - TMVCurrencyCode (SalesOrderMappingTemplate)
+
+0.4.0.10 - 202001092228
+=======================
+Request Managment : File Logging Improvments
+
+0.4.0.9 - 202001082328
+=======================
+PROD HotFix : Performance Improvments
+
+0.4.0.8 - 201912310435
+======================
+Logging Improvements (ToString Issue Resolved)
+
+0.4.0.7 - 201912302022
+======================
+Logging Improvements
+
+0.4.0.6 - 201912272100
+======================
+VSTS : CL- Development for Switch, Migrate and Update Contract APIs
+
+0.4.0.5 - 201912271930
+======================
+VSTS : 23328 - CL- Development Reactivation Contract
+
+0.4.0.4 - 201912240400
+======================
+Custom Attribute Add to SalesOrder (TMVActivationLinkEmail, TMVCustomerReference)
+
+0.4.0.3 - 201912191734
+======================
+VSTS 23157,23126 - Bugs Resolved
+
+0.4.0.2 - 201912102130
+======================
+VSTS 21196 - Logging Improvements
+
+0.4.0.1 - 201912042130
+======================
+VSTS 22343 Add ExcludeDiscount Method to Exclude Expire Discounts
+
+0.4.0.0 - 201911291800
+======================
+VSTS 22527 Retail Proxy Updated for PU30
+========================================================================================
+--------------- TeamViewer Platform Update 30- Starting from here ---------------------
+========================================================================================
+0.3.0.34 - 201911251624
+=======================
+VSTS 21196 - Catalog Automation - CL Development
+
+0.3.0.33 - 201911151624
+=======================
+GDPR implementation updated
+
+0.3.0.32 - 201911071330
+=======================
+VSTS 21722: Subscription name and weight fields added in GetContractSalesOrder API
+
+0.3.0.31 - 201911051930
+=======================
+VSTS 21632: TVRA pac license disable in case of switch to core
+
+0.3.0.30 - 201911031844
+=======================
+VSTS 20883: QuoteOpportunityUpdate Implementation
+
+0.3.0.29 - 201910311940
+=======================
+VSTS 21236: SEPA Implementation [Script: "MappingTemplate", FDD-007-EXT-Script-7.19.sql ]
+
+0.3.0.28 - 201910311300
+=======================
+VSTS 17225, 19073: TMVAdjustmentAmount added in GetContractSalesOrder api response
+TMVTransferOrderAsPerOldDate added in CreateSalesOrderTransaction
+
+0.3.0.27 - 201910212200
+=======================
+VSTS 20786: Convert "GetContractSalesOrder" response to Multiple Contracts.
+VSTS 21254: Add Extension Property in SalesLine "TMVCUSTOMERLINENUM". [Script "MappingTemplate"]
+
+0.3.0.26 - 20191010181920
+=======================
+VSTS 21235: CL- Development for Delete GDPR Data for DSR Process
+
+0.3.0.25 - 201910151800
+=======================
+VSTS 15008: TMVContactIDGUID added in contact person calls
+
+0.3.0.24 - 201910112034
+=======================
+VSTS 21062 : Create Contact Person using MergeUpdateCustomerContactPerson API 
+
+0.3.0.23 - 201910092300
+=======================
+VSTS 20934: Confirm Quotation Fruad Status and Kount Score change.
+
+0.3.0.22 - 201910082100
+=======================
+Improvement in Request Response Performance
+
+0.3.0.21 - 201910081300
+=======================
+Ben Hotfix: GetContractPerson Revert to Single Response.
+
+0.3.0.20 - 201910071845
+=======================
+14048 - Indirect and distributor account + indirect customer email
+14048 - Update GetContractSalesOrder and Update Terminate Contract.
+20799: TMVCOUPONCODE field added at sales order line level custom attribute.
+
+0.3.0.19 - 201909301930
+=======================
+Request-Response Modifications (BR03-Sprint-6[Alteration Script, LogMapper])
+Remove "EDI" From Application Configuration and identify through Extension Property "Source System".
+Add new Routes "UpdateSalesOrder/TransferContract" and "UpdateSalesOrder/ReactivateContract" in InAppPurchase. 
+
+0.3.0.18 - 201909262200
+=======================
+Add Extension Property "TMVIndirectCustomerEmail". [Update Sales order Mapping Template. CRT Code + DB Script]
+Skip email address validation for Reseller for EDI Customer.
+
+0.3.0.17 - 201909252100
+=======================
+EDI - New API "MergeSalesOrderCustomerReseller".
+
+0.3.0.16 - 201909302100
+=======================
+20024 Windows Sync Service job issue fixed
+
+0.3.0.15 - 201909242100
+=======================
+19034 Time quantity and line amount will be caluclated in AX
+
+0.3.0.14 - 201909181300
+=======================
+20084-GetQuotation API will return it's associated contact person instead of first contact person of customer
+
+0.3.0.13 - 201909122000
+=======================
+18772 - TMVSourceSystem field added in customer and contact person APIs
+
+0.3.0.12 - 201909121815
+=======================
+18792-Spain Additonal Tax No. TMV Additional VAT change
+ThreeDS Parameter added for Adyen in Sales order
+Removed validation for IssureCountry in PaymentLink, CreateCustomerPaymentMethod and ConfirmQuotation 
+
+0.3.0.11 - 201909041250
+======================
+18170-Parent child relation at quotation.
+
+0.3.0.10 - 201909021700
+======================
+TMVInvoicePosted field added in small response of GetContractSalesOrder API
+
+0.3.0.9 - 201908291315
+======================
+Create New API for Apple App - Transfer / Reactivate Contract.
+
+0.3.0.8 - 201908260430
+======================
+Quotation Rewamp
+
+0.3.0.7 - 201908192125
+======================
+Create new API "Customer/MergeCustomerReseller"
+
+0.3.0.6 - 201908071800
+======================
+19034 fixed. Items will be returned from relevant store in GetContractSalesOrder API
+
+0.3.0.5 - 201908051808
+======================
+Date Time format updated for Discounts in Get Contract Sales Order and Get Quoation calls
+
+0.3.0.4 - 201908040213
+======================
+TMVFraudReview and TMVKountScore added in sales order
+
+0.3.0.3 - 201907151730
+======================
+17568 parent child relation b/w sales line implemented.
+SalesLineRecId and TMVParent column added in GetCustomerInvoiceDetail method
+
+﻿0.3.0.2 - 201908012345
+======================
+VSTS 18560: Discount in Quotation
+
+0.3.0.1 - 201908012315
+======================
+VSTS 18552: Discount in Get Contract Sales Order call
+
+0.3.0.0 - 201907302350
+teamviewer/develop-BR03-Update10.0-PU28
+======================
+Retail Proxy Updated
+
+========================================================================================
+--------------- TeamViewer Platform Update 28 - Starting from here ---------------------
+========================================================================================
+
+0.2.0.69 - 201907242019
+=======================
+Customer credit card listing issue fixed
+
+0.2.0.68 - 201907232033
+=======================
+Mandatory check for Sales Line ID removed for Old Sales Order ID
+
+0.2.0.67 - 201907182023
+=======================
+VSTS 18536: Fix for Line Amount calculation in CommerceLink AX Adapter
+
+﻿0.2.0.66 - 201907161245
+=======================
+VSTS 17557. Duplicate customer creation issue fixed. Extension properties will only be landed at HQ level.
+Customer language swapped in GetQuotation and GetCustomerInvoiceDetails method
+
+﻿0.2.0.65 - 201907151245
+=======================
+Swap Language implemented for Customer and Contact Person calls
+Line Amount updated w.r.t. Invoice Line Amount
+
+0.2.0.64 - 201907011350
+=======================
+Added validation check for Migration Order i.e. for Migration Order at least one Migration Sales Line Number should be specified.
+Added validation check for Old Sales Order i.e. for Old Sales Order every Sales Line must contain Old Sales Line Number and Old Sales Line Action.
+
+0.2.0.63 - 201906252025
+=======================
+For Single consolidated catalog. The catalog now contains empty store view code for default language i.e. English
+For Single consolidated catalog. The catalog  translation nodes are repeated for each store view code
+
+0.2.0.62 - 201906241415
+=======================
+Fixed store key issue for GetCustomerInvoiceDetails
+
+0.2.0.61 - 201906201545
+=======================
+Logic to fetch address on quotation updated
+
+0.2.0.60 - 201906130202
+=======================
+Added CDATA for cart_description, cl_config_body_content, cl_config_header_content and Description custom Attributes in erp_attributes element. Task 16893
+
+0.2.0.59 - 201906130202
+=======================
+Wirecard code fix for Blob
+
+0.2.0.58 - 201906122210
+=======================
+Revert changes for IssuerCountry except for Adyen Card Blob
+
+0.2.0.57 - 201906121530
+=======================
+Validations added for newly added payment connectors (Adyen and AllPago)
+
+0.2.0.56 - 201906121203
+=======================
+Issuer Country added in GetCustomerPaymentMethod and GetContractSalesOrder
+
+﻿﻿0.2.0.55 - 201906111300
+=======================
+Added attribute IssuerCountry in SalesOrder, CreateCustomerPaymentMethod and AddPaymentLinkForInvoice
+
+0.2.0.54 - 201906102100
+=======================
+Added custom attribute TMVFraudReviewStatus on sales sorder
+
+0.2.0.53 - 201906101940
+=======================
+Added Adyn DB Scripts
+
+0.2.0.52 - 201906101521
+=======================
+LanguageSwap updated for GetContactPerson and GetAllContactPersons response
+
+0.2.0.51 - 201906041530
+=======================
+SaveContactPerson call updates
+Street2 in Contact Person
+
+0.2.0.50 - 201906011400
+=======================
+Customer street2 address field added in create, update and get customer APIs
+
+0.2.0.49 - 201905311800
+=======================
+ProcessorId added in GetContractSalesOrder call
+
+0.2.0.48 - 201905302103
+=======================
+ProcessorID in Get Customer Payment Method
+
+0.2.0.47 - 201905302053
+=======================
+Approve Code field added in GenerateAuthBlob
+
+0.2.0.46 - 201905301230
+=======================
+Payment Field Mapping Changes
+
+0.2.0.45 - 201905301114
+=======================
+New field for ADYEN in Customer Payment Methods
+
+0.2.0.44 - 201905282150
+=======================
+Dashboard API: Remove Authorization check in Sale order Save request.
+
+0.2.0.43 - 201905282145
+=======================
+Added centralized mapping templates for Catalog and Sales Order
+
+0.2.0.42 - 201905281715
+=======================
+Dashboard API: Add new API's to save Sale order / Quotation in Mongo db. and NAL shop Application changes. 
+
+0.2.0.41 - 201905281530
+=======================
+Implementation of small response for GetContractSalesOrder
+Provision to rovide multiple PAC Licenses in request
+
+0.2.0.40 - 201905281300
+=======================
+QuotationExpiryDate and TMVTimeQuantity attributes added in GetQuotation
+
+0.2.0.39 - 201905271840
+=======================
+Alpago changes
+
+0.2.0.38 - 201905271514
+=======================
+Added custom attribute TMVPaymentTerms in sale sorder
+
+0.2.0.37 - 201905231600
+=======================
+Added custom attribute TMVPartnerID in sale sorder
+UniqueCardId change to Upper case in sales order
+AllPago db script correction
+
+0.2.0.36 - 201905231600
+=======================
+Proper error message shown in MergeUpdateCustomerContactPersonAPI in case of issue
+
+0.2.0.35 - 201905222030
+=======================
+Changes in create, update, get and merge update customer API for CRM
+
+0.2.0.34 - 201905212335
+=======================
+Changes in Create, Update, Get and Merge Update Contact Person calls
+
+0.2.0.33 - 201905212215
+=======================
+Added missed name assignment for Store in Data project
+
+0.2.0.32 - 201905212010
+=======================
+Added changes that were deleted mistakenly for SalesRepPortal Web UI
+
+0.2.0.31 - 201905211850
+=======================
+Changes in create, update, get and merge update customer API for CRM
+
+0.2.0.30 - 201905211700
+=======================
+Added changes that were deleted mistakenly
+
+0.2.0.29 - 201905201800
+=======================
+Customer use mapping bug fixed
+
+0.2.0.28 - 201905201730
+======================= 
+Quotation bugs 16672 and 16586 fixed.
+
+0.2.0.27 - 201905201455
+======================= 
+Add validation for Address.Name field for customer and contact person
+
+﻿0.2.0.26 - 201905201430
+======================= 
+Git Ignore file re added
+
+0.2.0.25 - 201905201730
+======================= 
+AllPago Blob Implementation
+
+0.2.0.24 - 201905172200
+======================= 
+Dashboard API Updates
+
+0.2.0.23 - 201905141900
+======================= 
+NAL Implementation
+
+0.2.0.22 - 201905141700
+=======================
+Changes in update customer API for CRM
+
+0.2.0.21 - 201905141631
+=======================
+Changes in Merge Create Customer Contact Person and Merge Update Customer Contact Person calls
+
+0.2.0.20 - 201905141230
+=======================
+Accomodate un-integrated products in GetCustomerInvoicesDetail API
+
+0.2.0.19 - 201905141106
+=======================
+Address issue resolved in GetContactPerson call
+Address object reduced to required fields only
+Swap Language made part of response
+
+0.2.0.18 - 201905132300
+=======================
+Update Cutstomer API: MergeUpdateCustomerContactPersion
+
+0.2.0.17 - 201905132200
+=======================
+Open Invoice Management for migrated orders
+
+0.2.0.16 - 201905131252
+=======================
+Add mapping of "Product Link" attribute
+
+0.2.0.15 - 201905121842
+=======================
+Get and Update Contact Person Call for CRM
+
+0.2.0.14 - 201905121200
+=======================
+GS_028 - Sales taker is not automatically set to sales order from quotation
+(SalesOrder Template Changed)
+4-SalesOrder-TemplateMapping-SalesTakerOnQuoteOrder
+
+﻿0.2.0.13 - 201905121301
+=======================
+Get customer call updated for CRM
+
+0.2.0.12 - 201905101923
+=======================
+Create customer call updated for CRM
+
+0.2.0.11 - 201905101923
+=======================
+Create Contact Person call updated for CRM
+
+0.2.0.10 - 201905081233
+=======================
+Check removed to parse long for Customer and Customer Address
+
+0.2.0.9 - 201905071504
+======================
+Address Type issue fix in Get Quotation
+
+0.2.0.8 - 201905070213
+======================
+14719 - Customer address type string value parameter addition in GetCustomer
+
+
+0.2.0.7 - 201905061800
+======================
+Tax percentage added in Get Quotation Call
+Name added in Address in Get Quotation Call
+
+0.2.0.6 - 201905022206
+======================
+Periodic Discount Type added in Get Quotation Call
+
+0.2.0.5 - 201905021906
+======================
+A new parameter "company" added in create customer call 
+
+0.2.0.4 - 201904302150
+======================
+Mapping Template Update for Catalog to show empty for NA in cl_qty_single_qty_text element
+
+0.2.0.3 - 201904302000
+======================
+Create Quotation improvements in CL
+
+0.2.0.2 - 201904301925
+======================
+Tax details populated at item level instead of header level
+
+0.2.0.1 - 201904291840
+======================
+TMVInvoicePosted added in GetContractSalesOrder Realtime Call
+
+========================================================================================
+----------- TeamViewer Application Update 10.0 - Starting from here ---------------------
+========================================================================================
+
+﻿0.1.0.108 - 201904252103
+========================
+Remove customer's phone validation from Create and Update Method
+
+0.1.0.107 - 201904241857
+========================
+CDATA Issue fix for Catalog XML file
+
+0.1.0.106 - 201904240146
+========================
+Bug 14256 fixed
+Payment methods were duplicate when a contract was updated through changed payment method
+
+0.1.0.105 - 201904232208
+========================
+Bug 14370 fixed
+CAlculation of Calculate Line Amount updated w.r.t. Quantity
+
+0.1.0.104 - 201904232000
+========================
+Bug 14272 fixed (All variants added for migration).
+Catalog templated updated to comment "mobile_description" tag.
+
+0.1.0.103 - 201904221642
+========================
+Addresses in Quotation Bug Fix
+
+0.1.0.102 - 201901191920
+========================
+ConvertQuotationToSalesOrder implemented
+
+0.1.0.101 - 201901191455
+========================
+Address in Quotation in GetQuotation call
+
+0.1.0.100 - 201904161220
+========================
+Request Response logging updated for Change Contract Payment Method
+
+0.1.0.99 - 201904151355
+=======================
+Bug 14063 and 14118 fixed. Calculate Line Amount using Time Quantity.
+
+0.1.0.98 - 201904112035
+=======================
+Change contract payment method implemented
+
+0.1.0.97 - 201904110000
+=======================
+Customer, Contact Person info added in GetQuotation
+
+0.1.0.96 - 201904091400
+=======================
+Bug 13490 fixed. Single quote and double quote issue fixed in sales order.
+
+0.1.0.95 - 201904012245
+=======================
+Discount Amount changed to Discount Line for Calculate Line Amount
+
+0.1.0.94 - 201903291845
+=======================
+Parameters for Time Quantity updated for Get Contract Sales Order call
+
+0.1.0.93 - 201903281530
+=======================
+Update CloseExistingOrder error message
+
+0.1.0.92 - 201903272042
+=======================
+Add custom attribute TMVORIGINATINGCOUNTRY for Sales Order at header level
+
+﻿0.1.0.91 - 201903261515
+=======================
+Pass D365 customer accout number with contract management new order
+
+0.1.0.90 - 201903251825
+=======================
+Add Contact Person inforamtion in Get Contract Sales Order call
+
+0.1.0.89 - 201903242230
+=======================
+Contract Management sales order customizations
+
+0.1.0.88 - 201903232055
+=======================
+Payment Information Issue Fix in Get Contract Sales Order
+
+0.1.0.87 - 201903231830
+=======================
+Implementation of Close Existing Order
+
+﻿0.1.0.86 - 201903232000
+=======================
+Contract Management: custom attributes TMVOLDSALESORDERNUMBER, TMVOLDSALESLINENUMBER, TMVOLDSALESLINEACTION added in sales order.
+
+﻿0.1.0.85 - 201903223020
+=======================
+Payment Link: Address validation removed.
+
+0.1.0.84 - 201903222020
+=======================
+update message in delete payment method: Unable to delete record, transaction exists against payment method
+
+0.1.0.83 - 201903221932
+=======================
+Removed Billing Address and Currency validation. Update status to false of failure call. Create and Update Payment Method.
+
+0.1.0.82 - 201903192110
+=======================
+Updates in Get Contract Sales Order realtime call
+
+0.1.0.81 - 201903191618
+=======================
+Remove Validation of amount for create and update payment method
+
+0.1.0.80 - 201903182000
+=======================
+Bug 13028 fixed. Invoice Management - Customer Invoice is fetched when add dummy text with valid License ID
+
+0.1.0.79 - 201903181715
+=======================
+Time Quantity and Calculated Line Amount added in Contract Sales Order Call
+
+0.1.0.78 - 201903172145
+=======================
+Payment Information incorporated in Contract Sales Order Call
+
+0.1.0.77 - 201903152020
+=======================
+Payment Management: DeleteCustomerPaymentMethod implemented
+
+0.1.0.76 - 201903151820
+=======================
+Credit Card information added in  Get Contract Sales Order Real Time call﻿﻿
+
+0.1.0.75 - 201903142030
+=======================
+Invoice Management: GetCustomerInvoices implemented
+
+﻿﻿﻿﻿﻿﻿0.1.0.74 - 201903131730
+=======================
+Add Time Quantity methods
+	CalculateLineAmount
+	CalculateTimeQuantity
+
+﻿﻿﻿﻿﻿0.1.0.73 - 201903081304
+=======================
+Merge with teamviewer/develop-BR02-Update8.1 
+Payment Methods Management:
+	GetCustomerPaymentMethods
+	CreateCustomerPaymentMethod
+	UpdateCustomerPaymentMethod
+
+﻿0.1.0.72 - 201903041841
+=======================
+MergeCreateCustomerContactPerson: Issue resolved regarding ContactForParty and DirectoryPartyRecordId
+
+0.1.0.71 - 201903011830
+=======================
+Payment Link: Added Language, RetailChannel, ThreeLetterISORegionName fields in GetCustomerInvoiceDetail method
+
+0.1.0.70 - 201903011730
+=======================
+Source Code: Currency parameter made optional in Discount with Affiliation and Quantity Discount with Affiliation
+
+0.1.0.69 - 201902281700
+=======================
+New product custom attributes added with translations
+
+0.1.0.68 - 201902272200
+=======================
+Updates in Discount with Affiliation files
+
+0.1.0.67 - 201902261610
+=======================
+Data Sync and File Sync services will only reset their respective jobs when they are stopped.
+
+﻿﻿﻿﻿0.1.0.66 - 201902251400
+=======================
+Data archiving feature added in SQL Server for Request Response table.
+API Log dashboard updated by providing a filter to fetch data from Active Log or Archive Log
+
+0.1.0.65 - 201902202033
+=======================
+Merged CL interfaces
+	MergeAddUpdateRemoveCartlines
+
+0.1.0.64 - 201902152156
+=======================
+Merged CL interfaces
+	CreateMergeSalesOrderTransaction
+
+﻿0.1.0.63 - 201902152135
+=======================
+Resolve DirPartyRecordId = 0 issue for CreateCustomer call on second time
+
+0.1.0.62 - 201902121520
+=======================
+Validity dates for Discount with Affiliation set to original dates as configured in AX﻿
+
+0.1.0.61 - 201902121420
+=======================
+Set IsSFTPDirTreeCreated field of Store table to false at the time of Duplication of store
+
+﻿﻿0.1.0.60 - 201912021125
+=======================
+Developed Interface for PAC product activation and merged branch teamviewer/develop-BR02-Update8.1
+
+﻿0.1.0.59 - 201902111610
+
+=======================
+Windows Services will now log both Start and Completed statuses of the Jobs
+
+﻿0.1.0.58 - 201902111530
+=======================
+Header captions updated from "-" to "_" for:
+	Discount,
+	Discount with Affiliation and
+	Quantity Discount with Affiliation
+Updated value of URL_Key for Master and Variant Products
+Updated HTML Tags created in Catalog XML File
+
+0.1.0.57 - 201904021617
+=======================
+Merged CL interfaces
+	MergedUpdateCustomerContactPerson
+	MergedCreateCustomerContactPerson
+	MergedAddUpdateCartlines
+
+﻿0.1.0.56 - 201902011510
+=========================
+Generate CSV files using templates from database instead of file system
+
+0.1.0.55 - 201901241930
+=========================
+Added currency code as an additional parameter for Quantity Discount
+
+0.1.0.54_B - 201901312030
+=========================
+Payment Link - AddPaymentLinkForInvoice methods implemented
+
+0.1.0.54_A - 201901221730
+=========================
+Payment Link GetCustomerByInvoiceId and GetCustomerInoiceDetails methods implemented
+
+0.1.0.53_B - 201901211420
+=========================
+Source Code:
+	Added Discount with Affiliation New Module
+
+0.1.0.53_C - 201902041251
+=========================
+Source Code:
+	Added Quantity Discount with Affiliation New Module
+	Integrated Affiliation in CreateSalesOrderTrasnaction Realtime API Call
+
+========================================================================================
+----------- TeamViewer Application Update 8.1 - Starting from here ---------------------
+========================================================================================
+
+0.1.0.53_A - 201901071210
+=======================
+Source Code:
+	Added ECL_GetRetailAffiliations method to fetch all affiliations from AX
+	Update ECL_CreateMergedCart method to associate affiliation with cart
+	Update ECL_CreateAndUpdateCart method to associate affiliation with cart
+
+0.1.0.52 - 201901041700
+==================
+Custom attributes(TMVSanctionFlag, TMVSanctionStatus, TMVIsDuplicateUser) added in Create/Update customer for DQ change
+Customer attributes setup should be completed in D365 as a prerequisite
+
+﻿0.1.0.51_B - 201901142300
+==================
+Added promotion-id, OfferName, Percentage, DiscountLineTypeValue, ManualDiscountTypeValue, CustomerDiscountTypeValue and PeriodicDiscountTypeValue in Discount csv
+
+﻿0.1.0.51_A - 201901031900
+==================
+Added offer-id, discount-name and multi-buy-discount-type elements in Quantity Discount xml
+
+0.1.0.50 - 201812121800
+==================
+Using Yes/No instead of True/False for cl_split_item in catalog xml
+
+0.1.0.49 - 201812121800
+==================
+Added StoreViewCode for default language in catalog xml
+
+0.1.0.48_A - 201812041800
+==================
+Improvement of ApplyCouponsWithNewCart & CreateCartWithLinesAndCoupons APIs using merge calls logic at RS level
+
+0.1.0.48 - 201812041800
+==================
+Implemented ApplyCouponsWithNewCart API & CreateCartWithLinesAndCoupons API
+
+0.1.0.47_D - 201812051700
+==================
+Call paymentconnector API from WEBUI
+
+0.1.0.47_C - 201812042130
+==================
+Payment Connector Service Acoount Id automation
+
+0.1.0.47_B - 201812032030
+==================
+Implemented auto folder creation for SFTP
+
+0.1.0.47_A - 201812031800
+==================
+Implemented Auto store configuration for CL
+
+0.1.0.46 - 201811271930
+==================
+Added cl_split_item, cl_config_body_content, cl_config_header_content and cart_description custom attributes in catalog
+
+﻿﻿0.1.0.45 - 201811271840
+==================
+Renamed Cart Merge method from MergeCart to CreateCartWithLinesAndDelivery
+
+0.1.0.44 - 201811221430
+========================
+Implemented InAppPurchase Interfaces(autorenew, cancel contract, create sales order(existing))
+Introduced Default Customer for InAppPurchase store
+
+﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿0.1.0.43 - 201811212015
+==================
+Add rounding feature in CL product to manage "decimal to be rounded to 1 Yen" for JAPAN
+
+﻿﻿﻿﻿﻿﻿﻿﻿0.1.0.42 - 201811151855
+==================
+CL related code for Catalog extension for min_cart_qty and max_cart_qty attribute
+
+﻿﻿﻿﻿﻿﻿﻿﻿0.1.0.41 - 201811061945
+==================
+Remove hard coded values from Payment connector and add application keys for this
+
+﻿﻿﻿﻿﻿﻿﻿﻿0.1.0.40 - 201811052040
+==================
+Added StoreCode for Product Catalog xml
+
+﻿﻿﻿﻿﻿﻿﻿﻿0.1.0.39 - 201811022350
+==================
+Added new CountyName, StateName and IsAsyncAddress to ErpAddress class to hormonize with D365 Address class
+
+0.1.0.38 - 201811021912
+==================
+Developed Screen for api response logs fixes
+
+﻿﻿﻿﻿﻿0.1.0.37 - 201811021911
+==================
+9422 : Language code is incorrect on ecom customer (South Korea & Japan customers)
+
+﻿﻿﻿﻿0.1.0.36 - 201811011903
+==================
+Developed Screen for api response logs with filters and Merged branch
+
+﻿﻿0.1.0.35 - 201811012345
+==================
+Add JCB and DINERSCLUB cart type for credit card payment to move on PRD
+Note: not moving blow changes to PRD
+
+﻿0.1.0.34 - 201811011440
+==================
+Removed un necessary Fatal Logging
+
+﻿0.1.0.33 - 201810261250
+==================
+Web API request response logging
+
+﻿0.1.0.32 - 201810260230
+==================
+Language code swapping for Create, Update and Get calls of Customer & ContactPerson
+
+0.1.0.31 - 201810251820
+==================
+Resolve discount issue for same item in sales order multiple times
+
+0.1.0.30 - 201810242015
+==================
+Imporve sales order logging
+
+﻿0.1.0.29 - 201810241350
+==================
+Quantity Discount re structuring according to latest requirements
+
+﻿0.1.0.28 - 201810231740
+==================
+Add server side validations for CreateCustomer, UpdateCustomer, CreateContactPerson & UpdateContactPerson
+
+Name:100
+FirstName:25
+MiddleName:25
+LastName:25
+Email:255
+VATNumber:20
+Language:7
+ZipCode:10
+
+=======================
+//PRD BR-2.0 GO-LIVE
+=======================
+0.1.0.27 - 201810172210
+==================
+Updated DB Script for Catalog
+Added Email Template script
+
+0.1.0.26 - 201810151250
+==================
+Removed EmailTemplate table from Store duplication
+Added EmailTemplateId field in db script for production
+Updated Portuguese (Portugal) ErpCode for production
+
+0.1.0.25 - 201810101820
+==================
+Added Quantity Text, Quantity Breakpoints and Quantity Label translation in Catalog file
+
+0.1.0.24 - 201810091810
+==================
+Made SFTP port configurable. Set timeout for SFTP.
+
+0.1.0.23 - 201810091700
+==================
+Channel base restrictions for GetContractSalesOrder API
+Provide ecom product id in GetContractSalesOrder API
+
+0.1.0.22 - 201810081920
+==================
+Add TMVProductType tag in catalog file
+
+0.1.0.21 - 201810081825
+==================
+Added null check for Stores list.
+Sales Order xml logging
+Changed ErpCode for Purtageese language
+
+0.1.0.20 - 201810061625
+==================
+Fixed Multi Store issue where Web API was working for one and not for other
+
+﻿0.1.0.19 - 201810052020
+==================
+Need identification of main item in sales order call
+TMVParent tag in GetContractSalesOrder API
+
+0.1.0.18 - 201810042025
+==================
+Delete PayPal from PaymentMethod table for South Korea if it exists
+
+0.1.0.17 - 201810041755
+==================
+Deleted PurchaseOrder/Invoice from PaymentMethod table for South Korea and Japan if it exists
+
+0.1.0.16 - 201810041415
+==================
+Added Unit of Measure for variants as well in catalog xml
+
+0.1.0.15 - 201810041150
+==================
+Updated Global Roll Out Db Scripts for South Korea language
+
+0.1.0.14 - 201810031500
+==================
+Update CL jobs number from 10 to 400 for DataSync
+
+0.1.0.13 - 201810021800
+==================
+Added Global Roll Out Db Scripts
+
+0.1.0.12 - 201810012100
+==================
+UnitOfMeasure change in catalog
+
+0.1.0.11 - 201809301600
+==================
+8937 : Create multiple addresses with CreateCustomer API
+
+0.1.0.10 - 201809300300
+==================
+Unit of Measure change for Sales Order product-lineitems
+
+0.1.0.09 - 201809292300
+==================
+Added Quantity Discount job to Quartz Scheduler
+
+0.1.0.08 - 201809281100
+==================
+Added new CL job for Quantity Discount
+
+﻿0.1.0.07 - 201809262130
+==================
+Contract Migration with AddOns for ecom orders
+
+0.1.0.06 - 201809181845
+==================
+Mix cart functionality to manage following relations
+
+•	Migration Perpetual Main Item
+•	Migration Perpetual AddOn item
+•	Related
+•	Bundle
+•	Multi-Main for endpoints
+•	Multi-Main for GBs
+
+
+0.1.0.05 - 201809121800
+==================
+Ecom require virtual(ComKey) in ItemId for Cart API response.
+We are getting Configurable Product = TVP0001 , Virtual Product = TVP0001_000000093 in Cart API . this need to be solve ASAP
+
+0.1.0.04 - 201809110410
+==================
+Code fixes for Get Contract Salesorder.
+Code fix for Customer ContactPersonid 
+
+0.1.0.03 - 201809041210
+==================
+Code fixes for Get Contract Salesorder.
+
+0.1.0.02 - 201808311910
+==================
+Store duplicate functionality implemented 
+code merge from product 
+includes : DB Changes , DashboardAPI changes, WebUI changes 
+
+0.1.0.01 - 201808312110
+==================
+Contract migration sales order changes
+
+0.1.0.00 - 201808290725
+==================
+Get customer by licence number implemented.
+
+========================================================================================
+----------------------TeamViewer BR2 - Starting from here ------------------------------
+========================================================================================
+0.0.3.32 - 201808131315
+==============================
+Update new retail proxy 7.2.11792.64877
+
+0.0.3.31 - 201806221600
+==============================
+Implement SO failer email notification in WebAPI method CreateSalesOrderTransaction
+Implement PaymentConnector exception handling
+
+0.0.3.30 - 201806181700
+==============================
+//NS: Cart ReCalculation to avoid penny issue
+
+0.0.3.29
+==============================
+1: Windows Sync job Clock Icon updated on edit job
+2: Added Edit job timer functionality for File Syn Service
+
+0.0.3.28 - 201805241700
+===============================
+1. Credit card transaction for AMEX and MasterCard is now getting invoiced
+2. PayPal Email length issue resolved
+
+0.0.3.27 - 201805241700
+===============================
+Price & Discount csv files with additional attributes requested by eCom team
+The changes to the SKU are successful, however we are still not able to import the files. 
+This is by no fault of yours and is entirely because of the import module we are using.  
+It requires the following columns to exist:  
+attribute_set
+product_type
+
+These are in the catalog.xml file as well as “attribute_set_code” and “product_type”. 
+Please can we have these columns added to the PriceBook.csv and Discount.csv files? 
+
+0.0.3.26 - 201805231245
+===============================
+Pricebook SKU issue reported by Ecom team 
+If you look at the SKU for the first item in Catalog.xml you will see:
+TVAD001_000000086
+If you look at the SKU for the first item in PriceBook.csv you will see:
+TVAD001_Y__SUB-Y_000000086
+This definitely seems to represent the same product, but the format is very different. Therefore we cannot import the PriceBook.csv file. 
+We need the format for the SKU to be the same between the three output files. Catalog is ‘correct’ because it matches of course all the products in the system today. 
+
+0.0.3.25 - 201805101745
+===============================
+Removed start time from UpdateJobStatus Data project
+Removed Dashboard API from this solution
+
+0.0.3.24 - 201805092130
+===============================
+Changes for Web App.
+Logs screen
+Columns added in Payment meethod screen
+Columns added in Configurable Objects screen
+
+0.0.3.23 - 201805081945
+===============================
+Updated 1- TVW CommerceLink Installation Guide v1.1.doc
+Updated 2- TVW CommerceLink Setup & Configuration Guide v1.1.docx
+Updated 3- TMV Custom Configurations v1.1.docx
+
+0.0.3.22 - 201805072135
+===============================
+Updated 1- TVW CommerceLink Installation Guide v1.0.doc
+Updated 2- TVW CommerceLink Setup & Configuration Guide v1.0.docx 
+
+0.0.3.21 - 201805031300
+===============================
+Add DeleteCarts method in CL-CRT
+
+0.0.3.20 - 201804241700
+===============================
+Add option to get constant file name for marchandize while uploading to SFTP
+This was requirement for TeamViewer BR-1 so add it as feature in CommerceLink with configurable key.
+ECOM.Constant_Filename_For_SFTP
+
+0.0.3.19 - 201804181300
+===============================
+-- Update Contract done with InventDimId
+After discussion with Umar Sardar on Monday. 
+We are committing update contract code with resume able state. 
+Currently it is getting InventDimId as input which should be replace with VariantId and then we have to update AX code.
+RS & AX code changes have been pushed into VSTS.
+Code changes & Task detail.
+https://teamviewer-d365.visualstudio.com/D365O/_queries?id=4493&triage=true&fullScreen=false&_a=edit
+
+
+0.0.3.18 - 20180417208
+===============================
+-- Customlogger updated to context base. 
+
+0.0.3.17 - 20180416208
+===============================
+Static classes removed . 
+
+0.0.3.16 - 201804131550
+===============================
+Remonve static class for Channgel Languages. Used alternate for this that is not static.
+
+0.0.3.15 - 201804111730
+===============================
+File Sync Service fix 
+-- Channel Configuration upgraded to new architecture for file sync
+-- Added Quotation Reason Group Manager for file sync
+-- Set the identifier for every file manager with proper name set in database
+
+0.0.3.14 - 201804111730
+===============================
+--Dadasync issues fiexe 
+
+0.0.3.13 - 201804101627
+===============================
+Dashboard Api Assembly Changes
+
+0.0.3.12 - 201804092050
+===============================
+--FileSyc Issue fixed 
+
+0.0.3.11 - 201804091850
+===============================
+--Database script added for multistore
+
+0.0.3.10 - 201804061950
+===============================
+--SalesOrder Changes TMVisMigrated and TMVIsSwitch added
+
+0.0.3.9 - 201804061645
+===============================
+--FileSync Service constructor inilization issue fixed 
+--Storeservice isActive check added while getting stores
+=======
+﻿0.0.3.8 - 201804051920
+===============================
+Cross Sell Migration changes
+Changes for TMVQuotationId in CreateSalesOrdetTransaction request
+
+0.0.3.7 - 201804052210
+==============================
+Swagger API - Manage Actions Page Added
+Manage Stores menu Improved
+Back Button Added
+Show Password function added in app settings
+State Management in Mapping Config
+
+0.0.3.6 - 201804041745
+===============================
+--Update Contract switch, migration & sell-add-on done
+
+0.0.3.5 - 201804022030
+===============================
+-- Code merge complete with TV branch 
+0.0.3.4 - 201804022030
+-- Code merge complete with TV branch 
+-- Unit test web API and Winservice controller.
+0.0.3.3 - 201804010330
+===============================
+-- Code refectroing branch merged into MultitenantV2
+
+﻿0.0.3.2 - 201803310330
+===============================
+-- Storekey added while resloving 
+-- All projects udpated Web,Windows
+- Home Page Added for App
+- ECOM Removed from Store UI
+- Unused Pages removed from UI
+- Application Settings Screen Fixed
+
+﻿0.0.3.1 - 201803302030
+===============================
+-- Code refectoring 
+-- Admin pannel merge 
+
+============================================= NOTE ===========================================================
+This branch consists of changes made during multistore changes including WebAdmin, WebAPI and WindoWservice 
+It also has changeset from TV latest branch all the development made in April 2018.
+
+
+0.0.2.19 - 201803282300
+===============================
+Customer Order Changes for Calculation
+
+
+0.0.2.18 - 201803291245
+===============================
+Updated TMV Custom Configurations v1.0.docx to highlight areas that need attention
+
+0.0.2.17 - 201803281010
+===============================
+Additinal nodes in Product catalog CrossSell type upgrade, migrate, update, switch added
+
+0.0.2.16 - 201803211100
+===============================
+TeamViewer Quotation Missing Fields Tax Added
+
+0.0.2.15 - 201803201728
+===============================
+Fixed missing fields in Get Quotation except Tax
+
+
+0.0.2.14 - 201803201722
+===============================
+Fixed the code to get proper validation message in case of RTS call failure in D365 conroller
+
+0.0.2.13 - 201803192130
+===============================
+Added SalesId in GetQuotation call
+
+0.0.2.12 - 201803162030
+===============================
+Added Product Name and ReasonId in GetQuotation call
+
+0.0.2.11 - 201803151920
+===============================
+Added error response messages for Create Quotation missing lines
+
+0.0.2.10 - 201803141650
+===============================
+Added additonal parameter of CustomerAccount for GetContractInvoices
+
+﻿0.0.2.9 - 201803140200
+===============================
+--Team View Abandoned Cart Items FDD 003
+--CL DBScript added 11-AbandonedCartScript.sql
+
+0.0.2.8 - 201803131615
+===============================
+--Update Contract Cancel / Terminate done
+
+﻿0.0.2.7 - 201803091830
+===============================
+OfferType no more a mandatory field in GetContractSalesOrders request
+
+0.0.2.6 - 201803091830
+===============================
+Set missing QuotationId field in GetQuotation response.
+
+0.0.2.5 - 201803091830
+===============================
+--Validate VAT Number CL Web API.
+
+0.0.2.4 - 201803072330
+===============================
+--Get Contract Invoices. FDD-095
+
+0.0.2.3 - 201803071430
+===============================
+--GetQuoation controller updated handelded charges, discounts and attributevalues
+--UY
+=============================
+﻿0.0.2.2 - 201803071430
+===============================
+Update entities for Update 12
+
+0.0.2.1 - 201803071015
+===============================
+Resolve CreateCustomer issue with Update 12
+
+0.0.2.0 - 201803062100
+===============================
+CL compatibility has been completed with RetailSDK changes due to D365 Update-12 platform upgrade.
+
+0.0.1.46 - 201803051600
+===============================
+-Get Quoation validation fix 
+-Get Offer type fix for get contract 
+-UY
+
+0.0.1.45 - 201802282000
+===============================
+-Bug Fixed for FDD-018 Development  
+-UY
+
+﻿0.0.1.44 - 201802221500
+===============================
+-Missing scripts added 
+
+0.0.1.43 - 201802221500
+===============================
+
+--FDD-018 Development 
+--FDD-020 Development 
+--FDD-021 Development
+--UY
+=======
+﻿0.0.1.42 - 201802221645
+===============================
+PIT information Synch from Ecom sales order - Development: RS +CRT+ CL+ AX
+
+0.0.1.41 - 201802201513
+===============================
+Credentials and endpoint for DQS Service will be taken from Magento as input. If they are not provided from Magento they will be picked up from CL configuration.
+
+0.0.1.40 - 201802182000
+===============================
+Removed duplicate entries for Languages in Configurable Objects table
+
+0.0.1.39 - 201802181155
+===============================
+Fix for Magento issue, No this channel will only create addresses of single country confgured in below key
+address.ThreeLetterISORegionName = ConfigurationHelper.GetSetting(CUSTOMER.Default_ThreeLetterISORegionName).ToString();
+
+0.0.1.38 - 201802142345
+===============================
+-Added functionaility for DQS in CL Web API
+
+0.0.1.37 - 201802131745
+===============================
+-Resolve Bug 5816: GetContactPerson Language is always retreived as Null
+
+0.0.1.36 - 201802091925
+===============================
+-TeamViewer CL changes to accomodate Discount Custom Sp has been eliminated for CU 12 using data services.
+
+0.0.1.35 - 201802091205
+===============================
+-Payment issues fixed uniquecardid, namespace
+
+0.0.1.34 - 201802061205
+===============================
+Resolved issue by handling Remove & Add flow in CL
+
+0.0.1.33 - 201802021700
+===============================
+﻿-TeamViewer Upsell Ext changes for CU12 
+
+0.0.1.32 - 201802021145
+===============================
+﻿-Cart tax issue resolved
+-Add new method UpdateDeliverySpecification to cart
+
+0.0.1.31 - 201801311800
+===============================
+﻿-ProviderTransactionType added in auth and card blob
+-UY
+
+0.0.1.30 - 201801280235
+===============================
+﻿-TeamViewer Upsell Ext Changes with Tweaking
+
+0.0.1.29 - 2018012512359
+===============================
+- Updated DB Scripts and file for Catalog Mapping added null check  for ErpAttributes
+
+﻿0.0.1.28 - 201801231700
+===============================
+- Config document updated 
+-UY
+
+﻿0.0.1.27 - 201801211900
+===============================
+- Made Seurity Protocol configurable
+
+﻿0.0.1.26 - 201801202330
+===============================
+- Added null check on erpProduct.Image 
+
+0.0.1.25 - 201801202000
+===============================
+- Added TMVPURCHORDERFORMNUM custom attribute 
+- updated map
+-UY
+
+0.0.1.24 - 201801191120
+===============================
+- Allowed different security protocols
+
+0.0.1.23 - 201801190140
+===============================
+- Mapping tempalte added for ERPSalesorder
+-UY
+===============================
+
+0.0.1.22 - 201801190140
+===============================
+- Discount Extension Processed to get From and to Date
+===============================
+
+0.0.1.21 - 201801181820
+===============================
+- Configuration Document udpated
+- Date issue fixed  
+- UY
+=======
+﻿0.0.1.20 - 201801181310
+===============================
+- Template file and DB Scripts update for Catalog Template Mapper to remove CDATA double quotes
+- Template file and DB Scripts update for Catalog Template Mapper for Virtual Products, set <visibility> to “Catalog”, instead of “Not Visible Individually”
+
+0.0.1.19 - 201801171940
+===============================
+- DB Scripts Update for SFTP in accordance with TV INT enviornment
+
+0.0.1.18 - 201801171720
+===============================
+- Payment ENUM implementation
+- Code fixes 
+- SP changes for payment method 
+- UY
+﻿0.0.1.17 - 201801171440
+===============================
+- Setting the same value to Name and Short Discription in Catalog file
+- Changed Catalog Mapper script and Catalog Mapper file for it
+0.0.1.16 - 201801161850
+===============================
+- Payment connector UI implementation
+- Added new feilds in UI for payment method 
+- Changed configuration file to use localhost
+- ZY
+===============================
+0.0.1.15 - 201801161400
+===================
+- Payment connector implementation
+- Added new feild in payment method 
+- Remove portable assemblies . 
+- Implemented Paypal Connector 
+- EDM update for paymen tmethod 
+- ServiceAccountId added in paymentMethod Table (important for payment connector service account id)
+- UY
+===================﻿==============
+﻿﻿0.0.1.14 - 201801160045
+Catalog Customization done on following points
+1- Moved CDATA logic to XMLTemplateHelper by reading the file as text. Replacing the content for CDATA and saving it.
+2- Added CDATA for Short Description.
+3- Added logging for number of Catalogs in D365 Product Controller
+4- Added logging for Catalog Name in D386 Product Controller
+===================
+0.0.1.13 - 201801151815
+SalesOrder Customization done on following points
+1- Add configuration to enable disable create customer with sales order. It will just update customer's address in D365.
+(configuration key added Create_Customer_With_SalesOrder)
+2- Add configuration to get sales order.Id from Magento request.
+(configuration key added Disable_Shippment_Process)
+3- Ad configuration to enable disable following items with sales order. 
+shipment/delivery charges
+shipping address
+shipping discounts
+(configuration key added Disable_Shippment_Process)
+4- Manage lines and order delivery mode if shipment is disable.  (download/standard)
+order.DeliveryMode (Download - with configuration key added AX_Default_Delivery_Mode)
+line.DeliveryMode (Download - with configuration key added AX_Default_Delivery_Mode)
+5- What will be line.InventoryLocationId? (TVDE)
+6- What will be line.UnitOfMeasureSymbol? (pcs)
+7- What will be line.ItemTaxGroupId? (Empty)
+8- What will be line.SalesTaxGroupId? (Empty)
+9- APPLICATION.ERP_AX_InferPeriodicDiscount will be enable/disable? (Disable)
+===================
+
+﻿﻿0.0.1.12 - 201801121830
+Upsell and Custom Fields SP constants parmeterized.
+===================
+
+﻿0.0.1.11 - 201801110220
+Upsell Master to Variant Level configuration.
+===================
+
+﻿0.0.1.10 - 201801101800
+- Payment connector implemenations 
+- New script added for payment
+- New configuration key USETESTCONNECTOR is added to use test connector in web.config .
+- UY
+=====================
+﻿﻿0.0.1.9 - 201801101720
+- configurable erp to ecom language code mapping.
+- For translations made upsell, configurable objects empty
+
+===================
+﻿0.0.1.8 - 201801101330
+- Correctionm of configurable_variations tag data
+
+===================
+
+﻿0.0.1.7 - 201801082200
+- Correction of configurable_variations tag data
+
+===================
+﻿0.0.1.6 - 201801082200
+- Added Ecom Product Name as Product Name and added <![CDATA["....."]]> in description
+
+===================
+
+﻿0.0.1.5 - 201801082100
+- Add new methods of cart AddTenderLines, AddPreprocessedTenderLines, Checkout
+- Add Cart entity in CL
+===================
+
+﻿0.0.1.4 - 201801081850
+- ReplenishmentWeight and Product Custom Fields correction for Variants.
+===================
+
+﻿0.0.1.3 - 201801081410
+- Changed the access level of languages object
+
+﻿0.0.1.2 - 201801071210
+- Product Catalog Generation for Team Vieiwer with basic features.
+- Now Catalog gneration will make use of delta
+- Multilingual feature added
+- Product Upsell/Crosssell added.
+
+0.0.1.1 - 201801022140
+FDD-009 CreateOrUpdateCart, GetCart & AddCartLines done with web APIs initail version
+
+CreateOrUpdateCart:
+===================
+1- Need to pass only cart.Id to create cart
+2- To update cart we can change any property of cart object
+
+GetCart:
+========
+1- Just requied cart.Id to fetch it
+
+AddCartLines:
+=============
+1- Cart.Id is requied to add any new line in cart with two additional properties (CalculationModes & CartVersion)
+Note: Currently we are not getting any info of cart version in cart resoponse and without this property RS OOB method has been obsolete.
+2- Following properties are readonly in CartLine CRT object so they are ignored in CL AutoMapper ERP to RS mapping.
+	Mapper.CreateMap<ErpCartLine, CartLine>().IgnoreReadOnly()
+	.ForMember(desc => desc.QuantityInvoiced, opt => opt.Ignore())
+	.ForMember(desc => desc.QuantityOrdered, opt => opt.Ignore())
+	.ForMember(desc => desc.StaffId, opt => opt.Ignore())
+	.ForMember(desc => desc.SalesStatusValue, opt => opt.Ignore())
+	.ForMember(desc => desc.OriginalPrice, opt => opt.Ignore())
+	.ForMember(desc => desc.LinkedParentLineId, opt => opt.Ignore())
+	.ForMember(desc => desc.LineNumber, opt => opt.Ignore());
+3- No need to pass values of following properties, Cart Validation failed with proper error messages.
+	IsPriceKeyedIn = true 		(Correct value to pass in false)
+	IsPriceOverridden = true	(Correct value to pass in false)
+4- If pass "UnitOfMeasureSymbol" get erros "Object reference null"
+
+________________________________________________________________
+
+0.0.1.0 - 201712281913
+	- added clversion.txt.
+	- added clversionlog.txt. 
+	- updated code so far for teamviewer
+	
+Prescribed process :
+1.	Release should always be deployed from 
+	a.	main repository  e.g. >> teamviewer/TVW-Customization
+2.	All changes customization by individuals should be done in their separate respective branch
+	a.	Like >>teamviewer/custom/<Your branch name>
+3.	No stable code in main repository no release deployed, Code in main repository should be stable and have corresponding updates in both CommerceLink and RetailsServer 
+4.	No pull request no code pushes to main repository
+5.	Two file would  be added in root of CommerceLink and RetailSDK. Sample files are attached
+	a.	clversion.txt
+	b.	clversionlog.txt
+6.	No change in above two files would cause pull request rejection right away.
+	a.	The ideology behind above files is to capture the code context/completeness that is being added/changed.
+
+Improvements/Suggestions : 
+1.	Always create your local branch before starting any change/development and maintain code there until done/complete.
+2.	Do not push your code to main or any shared branch until it builds with 0 bugs and is stable/consistent with retail server
+3.	Circulate an email to team before deployment and once done replay all with the same email the deployment is complete.
+
+
+Following are the code versioning guidelines
+
+1.	Version format = Major.Minor.Patch.Build e.g. 2.1.5.3
+•	Major : Major release, Architecture level changes, New modules added, Major product enhancement or changes, Marketing strategy, RetailSDK Major version changes.
+•	Minor : Minor feature is introduced, Set of smaller features were rolled out, a smaller module is added. Several mid to high level bugs fixed
+•	Patch : Bug fixes, patches, performance enhancements, It might represent a change set transition in TV Context
+•	Build/Release No :  On Every stable check in to version control system to main branch, Insignificant.
+_________________________________________________

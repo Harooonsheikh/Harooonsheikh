@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<order order-no="ErpSalesOrder~Id">
+  <order-date>ErpSalesOrder~OrderPlacedDate</order-date>
+  <created-by>storefront</created-by>
+  <original-order-no>ErpSalesOrder~ChannelReferenceId</original-order-no>
+  <currency>ErpSalesOrder~CurrencyCode</currency>
+  <customer-locale>default</customer-locale>
+  <taxation></taxation>
+  <invoice-no></invoice-no>
+  <customer>
+    <customer-no>ErpSalesOrder~CustomerId</customer-no>
+    <customer-name>ErpSalesOrder~CustomerName</customer-name>
+    <customer-email>ErpSalesOrder~CustomerEmail</customer-email>
+    <billing-address>
+      <first-name></first-name>
+      <last-name></last-name>
+      <address1></address1>
+      <city></city>
+      <postal-code></postal-code>
+      <state-code></state-code>
+      <country-code></country-code>
+      <phone></phone>
+      <custom-attributes>
+        <custom-attribute attribute-id="addToEmailList">value</custom-attribute>
+        <custom-attribute attribute-id="crossStreets">value</custom-attribute>
+        <custom-attribute attribute-id="email">value</custom-attribute>
+        <custom-attribute attribute-id="mobilePhone">value</custom-attribute>
+        <custom-attribute attribute-id="preferred_contact_method">value</custom-attribute>
+      </custom-attributes>
+    </billing-address>
+  </customer>
+  <status>
+    <order-status>ErpSalesOrder~Status</order-status>
+    <shipping-status></shipping-status>
+    <confirmation-status></confirmation-status>
+    <payment-status is-custom-attribute="true" attribute-id="mfiTransactionStatus">value</payment-status>
+  </status>
+  <current-order-no>ErpSalesOrder~ChannelReferenceId</current-order-no>
+  <product-lineitems>
+    <product-lineitem repeat="true" data-source="ErpSalesOrder~SalesLines">
+      <net-price>ErpSalesLine~NetAmount</net-price>
+      <tax>ErpSalesLine~TaxAmount</tax>
+      <gross-price>ErpSalesLine~TotalAmount</gross-price>
+      <base-price>ErpSalesLine~BasePrice</base-price>
+      <lineitem-text></lineitem-text>
+      <tax-basis></tax-basis>
+      <position>ErpSalesLine~LineNumber</position>
+      <product-id>ErpSalesLine~Description|ErpSalesLine~ItemId</product-id>
+      <product-name></product-name>
+      <quantity unit="">ErpSalesLine~Quantity|ErpSalesLine~QuantityOrdered</quantity>
+      <tax-rate>ErpSalesLine~TaxRatePercent</tax-rate>
+      <shipment-id></shipment-id>
+      <option-lineitems>
+        <option-lineitem add-in-parent="true" repeat="true" data-source="ErpSalesOrder~SalesLines">
+          <net-price>ErpSalesLine~NetAmount</net-price>
+          <tax>ErpSalesLine~TaxAmount</tax>
+          <gross-price>ErpSalesLine~TotalAmount</gross-price>
+          <base-price>ErpSalesLine~Price</base-price>
+          <lineitem-text></lineitem-text>
+          <tax-basis></tax-basis>
+          <option-id></option-id>
+          <value-id>ErpSalesLine~ItemId</value-id>
+          <product-id></product-id>
+        </option-lineitem>
+      </option-lineitems>
+      <shipping-lineitem add-in-parent="true" repeat="true" data-source="ErpSalesOrder~SalesLines">
+        <net-price>ErpSalesLine~NetAmount</net-price>
+        <tax>ErpSalesLine~TaxAmount</tax>
+        <gross-price>ErpSalesLine~TotalAmount</gross-price>
+        <base-price>ErpSalesLine~Price</base-price>
+        <lineitem-text></lineitem-text>
+        <tax-basis></tax-basis>
+        <quantity unit="">ErpSalesLine~Quantity</quantity>
+        <tax-rate></tax-rate>
+        <type></type>
+        <price-adjustments>
+          <price-adjustment>
+            <net-price>-79.00</net-price>
+            <tax>0.00</tax>
+            <gross-price>-79.00</gross-price>
+            <base-price>-79.00</base-price>
+            <lineitem-text>Free Shipping 7-10 Days</lineitem-text>
+            <tax-basis>0.00</tax-basis>
+            <promotion-id>Free Shipping 7-10 Days</promotion-id>
+            <campaign-id>Free Shipping 7-10 Days</campaign-id>
+          </price-adjustment>
+        </price-adjustments>
+      </shipping-lineitem>
+      <gift>ErpSalesLine~IsGiftCardLine</gift>
+      <custom-attributes>
+        <custom-attribute attribute-id="carrierCustomInfo">value</custom-attribute>
+        <custom-attribute attribute-id="deliveryDate">value</custom-attribute>
+        <custom-attribute attribute-id="manufacturerSKU">value</custom-attribute>
+        <custom-attribute attribute-id="orderDiscounts">value</custom-attribute>
+        <custom-attribute attribute-id="fromStoreId">value</custom-attribute>
+        <custom-attribute attribute-id="priceAdjustments">value</custom-attribute>
+        <custom-attribute attribute-id="shipMethod">value</custom-attribute>
+        <custom-attribute attribute-id="shipType">value</custom-attribute>
+        <custom-attribute attribute-id="validZone">value</custom-attribute>
+      </custom-attributes>
+    </product-lineitem>
+  </product-lineitems>
+  <shipping-lineitems>
+    <shipping-lineitem>
+      <net-price>0.00</net-price>
+      <tax>0.00</tax>
+      <gross-price>0.00</gross-price>
+      <base-price>0.00</base-price>
+      <lineitem-text>Shipping</lineitem-text>
+      <tax-basis>0.00</tax-basis>
+      <item-id>STANDARD_SHIPPING</item-id>
+      <shipment-id>00000002</shipment-id>
+      <tax-rate>0.0</tax-rate>
+    </shipping-lineitem>
+  </shipping-lineitems>
+  <shipments>
+    <shipment shipment-id="00000002">
+      <status>
+        <shipping-status></shipping-status>
+      </status>
+      <shipping-method default-value="FlatRate">ErpSalesOrder~DeliveryMode</shipping-method>
+      <shipping-address repeat="false" data-source="ErpSalesOrder~ShippingAddress">
+        <first-name>ErpAddress~Name</first-name>
+        <last-name concatenate="true">ErpAddress~Name</last-name>
+        <address1>ErpAddress~Street</address1>
+        <city>ErpAddress~City</city>
+        <postal-code>ErpAddress~ZipCode</postal-code>
+        <state-code>ErpAddress~State</state-code>
+        <country-code>ErpAddress~County</country-code>
+        <phone>ErpAddress~Phone</phone>
+        <custom-attributes>
+          <custom-attribute attribute-id="email">ErpAddress~Email</custom-attribute>
+        </custom-attributes>
+      </shipping-address>
+      <gift></gift>
+      <totals>
+        <merchandize-total>
+          <net-price>999.99</net-price>
+          <tax>0.00</tax>
+          <gross-price>999.99</gross-price>
+        </merchandize-total>
+        <adjusted-merchandize-total>
+          <net-price>999.99</net-price>
+          <tax>0.00</tax>
+          <gross-price>999.99</gross-price>
+        </adjusted-merchandize-total>
+        <shipping-total>
+          <net-price>79.00</net-price>
+          <tax>0.00</tax>
+          <gross-price>79.00</gross-price>
+        </shipping-total>
+        <adjusted-shipping-total>
+          <net-price>0.00</net-price>
+          <tax>0.00</tax>
+          <gross-price>0.00</gross-price>
+        </adjusted-shipping-total>
+        <shipment-total>
+          <net-price>999.99</net-price>
+          <tax>0.00</tax>
+          <gross-price>999.99</gross-price>
+        </shipment-total>
+      </totals>
+      <custom-attributes>
+        <custom-attribute attribute-id="carrierCustomInfo">value</custom-attribute>
+        <custom-attribute attribute-id="deliveryDate">value</custom-attribute>
+        <custom-attribute attribute-id="shipType">value</custom-attribute>
+        <custom-attribute attribute-id="fromStoreId">value</custom-attribute>
+        <custom-attribute attribute-id="shipMethod">value</custom-attribute>
+        <custom-attribute attribute-id="shipmentType">value</custom-attribute>
+        <custom-attribute attribute-id="storePickupMessage">value</custom-attribute>
+      </custom-attributes>
+    </shipment>
+  </shipments>
+  <totals>
+    <merchandize-total>
+      <net-price>999.99</net-price>
+      <tax is-custom-attribute="true" attribute-id="mfiOrderNetTaxAmount">value|ErpSalesOrder~TaxAmount</tax>
+      <gross-price>999.99</gross-price>
+    </merchandize-total>
+    <adjusted-merchandize-total>
+      <net-price>999.99</net-price>
+      <tax>0.00</tax>
+      <gross-price>999.99</gross-price>
+    </adjusted-merchandize-total>
+    <shipping-total>
+      <net-price>79.00</net-price>
+      <tax>0.00</tax>
+      <gross-price>79.00</gross-price>
+    </shipping-total>
+    <adjusted-shipping-total>
+      <net-price>0.00</net-price>
+      <tax>0.00</tax>
+      <gross-price>0.00</gross-price>
+    </adjusted-shipping-total>
+    <order-total>
+      <net-price>ErpSalesOrder~NetAmountWithNoTax</net-price>
+      <tax>ErpSalesOrder~TaxAmount</tax>
+      <gross-price is-custom-attribute="true" attribute-id="mfiTotalAppliedAmt">value|ErpSalesOrder~TotalAmount</gross-price>
+    </order-total>
+  </totals>
+  <payments>
+    <payment repeat="true" data-source="ErpSalesOrder~TenderLines">
+      <credit-card>
+        <card-type>ErpTenderLine~CardTypeId</card-type>
+        <card-number></card-number>
+        <card-holder></card-holder>
+        <expiration-month></expiration-month>
+        <expiration-year></expiration-year>
+      </credit-card>
+      <amount>ErpTenderLine~Amount</amount>
+      <processor-id></processor-id>
+      <transaction-id is-custom-attribute="true" attribute-id="mfiComments">value</transaction-id>
+      <custom-attributes>
+        <custom-attribute attribute-id="approvalStatus">value</custom-attribute>
+        <custom-attribute attribute-id="authAmount">value</custom-attribute>
+        <custom-attribute attribute-id="authCode">value</custom-attribute>
+        <custom-attribute attribute-id="authDateTime">value</custom-attribute>
+        <custom-attribute attribute-id="authReasonCode">value</custom-attribute>
+        <custom-attribute attribute-id="authReconciliationID">value</custom-attribute>
+        <custom-attribute attribute-id="captureReasonCode">value</custom-attribute>
+        <custom-attribute attribute-id="captureReconciliationID">value</custom-attribute>
+        <custom-attribute attribute-id="cardType">value</custom-attribute>
+        <custom-attribute attribute-id="requestId">value</custom-attribute>
+        <custom-attribute attribute-id="requestToken">value</custom-attribute>
+        <custom-attribute attribute-id="subscriptionID">value</custom-attribute>
+        <custom-attribute attribute-id="paypalBillingAgreement">value</custom-attribute>
+        <custom-attribute attribute-id="paypalEmail">value</custom-attribute>
+        <custom-attribute attribute-id="paypalExpDate">value</custom-attribute>
+      </custom-attributes>
+    </payment>
+  </payments>
+  <remoteHost></remoteHost>
+  <custom-attributes>
+    <custom-attribute attribute-id="basketUUID">value</custom-attribute>
+    <custom-attribute attribute-id="customerExternalID">value</custom-attribute>
+    <custom-attribute attribute-id="deliveryNotes">value</custom-attribute>
+    <custom-attribute attribute-id="masterStoreCode">value</custom-attribute>
+    <custom-attribute attribute-id="winSTISCompanyID">value</custom-attribute>
+    <custom-attribute attribute-id="mfiIsEcomStore">value</custom-attribute>
+    <custom-attribute attribute-id="mfiIsReturnOrder">value</custom-attribute>
+    <custom-attribute attribute-id="mfiIsReturnOrderModified">value</custom-attribute>
+  </custom-attributes>
+</order>

@@ -1,0 +1,2857 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="VSI.EDGEAXConnector.Data.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ActionRequest">
+          <Key>
+            <PropertyRef Name="ActionName" />
+            <PropertyRef Name="StoreId" />
+          </Key>
+          <Property Name="ActionRequestId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ActionName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="StoreId" Type="int" Nullable="false" />
+          <Property Name="Request" Type="nvarchar" MaxLength="4000" />
+          <Property Name="CreatedOn" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="AosUrlSetting">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MethodName" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="MethodUrl" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ApplicationSetting">
+          <Key>
+            <PropertyRef Name="ApplicationSettingId" />
+          </Key>
+          <Property Name="ApplicationSettingId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Key" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Value" Type="nvarchar" MaxLength="2000" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="ScreenName" Type="nvarchar" MaxLength="70" />
+          <Property Name="SortOrder" Type="int" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="StoreId" Type="int" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="ModifiedOn" Type="datetime2" Precision="7" />
+          <Property Name="FieldTypeId" Type="int" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsUserForDuplicateStore" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Archive_RequestResponse">
+          <Key>
+            <PropertyRef Name="RequestResponseId" />
+          </Key>
+          <Property Name="RequestResponseId" Type="int" Nullable="false" />
+          <Property Name="StoreId" Type="int" Nullable="false" />
+          <Property Name="DataDirectionId" Type="int" />
+          <Property Name="EcomTransactionId" Type="nvarchar" MaxLength="256" />
+          <Property Name="ApplicationName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MethodName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="DataPacket" Type="nvarchar(max)" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="RequestInitiatedIP" Type="nvarchar" MaxLength="50" />
+          <Property Name="OutputPacket" Type="nvarchar(max)" />
+          <Property Name="OutputSentAt" Type="datetime" />
+          <Property Name="IdentifierKey" Type="nvarchar(max)" />
+          <Property Name="IdentifierValue" Type="nvarchar(max)" />
+          <Property Name="IsSuccess" Type="bit" />
+          <Property Name="TotalProcessingDuration" Type="nvarchar(max)" />
+          <Property Name="Url" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="CatalogLogs">
+          <Key>
+            <PropertyRef Name="CatalogId" />
+          </Key>
+          <Property Name="CatalogId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Key" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Value" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="StoreId" Type="int" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="ConfigurableObject">
+          <Key>
+            <PropertyRef Name="ConfigurableObjectId" />
+          </Key>
+          <Property Name="ConfigurableObjectId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ComValue" Type="varchar" MaxLength="100" />
+          <Property Name="ErpValue" Type="varchar" MaxLength="100" />
+          <Property Name="EntityType" Type="int" Nullable="false" />
+          <Property Name="ConnectorKey" Type="int" />
+          <Property Name="StoreId" Type="int" />
+          <Property Name="Description" Type="nvarchar" MaxLength="1024" />
+          <Property Name="CreatedOn" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime2" Precision="7" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CountryCode">
+          <Key>
+            <PropertyRef Name="CountryCodeId" />
+          </Key>
+          <Property Name="CountryCodeId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="TwoLetterCode" Type="nvarchar" MaxLength="2" Nullable="false" />
+          <Property Name="ThreeLetterCode" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CountryNames">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StoreId" Type="int" Nullable="false" />
+          <Property Name="CountryName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ThreeLetterRegion" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime2" Precision="7" />
+          <Property Name="ModifiedOn" Type="datetime2" Precision="7" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="DataDelete">
+          <Key>
+            <PropertyRef Name="DataDeleteId" />
+          </Key>
+          <Property Name="DataDeleteId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RequestId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CustomerAccountNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ContactPersonEmail" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ContactPersonId" Type="nvarchar" MaxLength="50" />
+          <Property Name="Status" Type="smallint" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="DataDirection">
+          <Key>
+            <PropertyRef Name="DataDirectionId" />
+          </Key>
+          <Property Name="DataDirectionId" Type="int" Nullable="false" />
+          <Property Name="DataDirectionName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DeliveryMethod">
+          <Key>
+            <PropertyRef Name="DeliveryMethodId" />
+          </Key>
+          <Property Name="DeliveryMethodId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ItemId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ErpKey" Type="bigint" Nullable="false" />
+          <Property Name="StoreId" Type="int" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="1024" />
+          <Property Name="CreatedOn" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="DimensionSet">
+          <Key>
+            <PropertyRef Name="DimensionSetId" />
+          </Key>
+          <Property Name="DimensionSetId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ErpValue" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ComValue" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="AdditionalErpValue" Type="varchar" MaxLength="50" />
+          <Property Name="StoreId" Type="int" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="EcomType">
+          <Key>
+            <PropertyRef Name="EcomTypeId" />
+          </Key>
+          <Property Name="EcomTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EcomName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EmailSubscriber">
+          <Key>
+            <PropertyRef Name="EmailSubscriberId" />
+          </Key>
+          <Property Name="EmailSubscriberId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TemplateId" Type="int" Nullable="false" />
+          <Property Name="SubscriberId" Type="int" Nullable="false" />
+          <Property Name="StoreId" Type="int" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CLTVINT.dbo.EmailTemplate' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="EmailTemplate">
+          <Key>
+            <PropertyRef Name="EmailTemplateId" />
+            
+            
+            
+            
+            
+            
+          </Key>
+          <Property Name="EmailTemplateId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Subject" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Body" Type="nvarchar" MaxLength="3000" Nullable="false" />
+          <Property Name="Footer" Type="nvarchar" MaxLength="2000" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="StoreId" Type="int" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Entity">
+          <Key>
+            <PropertyRef Name="EntityId" />
+          </Key>
+          <Property Name="EntityId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="WorkFlowId" Type="int" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime2" Precision="7" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="EntityFileNameParameter">
+          <Key>
+            <PropertyRef Name="EntityFileNameParametersId" />
+          </Key>
+          <Property Name="EntityFileNameParametersId" Type="int" Nullable="false" />
+          <Property Name="StoreId" Type="int" Nullable="false" />
+          <Property Name="EntityId" Type="int" Nullable="false" />
+          <Property Name="Prefix" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="StartingParameter" Type="bigint" Nullable="false" />
+          <Property Name="Parameters" Type="bigint" Nullable="false" />
+          <Property Name="Postfix" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ERPType">
+          <Key>
+            <PropertyRef Name="ERPTypeId" />
+          </Key>
+          <Property Name="ERPTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ERPName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FieldType">
+          <Key>
+            <PropertyRef Name="FieldTypeId" />
+          </Key>
+          <Property Name="FieldTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="Description" Type="nvarchar" MaxLength="1000" />
+          <Property Name="CreatedOn" Type="datetime2" Precision="7" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime2" Precision="7" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="FieldValue">
+          <Key>
+            <PropertyRef Name="FiedlValueId" />
+          </Key>
+          <Property Name="FiedlValueId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ApplicationSettingId" Type="int" />
+          <Property Name="FieldName" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Description" Type="nvarchar" MaxLength="1000" />
+          <Property Name="SortOrder" Type="int" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedOn" Type="datetime2" Precision="7" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="IntegrationKey">
+          <Key>
+            <PropertyRef Name="IntegrationKeyId" />
+          </Key>
+          <Property Name="IntegrationKeyId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EntityId" Type="int" Nullable="false" />
+          <Property Name="ErpKey" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="ComKey" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="Description" Type="varchar(max)" />
+          <Property Name="StoreId" Type="int" />
+          <Property Name="CreatedOn" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime2" Precision="7" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Job">
+          <Key>
+            <PropertyRef Name="JobID" />
+          </Key>
+          <Property Name="JobID" Type="bigint" Nullable="false" />
+          <Property Name="JobName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Enabled" Type="bit" />
+          <Property Name="JobTypeId" Type="bit" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="JobLog">
+          <Key>
+            <PropertyRef Name="JobLogId" />
+          </Key>
+          <Property Name="JobLogId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="JobId" Type="bigint" Nullable="false" />
+          <Property Name="LastExecutionTimeStamp" Type="datetime2" Precision="7" />
+          <Property Name="Status" Type="int" />
+          <Property Name="StoreId" Type="int" />
+          <Property Name="CreatedOn" Type="datetime2" Precision="7" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime2" Precision="7" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="JobLogStatus">
+          <Key>
+            <PropertyRef Name="JobLogStatus" />
+          </Key>
+          <Property Name="JobLogStatus" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="JobSchedule">
+          <Key>
+            <PropertyRef Name="JobSchduleId" />
+          </Key>
+          <Property Name="JobSchduleId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="JobId" Type="bigint" Nullable="false" />
+          <Property Name="JobInterval" Type="bigint" Nullable="false" />
+          <Property Name="IsRepeatable" Type="bit" Nullable="false" />
+          <Property Name="StartTime" Type="time" Precision="7" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="JobStatus" Type="int" />
+          <Property Name="StoreId" Type="int" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ModifiedOn" Type="datetime2" Precision="7" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="JobType">
+          <Key>
+            <PropertyRef Name="JobTypeId" />
+          </Key>
+          <Property Name="JobTypeId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime2" Precision="7" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Log">
+          <Key>
+            <PropertyRef Name="LogId" />
+          </Key>
+          <Property Name="LogId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="EventLevel" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="MachineName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="EventMessage" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ErrorSource" Type="nvarchar" MaxLength="3000" />
+          <Property Name="ErrorClass" Type="nvarchar" MaxLength="500" />
+          <Property Name="ErrorMethod" Type="nvarchar(max)" />
+          <Property Name="ErrorMessage" Type="nvarchar(max)" />
+          <Property Name="InnerErrorMessage" Type="nvarchar(max)" />
+          <Property Name="IdentityId" Type="varchar" MaxLength="50" />
+          <Property Name="ErrorModule" Type="nvarchar" MaxLength="50" />
+          <Property Name="StoreId" Type="int" Nullable="false" />
+          <Property Name="Scrambled" Type="bit" />
+        </EntityType>
+        <EntityType Name="LogMapper">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MethodName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="IdentifierKey" Type="nvarchar(max)" />
+          <Property Name="IdentifierPath" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="MandatoryStateCountry">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ThreeLetterISORegionName" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="ShortName" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="MappingTemplate">
+          <Key>
+            <PropertyRef Name="MappingTemplateId" />
+          </Key>
+          <Property Name="MappingTemplateId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SourceEntity" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="MappingTemplateTypeId" Type="int" Nullable="false" />
+          <Property Name="XML" Type="xml" />
+          <Property Name="CreatedOn" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime2" Precision="7" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="StoreId" Type="int" Nullable="false" />
+          <Property Name="ReadMode" Type="varchar" MaxLength="50" />
+          <Property Name="IngramTemplate" Type="xml" />
+        </EntityType>
+        <EntityType Name="MappingTypeTemplate">
+          <Key>
+            <PropertyRef Name="MappingTypeTemplateId" />
+          </Key>
+          <Property Name="MappingTypeTemplateId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="100" />
+          <Property Name="CreatedOn" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime2" Precision="7" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Organization">
+          <Key>
+            <PropertyRef Name="OrganizationId" />
+          </Key>
+          <Property Name="OrganizationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ShortCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="OrganizationTimeZone" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PaymentConnector">
+          <Key>
+            <PropertyRef Name="PaymentConnectorId" />
+          </Key>
+          <Property Name="PaymentConnectorId" Type="int" Nullable="false" />
+          <Property Name="PaymentConnectorName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="ERPCreditCardProcessorName" Type="nvarchar(max)" />
+          <Property Name="EComCreditCardProcessorName" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="PaymentMethod">
+          <Key>
+            <PropertyRef Name="PaymentMethodId" />
+          </Key>
+          <Property Name="PaymentMethodId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ParentPaymentMethodId" Type="int" />
+          <Property Name="ECommerceValue" Type="varchar" MaxLength="100" />
+          <Property Name="ErpValue" Type="varchar" MaxLength="100" />
+          <Property Name="HasSubMethod" Type="bit" />
+          <Property Name="ErpCode" Type="varchar" MaxLength="100" />
+          <Property Name="IsPrepayment" Type="bit" Nullable="false" />
+          <Property Name="StoreId" Type="int" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime2" Precision="7" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsCreditCard" Type="bit" Nullable="false" />
+          <Property Name="UsePaymentConnector" Type="bit" Nullable="false" />
+          <Property Name="ServiceAccountId" Type="nvarchar" MaxLength="50" />
+          <Property Name="PaymentConnectorId" Type="int" />
+        </EntityType>
+        <EntityType Name="RequestResponse">
+          <Key>
+            <PropertyRef Name="RequestResponseId" />
+          </Key>
+          <Property Name="RequestResponseId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StoreId" Type="int" Nullable="false" />
+          <Property Name="DataDirectionId" Type="int" />
+          <Property Name="EcomTransactionId" Type="nvarchar" MaxLength="256" />
+          <Property Name="ApplicationName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MethodName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="DataPacket" Type="nvarchar(max)" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="RequestInitiatedIP" Type="nvarchar" MaxLength="50" />
+          <Property Name="OutputPacket" Type="nvarchar(max)" />
+          <Property Name="OutputSentAt" Type="datetime" />
+          <Property Name="IdentifierKey" Type="nvarchar(max)" />
+          <Property Name="IdentifierValue" Type="nvarchar(max)" />
+          <Property Name="IsSuccess" Type="bit" />
+          <Property Name="TotalProcessingDuration" Type="decimal" Precision="20" Scale="5" Nullable="false" />
+          <Property Name="Scrambled" Type="bit" />
+        </EntityType>
+        <EntityType Name="ServiceBusRequestLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StoreId" Type="int" />
+          <Property Name="EcomTransactionId" Type="uniqueidentifier" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="MethodName" Type="nvarchar" MaxLength="500" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="100" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="100" />
+          <Property Name="ModifiedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="SingleCatalogProductStaging">
+          <Key>
+            <PropertyRef Name="SingleCatalogProductStagingId" />
+          </Key>
+          <Property Name="SingleCatalogProductStagingId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductRecId" Type="nvarchar(max)" />
+          <Property Name="SKU" Type="nvarchar(max)" />
+          <Property Name="StoreViewCode" Type="nvarchar(max)" />
+          <Property Name="ProductJson" Type="nvarchar(max)" />
+          <Property Name="CreatedOn" Type="datetime2" Precision="7" />
+          <Property Name="LastModifiedOn" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="State">
+          <Key>
+            <PropertyRef Name="StateId" />
+          </Key>
+          <Property Name="StateId" Type="int" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="10" />
+          <Property Name="State" Type="nvarchar" MaxLength="50" />
+          <Property Name="Country" Type="nvarchar" MaxLength="10" />
+          <Property Name="CreatedOn" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime2" Precision="7" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Store">
+          <Key>
+            <PropertyRef Name="StoreId" />
+          </Key>
+          <Property Name="StoreId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="EcomTypeId" Type="int" Nullable="false" />
+          <Property Name="OrganizationId" Type="int" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="StoreKey" Type="nvarchar" MaxLength="256" />
+          <Property Name="Description" Type="nvarchar" MaxLength="1024" />
+          <Property Name="CreatedOn" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime2" Precision="7" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ERPTypeId" Type="int" Nullable="false" />
+          <Property Name="DuplicateOf" Type="int" />
+          <Property Name="IsSFTPDirTreeCreated" Type="bit" />
+          <Property Name="RetailChannelId" Type="nvarchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="Subscriber">
+          <Key>
+            <PropertyRef Name="SubscriberId" />
+          </Key>
+          <Property Name="SubscriberId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="StoreId" Type="int" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ThirdPartyEnvironmentWithStatus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EnvironmentName" Type="nvarchar(max)" />
+          <Property Name="Status" Type="nvarchar(max)" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ThirdPartyMessage">
+          <Key>
+            <PropertyRef Name="ThirdPartyMessageId" />
+          </Key>
+          <Property Name="ThirdPartyMessageId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EntityId" Type="int" />
+          <Property Name="ThirdPartyId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ThirdPartyStatus" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="TransactionStatus" Type="int" Nullable="false" />
+          <Property Name="DestinationStoreKey" Type="nvarchar(max)" />
+          <Property Name="Currency" Type="nvarchar" MaxLength="50" />
+          <Property Name="AssetId" Type="nvarchar" MaxLength="100" />
+          <Property Name="OrderType" Type="nvarchar" MaxLength="100" />
+          <Property Name="SalesId" Type="nvarchar" MaxLength="50" />
+          <Property Name="RetryCount" Type="tinyint" Nullable="false" />
+          <Property Name="RenewalDate" Type="datetime" />
+          <Property Name="PacLicense" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="WorkFlow">
+          <Key>
+            <PropertyRef Name="WorkFlowId" />
+          </Key>
+          <Property Name="WorkFlowId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="70" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="ModifiedOn" Type="datetime2" Precision="7" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="WorkFlowState">
+          <Key>
+            <PropertyRef Name="WorkFlowStateID" />
+          </Key>
+          <Property Name="WorkFlowStateID" Type="int" Nullable="false" />
+          <Property Name="WorkFlowID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="70" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="100" />
+          <Property Name="OrderSequence" Type="int" />
+        </EntityType>
+        <EntityType Name="WorkFlowTransition">
+          <Key>
+            <PropertyRef Name="WorkFlowTransitionId" />
+          </Key>
+          <Property Name="WorkFlowTransitionId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="InstanceId" Type="int" Nullable="false" />
+          <Property Name="WorkFlowStateId" Type="int" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="StoreId" Type="int" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK__EmailTemp__Store__03F0984C">
+          <End Role="Store" Type="Self.Store" Multiplicity="1" />
+          <End Role="EmailTemplate" Type="Self.EmailTemplate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Store">
+              <PropertyRef Name="StoreId" />
+            </Principal>
+            <Dependent Role="EmailTemplate">
+              <PropertyRef Name="StoreId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ActionRequest_Store">
+          <End Role="Store" Type="Self.Store" Multiplicity="1" />
+          <End Role="ActionRequest" Type="Self.ActionRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Store">
+              <PropertyRef Name="StoreId" />
+            </Principal>
+            <Dependent Role="ActionRequest">
+              <PropertyRef Name="StoreId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ApplicationSetting_Store">
+          <End Role="FieldType" Type="Self.FieldType" Multiplicity="0..1" />
+          <End Role="ApplicationSetting" Type="Self.ApplicationSetting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FieldType">
+              <PropertyRef Name="FieldTypeId" />
+            </Principal>
+            <Dependent Role="ApplicationSetting">
+              <PropertyRef Name="FieldTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ConfigurableObject_Store">
+          <End Role="Store" Type="Self.Store" Multiplicity="0..1" />
+          <End Role="ConfigurableObject" Type="Self.ConfigurableObject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Store">
+              <PropertyRef Name="StoreId" />
+            </Principal>
+            <Dependent Role="ConfigurableObject">
+              <PropertyRef Name="StoreId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CountryNames_Store">
+          <End Role="Store" Type="Self.Store" Multiplicity="1" />
+          <End Role="CountryNames" Type="Self.CountryNames" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Store">
+              <PropertyRef Name="StoreId" />
+            </Principal>
+            <Dependent Role="CountryNames">
+              <PropertyRef Name="StoreId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeliveryMethod_Store">
+          <End Role="Store" Type="Self.Store" Multiplicity="1" />
+          <End Role="DeliveryMethod" Type="Self.DeliveryMethod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Store">
+              <PropertyRef Name="StoreId" />
+            </Principal>
+            <Dependent Role="DeliveryMethod">
+              <PropertyRef Name="StoreId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DimensionSet_Store">
+          <End Role="Store" Type="Self.Store" Multiplicity="1" />
+          <End Role="DimensionSet" Type="Self.DimensionSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Store">
+              <PropertyRef Name="StoreId" />
+            </Principal>
+            <Dependent Role="DimensionSet">
+              <PropertyRef Name="StoreId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmailSubscriber_Store">
+          <End Role="Store" Type="Self.Store" Multiplicity="1" />
+          <End Role="EmailSubscriber" Type="Self.EmailSubscriber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Store">
+              <PropertyRef Name="StoreId" />
+            </Principal>
+            <Dependent Role="EmailSubscriber">
+              <PropertyRef Name="StoreId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EntityFileNameParameter_EntityFileNameParameter">
+          <End Role="EntityFileNameParameter" Type="Self.EntityFileNameParameter" Multiplicity="1" />
+          <End Role="EntityFileNameParameter1" Type="Self.EntityFileNameParameter" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="EntityFileNameParameter">
+              <PropertyRef Name="EntityFileNameParametersId" />
+            </Principal>
+            <Dependent Role="EntityFileNameParameter1">
+              <PropertyRef Name="EntityFileNameParametersId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FieldValue_FieldValue">
+          <End Role="ApplicationSetting" Type="Self.ApplicationSetting" Multiplicity="0..1" />
+          <End Role="FieldValue" Type="Self.FieldValue" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ApplicationSetting">
+              <PropertyRef Name="ApplicationSettingId" />
+            </Principal>
+            <Dependent Role="FieldValue">
+              <PropertyRef Name="ApplicationSettingId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IntegrationKey_Store">
+          <End Role="Store" Type="Self.Store" Multiplicity="0..1" />
+          <End Role="IntegrationKey" Type="Self.IntegrationKey" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Store">
+              <PropertyRef Name="StoreId" />
+            </Principal>
+            <Dependent Role="IntegrationKey">
+              <PropertyRef Name="StoreId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_JobLog_Job">
+          <End Role="Job" Type="Self.Job" Multiplicity="1" />
+          <End Role="JobLog" Type="Self.JobLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Job">
+              <PropertyRef Name="JobID" />
+            </Principal>
+            <Dependent Role="JobLog">
+              <PropertyRef Name="JobId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_JobLog_JobLogStatus">
+          <End Role="JobLogStatus" Type="Self.JobLogStatus" Multiplicity="0..1" />
+          <End Role="JobLog" Type="Self.JobLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JobLogStatus">
+              <PropertyRef Name="JobLogStatus" />
+            </Principal>
+            <Dependent Role="JobLog">
+              <PropertyRef Name="Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_JobSchedule_Store">
+          <End Role="Job" Type="Self.Job" Multiplicity="1" />
+          <End Role="JobSchedule" Type="Self.JobSchedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Job">
+              <PropertyRef Name="JobID" />
+            </Principal>
+            <Dependent Role="JobSchedule">
+              <PropertyRef Name="JobId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MappingTemplate_Store">
+          <End Role="Store" Type="Self.Store" Multiplicity="1" />
+          <End Role="MappingTemplate" Type="Self.MappingTemplate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Store">
+              <PropertyRef Name="StoreId" />
+            </Principal>
+            <Dependent Role="MappingTemplate">
+              <PropertyRef Name="StoreId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PaymentMethod_Store">
+          <End Role="Store" Type="Self.Store" Multiplicity="1" />
+          <End Role="PaymentMethod" Type="Self.PaymentMethod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Store">
+              <PropertyRef Name="StoreId" />
+            </Principal>
+            <Dependent Role="PaymentMethod">
+              <PropertyRef Name="StoreId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Store_EcomType">
+          <End Role="EcomType" Type="Self.EcomType" Multiplicity="1" />
+          <End Role="Store" Type="Self.Store" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EcomType">
+              <PropertyRef Name="EcomTypeId" />
+            </Principal>
+            <Dependent Role="Store">
+              <PropertyRef Name="EcomTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Store_Type">
+          <End Role="ERPType" Type="Self.ERPType" Multiplicity="1" />
+          <End Role="Store" Type="Self.Store" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ERPType">
+              <PropertyRef Name="ERPTypeId" />
+            </Principal>
+            <Dependent Role="Store">
+              <PropertyRef Name="ERPTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Subscriber_Store">
+          <End Role="Store" Type="Self.Store" Multiplicity="1" />
+          <End Role="Subscriber" Type="Self.Subscriber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Store">
+              <PropertyRef Name="StoreId" />
+            </Principal>
+            <Dependent Role="Subscriber">
+              <PropertyRef Name="StoreId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkFlowState_WorkFlow">
+          <End Role="WorkFlow" Type="Self.WorkFlow" Multiplicity="1" />
+          <End Role="WorkFlowState" Type="Self.WorkFlowState" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WorkFlow">
+              <PropertyRef Name="WorkFlowId" />
+            </Principal>
+            <Dependent Role="WorkFlowState">
+              <PropertyRef Name="WorkFlowID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkFlowTransition_Store">
+          <End Role="Store" Type="Self.Store" Multiplicity="0..1" />
+          <End Role="WorkFlowTransition" Type="Self.WorkFlowTransition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Store">
+              <PropertyRef Name="StoreId" />
+            </Principal>
+            <Dependent Role="WorkFlowTransition">
+              <PropertyRef Name="StoreId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkFlowTransition_WorkFlowState">
+          <End Role="WorkFlowState" Type="Self.WorkFlowState" Multiplicity="1" />
+          <End Role="WorkFlowTransition" Type="Self.WorkFlowTransition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WorkFlowState">
+              <PropertyRef Name="WorkFlowStateID" />
+            </Principal>
+            <Dependent Role="WorkFlowTransition">
+              <PropertyRef Name="WorkFlowStateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="spDataDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DataDeleteId" Type="bigint" Mode="In" />
+          <Parameter Name="RequestId" Type="nvarchar" Mode="In" />
+          <Parameter Name="CustomerAccountNumber" Type="nvarchar" Mode="In" />
+          <Parameter Name="ContactPersonEmail" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="VSIEDGEAXConnectorDataStoreContainer">
+          <EntitySet Name="ActionRequest" EntityType="Self.ActionRequest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AosUrlSetting" EntityType="Self.AosUrlSetting" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ApplicationSetting" EntityType="Self.ApplicationSetting" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Archive_RequestResponse" EntityType="Self.Archive_RequestResponse" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatalogLogs" EntityType="Self.CatalogLogs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ConfigurableObject" EntityType="Self.ConfigurableObject" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CountryCode" EntityType="Self.CountryCode" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CountryNames" EntityType="Self.CountryNames" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DataDelete" EntityType="Self.DataDelete" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DataDirection" EntityType="Self.DataDirection" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DeliveryMethod" EntityType="Self.DeliveryMethod" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DimensionSet" EntityType="Self.DimensionSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EcomType" EntityType="Self.EcomType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmailSubscriber" EntityType="Self.EmailSubscriber" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Entity" EntityType="Self.Entity" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EntityFileNameParameter" EntityType="Self.EntityFileNameParameter" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ERPType" EntityType="Self.ERPType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FieldType" EntityType="Self.FieldType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FieldValue" EntityType="Self.FieldValue" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IntegrationKey" EntityType="Self.IntegrationKey" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Job" EntityType="Self.Job" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="JobLog" EntityType="Self.JobLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="JobLogStatus" EntityType="Self.JobLogStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="JobSchedule" EntityType="Self.JobSchedule" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="JobType" EntityType="Self.JobType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Log" EntityType="Self.Log" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LogMapper" EntityType="Self.LogMapper" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MandatoryStateCountry" EntityType="Self.MandatoryStateCountry" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MappingTemplate" EntityType="Self.MappingTemplate" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MappingTypeTemplate" EntityType="Self.MappingTypeTemplate" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Organization" EntityType="Self.Organization" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PaymentConnector" EntityType="Self.PaymentConnector" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PaymentMethod" EntityType="Self.PaymentMethod" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RequestResponse" EntityType="Self.RequestResponse" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ServiceBusRequestLog" EntityType="Self.ServiceBusRequestLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SingleCatalogProductStaging" EntityType="Self.SingleCatalogProductStaging" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="State" EntityType="Self.State" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Store" EntityType="Self.Store" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Subscriber" EntityType="Self.Subscriber" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ThirdPartyEnvironmentWithStatus" EntityType="Self.ThirdPartyEnvironmentWithStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ThirdPartyMessage" EntityType="Self.ThirdPartyMessage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WorkFlow" EntityType="Self.WorkFlow" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WorkFlowState" EntityType="Self.WorkFlowState" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WorkFlowTransition" EntityType="Self.WorkFlowTransition" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmailTemplate" EntityType="Self.EmailTemplate" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [EmailTemplate].[EmailTemplateId] AS [EmailTemplateId], 
+    [EmailTemplate].[Name] AS [Name], 
+    [EmailTemplate].[Subject] AS [Subject], 
+    [EmailTemplate].[Body] AS [Body], 
+    [EmailTemplate].[Footer] AS [Footer], 
+    [EmailTemplate].[IsActive] AS [IsActive], 
+    [EmailTemplate].[StoreId] AS [StoreId], 
+    [EmailTemplate].[CreatedOn] AS [CreatedOn], 
+    [EmailTemplate].[CreatedBy] AS [CreatedBy], 
+    [EmailTemplate].[ModifiedOn] AS [ModifiedOn], 
+    [EmailTemplate].[ModifiedBy] AS [ModifiedBy]
+    FROM [dbo].[EmailTemplate] AS [EmailTemplate]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__EmailTemp__Store__03F0984C" Association="Self.FK__EmailTemp__Store__03F0984C">
+            <End Role="Store" EntitySet="Store" />
+            <End Role="EmailTemplate" EntitySet="EmailTemplate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ActionRequest_Store" Association="Self.FK_ActionRequest_Store">
+            <End Role="Store" EntitySet="Store" />
+            <End Role="ActionRequest" EntitySet="ActionRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ApplicationSetting_Store" Association="Self.FK_ApplicationSetting_Store">
+            <End Role="FieldType" EntitySet="FieldType" />
+            <End Role="ApplicationSetting" EntitySet="ApplicationSetting" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ConfigurableObject_Store" Association="Self.FK_ConfigurableObject_Store">
+            <End Role="Store" EntitySet="Store" />
+            <End Role="ConfigurableObject" EntitySet="ConfigurableObject" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CountryNames_Store" Association="Self.FK_CountryNames_Store">
+            <End Role="Store" EntitySet="Store" />
+            <End Role="CountryNames" EntitySet="CountryNames" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeliveryMethod_Store" Association="Self.FK_DeliveryMethod_Store">
+            <End Role="Store" EntitySet="Store" />
+            <End Role="DeliveryMethod" EntitySet="DeliveryMethod" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DimensionSet_Store" Association="Self.FK_DimensionSet_Store">
+            <End Role="Store" EntitySet="Store" />
+            <End Role="DimensionSet" EntitySet="DimensionSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmailSubscriber_Store" Association="Self.FK_EmailSubscriber_Store">
+            <End Role="Store" EntitySet="Store" />
+            <End Role="EmailSubscriber" EntitySet="EmailSubscriber" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EntityFileNameParameter_EntityFileNameParameter" Association="Self.FK_EntityFileNameParameter_EntityFileNameParameter">
+            <End Role="EntityFileNameParameter" EntitySet="EntityFileNameParameter" />
+            <End Role="EntityFileNameParameter1" EntitySet="EntityFileNameParameter" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FieldValue_FieldValue" Association="Self.FK_FieldValue_FieldValue">
+            <End Role="ApplicationSetting" EntitySet="ApplicationSetting" />
+            <End Role="FieldValue" EntitySet="FieldValue" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IntegrationKey_Store" Association="Self.FK_IntegrationKey_Store">
+            <End Role="Store" EntitySet="Store" />
+            <End Role="IntegrationKey" EntitySet="IntegrationKey" />
+          </AssociationSet>
+          <AssociationSet Name="FK_JobLog_Job" Association="Self.FK_JobLog_Job">
+            <End Role="Job" EntitySet="Job" />
+            <End Role="JobLog" EntitySet="JobLog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_JobLog_JobLogStatus" Association="Self.FK_JobLog_JobLogStatus">
+            <End Role="JobLogStatus" EntitySet="JobLogStatus" />
+            <End Role="JobLog" EntitySet="JobLog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_JobSchedule_Store" Association="Self.FK_JobSchedule_Store">
+            <End Role="Job" EntitySet="Job" />
+            <End Role="JobSchedule" EntitySet="JobSchedule" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MappingTemplate_Store" Association="Self.FK_MappingTemplate_Store">
+            <End Role="Store" EntitySet="Store" />
+            <End Role="MappingTemplate" EntitySet="MappingTemplate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PaymentMethod_Store" Association="Self.FK_PaymentMethod_Store">
+            <End Role="Store" EntitySet="Store" />
+            <End Role="PaymentMethod" EntitySet="PaymentMethod" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Store_EcomType" Association="Self.FK_Store_EcomType">
+            <End Role="EcomType" EntitySet="EcomType" />
+            <End Role="Store" EntitySet="Store" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Store_Type" Association="Self.FK_Store_Type">
+            <End Role="ERPType" EntitySet="ERPType" />
+            <End Role="Store" EntitySet="Store" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Subscriber_Store" Association="Self.FK_Subscriber_Store">
+            <End Role="Store" EntitySet="Store" />
+            <End Role="Subscriber" EntitySet="Subscriber" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkFlowState_WorkFlow" Association="Self.FK_WorkFlowState_WorkFlow">
+            <End Role="WorkFlow" EntitySet="WorkFlow" />
+            <End Role="WorkFlowState" EntitySet="WorkFlowState" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkFlowTransition_Store" Association="Self.FK_WorkFlowTransition_Store">
+            <End Role="Store" EntitySet="Store" />
+            <End Role="WorkFlowTransition" EntitySet="WorkFlowTransition" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkFlowTransition_WorkFlowState" Association="Self.FK_WorkFlowTransition_WorkFlowState">
+            <End Role="WorkFlowState" EntitySet="WorkFlowState" />
+            <End Role="WorkFlowTransition" EntitySet="WorkFlowTransition" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="VSI.EDGEAXConnector.Data" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="IntegrationDBEntities" annotation:LazyLoadingEnabled="true">
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(VSI.EDGEAXConnector.Data.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(VSI.EDGEAXConnector.Data.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+          <EntitySet Name="ApplicationSetting" EntityType="VSI.EDGEAXConnector.Data.ApplicationSetting" />
+          <EntitySet Name="ConfigurableObject" EntityType="VSI.EDGEAXConnector.Data.ConfigurableObject" />
+          <EntitySet Name="DeliveryMethod" EntityType="VSI.EDGEAXConnector.Data.DeliveryMethod" />
+          <EntitySet Name="DimensionSet" EntityType="VSI.EDGEAXConnector.Data.DimensionSet" />
+          <EntitySet Name="EcomType" EntityType="VSI.EDGEAXConnector.Data.EcomType" />
+          <EntitySet Name="EmailSubscriber" EntityType="VSI.EDGEAXConnector.Data.EmailSubscriber" />
+          <EntitySet Name="EmailTemplate" EntityType="VSI.EDGEAXConnector.Data.EmailTemplate" />
+          <EntitySet Name="Entity" EntityType="VSI.EDGEAXConnector.Data.Entity" />
+          <EntitySet Name="EntityFileNameParameter" EntityType="VSI.EDGEAXConnector.Data.EntityFileNameParameter" />
+          <EntitySet Name="ERPType" EntityType="VSI.EDGEAXConnector.Data.ERPType" />
+          <EntitySet Name="FieldType" EntityType="VSI.EDGEAXConnector.Data.FieldType" />
+          <EntitySet Name="FieldValue" EntityType="VSI.EDGEAXConnector.Data.FieldValue" />
+          <EntitySet Name="IntegrationKey" EntityType="VSI.EDGEAXConnector.Data.IntegrationKey" />
+          <EntitySet Name="Job" EntityType="VSI.EDGEAXConnector.Data.Job" />
+          <EntitySet Name="JobSchedule" EntityType="VSI.EDGEAXConnector.Data.JobSchedule" />
+          <EntitySet Name="JobType" EntityType="VSI.EDGEAXConnector.Data.JobType" />
+          <EntitySet Name="MappingTemplate" EntityType="VSI.EDGEAXConnector.Data.MappingTemplate" />
+          <EntitySet Name="MappingTypeTemplate" EntityType="VSI.EDGEAXConnector.Data.MappingTypeTemplate" />
+          <EntitySet Name="Organization" EntityType="VSI.EDGEAXConnector.Data.Organization" />
+          <EntitySet Name="PaymentMethod" EntityType="VSI.EDGEAXConnector.Data.PaymentMethod" />
+          <EntitySet Name="State" EntityType="VSI.EDGEAXConnector.Data.State" />
+          <EntitySet Name="Store" EntityType="VSI.EDGEAXConnector.Data.Store" />
+          <EntitySet Name="Subscriber" EntityType="VSI.EDGEAXConnector.Data.Subscriber" />
+          <EntitySet Name="WorkFlow" EntityType="VSI.EDGEAXConnector.Data.WorkFlow" />
+          <EntitySet Name="WorkFlowState" EntityType="VSI.EDGEAXConnector.Data.WorkFlowState" />
+          <EntitySet Name="WorkFlowTransition" EntityType="VSI.EDGEAXConnector.Data.WorkFlowTransition" />
+          <AssociationSet Name="FK_ApplicationSetting_Store" Association="VSI.EDGEAXConnector.Data.FK_ApplicationSetting_Store">
+            <End Role="FieldType" EntitySet="FieldType" />
+            <End Role="ApplicationSetting" EntitySet="ApplicationSetting" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FieldValue_FieldValue" Association="VSI.EDGEAXConnector.Data.FK_FieldValue_FieldValue">
+            <End Role="ApplicationSetting" EntitySet="ApplicationSetting" />
+            <End Role="FieldValue" EntitySet="FieldValue" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ConfigurableObject_Store" Association="VSI.EDGEAXConnector.Data.FK_ConfigurableObject_Store">
+            <End Role="Store" EntitySet="Store" />
+            <End Role="ConfigurableObject" EntitySet="ConfigurableObject" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeliveryMethod_Store" Association="VSI.EDGEAXConnector.Data.FK_DeliveryMethod_Store">
+            <End Role="Store" EntitySet="Store" />
+            <End Role="DeliveryMethod" EntitySet="DeliveryMethod" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DimensionSet_Store" Association="VSI.EDGEAXConnector.Data.FK_DimensionSet_Store">
+            <End Role="Store" EntitySet="Store" />
+            <End Role="DimensionSet" EntitySet="DimensionSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Store_EcomType" Association="VSI.EDGEAXConnector.Data.FK_Store_EcomType">
+            <End Role="EcomType" EntitySet="EcomType" />
+            <End Role="Store" EntitySet="Store" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmailSubscriber_Store" Association="VSI.EDGEAXConnector.Data.FK_EmailSubscriber_Store">
+            <End Role="Store" EntitySet="Store" />
+            <End Role="EmailSubscriber" EntitySet="EmailSubscriber" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmailTemplate_Store" Association="VSI.EDGEAXConnector.Data.FK_EmailTemplate_Store">
+            <End Role="Store" EntitySet="Store" />
+            <End Role="EmailTemplate" EntitySet="EmailTemplate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EntityFileNameParameter_EntityFileNameParameter" Association="VSI.EDGEAXConnector.Data.FK_EntityFileNameParameter_EntityFileNameParameter">
+            <End Role="EntityFileNameParameter" EntitySet="EntityFileNameParameter" />
+            <End Role="EntityFileNameParameter1" EntitySet="EntityFileNameParameter" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Store_Type" Association="VSI.EDGEAXConnector.Data.FK_Store_Type">
+            <End Role="ERPType" EntitySet="ERPType" />
+            <End Role="Store" EntitySet="Store" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IntegrationKey_Store" Association="VSI.EDGEAXConnector.Data.FK_IntegrationKey_Store">
+            <End Role="Store" EntitySet="Store" />
+            <End Role="IntegrationKey" EntitySet="IntegrationKey" />
+          </AssociationSet>
+          <AssociationSet Name="FK_JobSchedule_Store" Association="VSI.EDGEAXConnector.Data.FK_JobSchedule_Store">
+            <End Role="Job" EntitySet="Job" />
+            <End Role="JobSchedule" EntitySet="JobSchedule" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MappingTemplate_Store" Association="VSI.EDGEAXConnector.Data.FK_MappingTemplate_Store">
+            <End Role="Store" EntitySet="Store" />
+            <End Role="MappingTemplate" EntitySet="MappingTemplate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PaymentMethod_Store" Association="VSI.EDGEAXConnector.Data.FK_PaymentMethod_Store">
+            <End Role="Store" EntitySet="Store" />
+            <End Role="PaymentMethod" EntitySet="PaymentMethod" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Subscriber_Store" Association="VSI.EDGEAXConnector.Data.FK_Subscriber_Store">
+            <End Role="Store" EntitySet="Store" />
+            <End Role="Subscriber" EntitySet="Subscriber" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkFlowTransition_Store" Association="VSI.EDGEAXConnector.Data.FK_WorkFlowTransition_Store">
+            <End Role="Store" EntitySet="Store" />
+            <End Role="WorkFlowTransition" EntitySet="WorkFlowTransition" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkFlowState_WorkFlow" Association="VSI.EDGEAXConnector.Data.FK_WorkFlowState_WorkFlow">
+            <End Role="WorkFlow" EntitySet="WorkFlow" />
+            <End Role="WorkFlowState" EntitySet="WorkFlowState" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkFlowTransition_WorkFlowState" Association="VSI.EDGEAXConnector.Data.FK_WorkFlowTransition_WorkFlowState">
+            <End Role="WorkFlowState" EntitySet="WorkFlowState" />
+            <End Role="WorkFlowTransition" EntitySet="WorkFlowTransition" />
+          </AssociationSet>
+          <EntitySet Name="DataDirection" EntityType="VSI.EDGEAXConnector.Data.DataDirection" />
+          <EntitySet Name="ActionRequest" EntityType="VSI.EDGEAXConnector.Data.ActionRequest" />
+          <AssociationSet Name="FK_ActionRequest_Store" Association="VSI.EDGEAXConnector.Data.FK_ActionRequest_Store">
+            <End Role="Store" EntitySet="Store" />
+            <End Role="ActionRequest" EntitySet="ActionRequest" />
+          </AssociationSet>
+          <EntitySet Name="JobLogStatus" EntityType="VSI.EDGEAXConnector.Data.JobLogStatus" />
+          <EntitySet Name="JobLog" EntityType="VSI.EDGEAXConnector.Data.JobLog" />
+          <AssociationSet Name="FK_JobLog_Job" Association="VSI.EDGEAXConnector.Data.FK_JobLog_Job">
+            <End Role="Job" EntitySet="Job" />
+            <End Role="JobLog" EntitySet="JobLog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_JobLog_JobLogStatus" Association="VSI.EDGEAXConnector.Data.FK_JobLog_JobLogStatus">
+            <End Role="JobLogStatus" EntitySet="JobLogStatus" />
+            <End Role="JobLog" EntitySet="JobLog" />
+          </AssociationSet>
+          <EntitySet Name="Archive_RequestResponse" EntityType="VSI.EDGEAXConnector.Data.Archive_RequestResponse" />
+          <EntitySet Name="PaymentConnector" EntityType="VSI.EDGEAXConnector.Data.PaymentConnector" />
+          <EntitySet Name="LogMapper" EntityType="VSI.EDGEAXConnector.Data.LogMapper" />
+          <EntitySet Name="CountryNames" EntityType="VSI.EDGEAXConnector.Data.CountryNames" />
+          <AssociationSet Name="FK_CountryNames_Store" Association="VSI.EDGEAXConnector.Data.FK_CountryNames_Store">
+            <End Role="Store" EntitySet="Store" />
+            <End Role="CountryNames" EntitySet="CountryNames" />
+          </AssociationSet>
+          <FunctionImport Name="spDataDelete" ReturnType="Collection(Int32)">
+            <Parameter Name="DataDeleteId" Mode="In" Type="Int64" />
+            <Parameter Name="RequestId" Mode="In" Type="String" />
+            <Parameter Name="CustomerAccountNumber" Mode="In" Type="String" />
+            <Parameter Name="ContactPersonEmail" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="DataDelete" EntityType="VSI.EDGEAXConnector.Data.DataDelete" />
+          <EntitySet Name="CatalogLogs" EntityType="VSI.EDGEAXConnector.Data.CatalogLogs" />
+          <EntitySet Name="ThirdPartyEnvironmentWithStatus" EntityType="VSI.EDGEAXConnector.Data.ThirdPartyEnvironmentWithStatus" />
+          <EntitySet Name="AosUrlSetting" EntityType="VSI.EDGEAXConnector.Data.AosUrlSetting" />
+          <EntitySet Name="ServiceBusRequestLog" EntityType="VSI.EDGEAXConnector.Data.ServiceBusRequestLog" />
+          <EntitySet Name="MandatoryStateCountry" EntityType="VSI.EDGEAXConnector.Data.MandatoryStateCountry" />
+          <EntitySet Name="SingleCatalogProductStaging" EntityType="VSI.EDGEAXConnector.Data.SingleCatalogProductStaging" />
+          <EntitySet Name="Log" EntityType="VSI.EDGEAXConnector.Data.Log" />
+          <EntitySet Name="CountryCode" EntityType="VSI.EDGEAXConnector.Data.CountryCode" />
+          <EntitySet Name="RequestResponse" EntityType="VSI.EDGEAXConnector.Data.RequestResponse" />
+          <EntitySet Name="ThirdPartyMessage" EntityType="VSI.EDGEAXConnector.Data.ThirdPartyMessage" />
+        </EntityContainer>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+        <EntityType Name="ApplicationSetting">
+          <Key>
+            <PropertyRef Name="ApplicationSettingId" />
+          </Key>
+          <Property Name="ApplicationSettingId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Key" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Value" Type="String" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ScreenName" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Name="SortOrder" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="StoreId" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="7" />
+          <Property Name="FieldTypeId" Type="Int32" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="FieldType" Relationship="VSI.EDGEAXConnector.Data.FK_ApplicationSetting_Store" FromRole="ApplicationSetting" ToRole="FieldType" />
+          <NavigationProperty Name="FieldValue" Relationship="VSI.EDGEAXConnector.Data.FK_FieldValue_FieldValue" FromRole="ApplicationSetting" ToRole="FieldValue" />
+          <Property Name="IsUserForDuplicateStore" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ConfigurableObject">
+          <Key>
+            <PropertyRef Name="ConfigurableObjectId" />
+          </Key>
+          <Property Name="ConfigurableObjectId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ComValue" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ErpValue" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="EntityType" Type="Int32" Nullable="false" />
+          <Property Name="ConnectorKey" Type="Int32" />
+          <Property Name="StoreId" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="7" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Store" Relationship="VSI.EDGEAXConnector.Data.FK_ConfigurableObject_Store" FromRole="ConfigurableObject" ToRole="Store" />
+        </EntityType>
+        <EntityType Name="DeliveryMethod">
+          <Key>
+            <PropertyRef Name="DeliveryMethodId" />
+          </Key>
+          <Property Name="DeliveryMethodId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="ItemId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ErpKey" Type="Int64" Nullable="false" />
+          <Property Name="StoreId" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Store" Relationship="VSI.EDGEAXConnector.Data.FK_DeliveryMethod_Store" FromRole="DeliveryMethod" ToRole="Store" />
+        </EntityType>
+        <EntityType Name="DimensionSet">
+          <Key>
+            <PropertyRef Name="DimensionSetId" />
+          </Key>
+          <Property Name="DimensionSetId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ErpValue" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ComValue" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="AdditionalErpValue" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StoreId" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Store" Relationship="VSI.EDGEAXConnector.Data.FK_DimensionSet_Store" FromRole="DimensionSet" ToRole="Store" />
+        </EntityType>
+        <EntityType Name="EcomType">
+          <Key>
+            <PropertyRef Name="EcomTypeId" />
+          </Key>
+          <Property Name="EcomTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EcomName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Store" Relationship="VSI.EDGEAXConnector.Data.FK_Store_EcomType" FromRole="EcomType" ToRole="Store" />
+        </EntityType>
+        <EntityType Name="EmailSubscriber">
+          <Key>
+            <PropertyRef Name="EmailSubscriberId" />
+          </Key>
+          <Property Name="EmailSubscriberId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TemplateId" Type="Int32" Nullable="false" />
+          <Property Name="SubscriberId" Type="Int32" Nullable="false" />
+          <Property Name="StoreId" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Store" Relationship="VSI.EDGEAXConnector.Data.FK_EmailSubscriber_Store" FromRole="EmailSubscriber" ToRole="Store" />
+        </EntityType>
+        <EntityType Name="EmailTemplate">
+          <Key>
+            <PropertyRef Name="EmailTemplateId" />
+          </Key>
+          <Property Name="EmailTemplateId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Subject" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Body" Type="String" Nullable="false" MaxLength="3000" FixedLength="false" Unicode="true" />
+          <Property Name="Footer" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="StoreId" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Entity">
+          <Key>
+            <PropertyRef Name="EntityId" />
+          </Key>
+          <Property Name="EntityId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="WorkFlowId" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="7" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="EntityFileNameParameter">
+          <Key>
+            <PropertyRef Name="EntityFileNameParametersId" />
+          </Key>
+          <Property Name="EntityFileNameParametersId" Type="Int32" Nullable="false" />
+          <Property Name="StoreId" Type="Int32" Nullable="false" />
+          <Property Name="EntityId" Type="Int32" Nullable="false" />
+          <Property Name="Prefix" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StartingParameter" Type="Int64" Nullable="false" />
+          <Property Name="Parameters" Type="Int64" Nullable="false" />
+          <Property Name="Postfix" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="EntityFileNameParameter1" Relationship="VSI.EDGEAXConnector.Data.FK_EntityFileNameParameter_EntityFileNameParameter" FromRole="EntityFileNameParameter" ToRole="EntityFileNameParameter1" />
+          <NavigationProperty Name="EntityFileNameParameter2" Relationship="VSI.EDGEAXConnector.Data.FK_EntityFileNameParameter_EntityFileNameParameter" FromRole="EntityFileNameParameter1" ToRole="EntityFileNameParameter" />
+        </EntityType>
+        <EntityType Name="ERPType">
+          <Key>
+            <PropertyRef Name="ERPTypeId" />
+          </Key>
+          <Property Name="ERPTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ERPName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Store" Relationship="VSI.EDGEAXConnector.Data.FK_Store_Type" FromRole="ERPType" ToRole="Store" />
+        </EntityType>
+        <EntityType Name="FieldType">
+          <Key>
+            <PropertyRef Name="FieldTypeId" />
+          </Key>
+          <Property Name="FieldTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="7" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="7" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ApplicationSetting" Relationship="VSI.EDGEAXConnector.Data.FK_ApplicationSetting_Store" FromRole="FieldType" ToRole="ApplicationSetting" />
+        </EntityType>
+        <EntityType Name="FieldValue">
+          <Key>
+            <PropertyRef Name="FiedlValueId" />
+          </Key>
+          <Property Name="FiedlValueId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ApplicationSettingId" Type="Int32" />
+          <Property Name="FieldName" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="SortOrder" Type="Int32" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="7" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="ApplicationSetting" Relationship="VSI.EDGEAXConnector.Data.FK_FieldValue_FieldValue" FromRole="FieldValue" ToRole="ApplicationSetting" />
+        </EntityType>
+        <EntityType Name="IntegrationKey">
+          <Key>
+            <PropertyRef Name="IntegrationKeyId" />
+          </Key>
+          <Property Name="IntegrationKeyId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EntityId" Type="Int32" Nullable="false" />
+          <Property Name="ErpKey" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ComKey" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="StoreId" Type="Int32" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="7" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Store" Relationship="VSI.EDGEAXConnector.Data.FK_IntegrationKey_Store" FromRole="IntegrationKey" ToRole="Store" />
+        </EntityType>
+        <EntityType Name="Job">
+          <Key>
+            <PropertyRef Name="JobID" />
+          </Key>
+          <Property Name="JobID" Type="Int64" Nullable="false" />
+          <Property Name="JobName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Enabled" Type="Boolean" />
+          <Property Name="JobTypeId" Type="Boolean" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="JobSchedule" Relationship="VSI.EDGEAXConnector.Data.FK_JobSchedule_Store" FromRole="Job" ToRole="JobSchedule" />
+          <NavigationProperty Name="JobLog" Relationship="VSI.EDGEAXConnector.Data.FK_JobLog_Job" FromRole="Job" ToRole="JobLog" />
+        </EntityType>
+        <EntityType Name="JobSchedule">
+          <Key>
+            <PropertyRef Name="JobSchduleId" />
+          </Key>
+          <Property Name="JobSchduleId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="JobId" Type="Int64" Nullable="false" />
+          <Property Name="JobInterval" Type="Int64" Nullable="false" />
+          <Property Name="IsRepeatable" Type="Boolean" Nullable="false" />
+          <Property Name="StartTime" Type="Time" Precision="7" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="JobStatus" Type="Int32" />
+          <Property Name="StoreId" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="7" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Job" Relationship="VSI.EDGEAXConnector.Data.FK_JobSchedule_Store" FromRole="JobSchedule" ToRole="Job" />
+        </EntityType>
+        <EntityType Name="JobType">
+          <Key>
+            <PropertyRef Name="JobTypeId" />
+          </Key>
+          <Property Name="JobTypeId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="7" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MappingTemplate">
+          <Key>
+            <PropertyRef Name="MappingTemplateId" />
+          </Key>
+          <Property Name="MappingTemplateId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SourceEntity" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="MappingTemplateTypeId" Type="Int32" Nullable="false" />
+          <Property Name="XML" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="7" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="StoreId" Type="Int32" Nullable="false" />
+          <Property Name="ReadMode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Store" Relationship="VSI.EDGEAXConnector.Data.FK_MappingTemplate_Store" FromRole="MappingTemplate" ToRole="Store" />
+          <Property Name="IngramTemplate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MappingTypeTemplate">
+          <Key>
+            <PropertyRef Name="MappingTypeTemplateId" />
+          </Key>
+          <Property Name="MappingTypeTemplateId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="7" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Organization">
+          <Key>
+            <PropertyRef Name="OrganizationId" />
+          </Key>
+          <Property Name="OrganizationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ShortCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OrganizationTimeZone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="PaymentMethod">
+          <Key>
+            <PropertyRef Name="PaymentMethodId" />
+          </Key>
+          <Property Name="PaymentMethodId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ParentPaymentMethodId" Type="Int32" />
+          <Property Name="ECommerceValue" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ErpValue" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="HasSubMethod" Type="Boolean" />
+          <Property Name="ErpCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IsPrepayment" Type="Boolean" Nullable="false" />
+          <Property Name="StoreId" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="7" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsCreditCard" Type="Boolean" Nullable="false" />
+          <Property Name="UsePaymentConnector" Type="Boolean" Nullable="false" />
+          <Property Name="ServiceAccountId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Store" Relationship="VSI.EDGEAXConnector.Data.FK_PaymentMethod_Store" FromRole="PaymentMethod" ToRole="Store" />
+          <Property Name="PaymentConnectorId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="State">
+          <Key>
+            <PropertyRef Name="StateId" />
+          </Key>
+          <Property Name="StateId" Type="Int32" Nullable="false" />
+          <Property Name="Code" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="State1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="7" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Store">
+          <Key>
+            <PropertyRef Name="StoreId" />
+          </Key>
+          <Property Name="StoreId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EcomTypeId" Type="Int32" Nullable="false" />
+          <Property Name="OrganizationId" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="StoreKey" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="7" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ERPTypeId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ConfigurableObject" Relationship="VSI.EDGEAXConnector.Data.FK_ConfigurableObject_Store" FromRole="Store" ToRole="ConfigurableObject" />
+          <NavigationProperty Name="DeliveryMethod" Relationship="VSI.EDGEAXConnector.Data.FK_DeliveryMethod_Store" FromRole="Store" ToRole="DeliveryMethod" />
+          <NavigationProperty Name="DimensionSet" Relationship="VSI.EDGEAXConnector.Data.FK_DimensionSet_Store" FromRole="Store" ToRole="DimensionSet" />
+          <NavigationProperty Name="EcomType" Relationship="VSI.EDGEAXConnector.Data.FK_Store_EcomType" FromRole="Store" ToRole="EcomType" />
+          <NavigationProperty Name="EmailSubscriber" Relationship="VSI.EDGEAXConnector.Data.FK_EmailSubscriber_Store" FromRole="Store" ToRole="EmailSubscriber" />
+          <NavigationProperty Name="ERPType" Relationship="VSI.EDGEAXConnector.Data.FK_Store_Type" FromRole="Store" ToRole="ERPType" />
+          <NavigationProperty Name="IntegrationKey" Relationship="VSI.EDGEAXConnector.Data.FK_IntegrationKey_Store" FromRole="Store" ToRole="IntegrationKey" />
+          <NavigationProperty Name="MappingTemplate" Relationship="VSI.EDGEAXConnector.Data.FK_MappingTemplate_Store" FromRole="Store" ToRole="MappingTemplate" />
+          <NavigationProperty Name="PaymentMethod" Relationship="VSI.EDGEAXConnector.Data.FK_PaymentMethod_Store" FromRole="Store" ToRole="PaymentMethod" />
+          <NavigationProperty Name="Subscriber" Relationship="VSI.EDGEAXConnector.Data.FK_Subscriber_Store" FromRole="Store" ToRole="Subscriber" />
+          <NavigationProperty Name="WorkFlowTransition" Relationship="VSI.EDGEAXConnector.Data.FK_WorkFlowTransition_Store" FromRole="Store" ToRole="WorkFlowTransition" />
+          <Property Name="DuplicateOf" Type="Int32" Nullable="true" />
+          <Property Name="IsSFTPDirTreeCreated" Type="Boolean" />
+          <NavigationProperty Name="ActionRequest" Relationship="VSI.EDGEAXConnector.Data.FK_ActionRequest_Store" FromRole="Store" ToRole="ActionRequest" />
+          <NavigationProperty Name="CountryNames" Relationship="VSI.EDGEAXConnector.Data.FK_CountryNames_Store" FromRole="Store" ToRole="CountryNames" />
+          <Property Name="RetailChannelId" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Subscriber">
+          <Key>
+            <PropertyRef Name="SubscriberId" />
+          </Key>
+          <Property Name="SubscriberId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="StoreId" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Store" Relationship="VSI.EDGEAXConnector.Data.FK_Subscriber_Store" FromRole="Subscriber" ToRole="Store" />
+        </EntityType>
+        <EntityType Name="WorkFlow">
+          <Key>
+            <PropertyRef Name="WorkFlowId" />
+          </Key>
+          <Property Name="WorkFlowId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="7" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="WorkFlowState" Relationship="VSI.EDGEAXConnector.Data.FK_WorkFlowState_WorkFlow" FromRole="WorkFlow" ToRole="WorkFlowState" />
+        </EntityType>
+        <EntityType Name="WorkFlowState">
+          <Key>
+            <PropertyRef Name="WorkFlowStateID" />
+          </Key>
+          <Property Name="WorkFlowStateID" Type="Int32" Nullable="false" />
+          <Property Name="WorkFlowID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="OrderSequence" Type="Int32" />
+          <NavigationProperty Name="WorkFlow" Relationship="VSI.EDGEAXConnector.Data.FK_WorkFlowState_WorkFlow" FromRole="WorkFlowState" ToRole="WorkFlow" />
+          <NavigationProperty Name="WorkFlowTransition" Relationship="VSI.EDGEAXConnector.Data.FK_WorkFlowTransition_WorkFlowState" FromRole="WorkFlowState" ToRole="WorkFlowTransition" />
+        </EntityType>
+        <EntityType Name="WorkFlowTransition">
+          <Key>
+            <PropertyRef Name="WorkFlowTransitionId" />
+          </Key>
+          <Property Name="WorkFlowTransitionId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InstanceId" Type="Int32" Nullable="false" />
+          <Property Name="WorkFlowStateId" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="StoreId" Type="Int32" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Store" Relationship="VSI.EDGEAXConnector.Data.FK_WorkFlowTransition_Store" FromRole="WorkFlowTransition" ToRole="Store" />
+          <NavigationProperty Name="WorkFlowState" Relationship="VSI.EDGEAXConnector.Data.FK_WorkFlowTransition_WorkFlowState" FromRole="WorkFlowTransition" ToRole="WorkFlowState" />
+        </EntityType>
+        <Association Name="FK_ApplicationSetting_Store">
+          <End Type="VSI.EDGEAXConnector.Data.FieldType" Role="FieldType" Multiplicity="0..1" />
+          <End Type="VSI.EDGEAXConnector.Data.ApplicationSetting" Role="ApplicationSetting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FieldType">
+              <PropertyRef Name="FieldTypeId" />
+            </Principal>
+            <Dependent Role="ApplicationSetting">
+              <PropertyRef Name="FieldTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FieldValue_FieldValue">
+          <End Type="VSI.EDGEAXConnector.Data.ApplicationSetting" Role="ApplicationSetting" Multiplicity="0..1" />
+          <End Type="VSI.EDGEAXConnector.Data.FieldValue" Role="FieldValue" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ApplicationSetting">
+              <PropertyRef Name="ApplicationSettingId" />
+            </Principal>
+            <Dependent Role="FieldValue">
+              <PropertyRef Name="ApplicationSettingId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ConfigurableObject_Store">
+          <End Type="VSI.EDGEAXConnector.Data.Store" Role="Store" Multiplicity="0..1" />
+          <End Type="VSI.EDGEAXConnector.Data.ConfigurableObject" Role="ConfigurableObject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Store">
+              <PropertyRef Name="StoreId" />
+            </Principal>
+            <Dependent Role="ConfigurableObject">
+              <PropertyRef Name="StoreId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeliveryMethod_Store">
+          <End Type="VSI.EDGEAXConnector.Data.Store" Role="Store" Multiplicity="1" />
+          <End Type="VSI.EDGEAXConnector.Data.DeliveryMethod" Role="DeliveryMethod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Store">
+              <PropertyRef Name="StoreId" />
+            </Principal>
+            <Dependent Role="DeliveryMethod">
+              <PropertyRef Name="StoreId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DimensionSet_Store">
+          <End Type="VSI.EDGEAXConnector.Data.Store" Role="Store" Multiplicity="1" />
+          <End Type="VSI.EDGEAXConnector.Data.DimensionSet" Role="DimensionSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Store">
+              <PropertyRef Name="StoreId" />
+            </Principal>
+            <Dependent Role="DimensionSet">
+              <PropertyRef Name="StoreId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Store_EcomType">
+          <End Type="VSI.EDGEAXConnector.Data.EcomType" Role="EcomType" Multiplicity="1" />
+          <End Type="VSI.EDGEAXConnector.Data.Store" Role="Store" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EcomType">
+              <PropertyRef Name="EcomTypeId" />
+            </Principal>
+            <Dependent Role="Store">
+              <PropertyRef Name="EcomTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmailSubscriber_Store">
+          <End Type="VSI.EDGEAXConnector.Data.Store" Role="Store" Multiplicity="1" />
+          <End Type="VSI.EDGEAXConnector.Data.EmailSubscriber" Role="EmailSubscriber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Store">
+              <PropertyRef Name="StoreId" />
+            </Principal>
+            <Dependent Role="EmailSubscriber">
+              <PropertyRef Name="StoreId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmailTemplate_Store">
+          <End Type="VSI.EDGEAXConnector.Data.Store" Role="Store" Multiplicity="1" />
+          <End Type="VSI.EDGEAXConnector.Data.EmailTemplate" Role="EmailTemplate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Store">
+              <PropertyRef Name="StoreId" />
+            </Principal>
+            <Dependent Role="EmailTemplate">
+              <PropertyRef Name="StoreId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EntityFileNameParameter_EntityFileNameParameter">
+          <End Type="VSI.EDGEAXConnector.Data.EntityFileNameParameter" Role="EntityFileNameParameter" Multiplicity="1" />
+          <End Type="VSI.EDGEAXConnector.Data.EntityFileNameParameter" Role="EntityFileNameParameter1" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="EntityFileNameParameter">
+              <PropertyRef Name="EntityFileNameParametersId" />
+            </Principal>
+            <Dependent Role="EntityFileNameParameter1">
+              <PropertyRef Name="EntityFileNameParametersId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Store_Type">
+          <End Type="VSI.EDGEAXConnector.Data.ERPType" Role="ERPType" Multiplicity="1" />
+          <End Type="VSI.EDGEAXConnector.Data.Store" Role="Store" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ERPType">
+              <PropertyRef Name="ERPTypeId" />
+            </Principal>
+            <Dependent Role="Store">
+              <PropertyRef Name="ERPTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IntegrationKey_Store">
+          <End Type="VSI.EDGEAXConnector.Data.Store" Role="Store" Multiplicity="0..1" />
+          <End Type="VSI.EDGEAXConnector.Data.IntegrationKey" Role="IntegrationKey" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Store">
+              <PropertyRef Name="StoreId" />
+            </Principal>
+            <Dependent Role="IntegrationKey">
+              <PropertyRef Name="StoreId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_JobSchedule_Store">
+          <End Type="VSI.EDGEAXConnector.Data.Job" Role="Job" Multiplicity="1" />
+          <End Type="VSI.EDGEAXConnector.Data.JobSchedule" Role="JobSchedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Job">
+              <PropertyRef Name="JobID" />
+            </Principal>
+            <Dependent Role="JobSchedule">
+              <PropertyRef Name="JobId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MappingTemplate_Store">
+          <End Type="VSI.EDGEAXConnector.Data.Store" Role="Store" Multiplicity="1" />
+          <End Type="VSI.EDGEAXConnector.Data.MappingTemplate" Role="MappingTemplate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Store">
+              <PropertyRef Name="StoreId" />
+            </Principal>
+            <Dependent Role="MappingTemplate">
+              <PropertyRef Name="StoreId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PaymentMethod_Store">
+          <End Type="VSI.EDGEAXConnector.Data.Store" Role="Store" Multiplicity="1" />
+          <End Type="VSI.EDGEAXConnector.Data.PaymentMethod" Role="PaymentMethod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Store">
+              <PropertyRef Name="StoreId" />
+            </Principal>
+            <Dependent Role="PaymentMethod">
+              <PropertyRef Name="StoreId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Subscriber_Store">
+          <End Type="VSI.EDGEAXConnector.Data.Store" Role="Store" Multiplicity="1" />
+          <End Type="VSI.EDGEAXConnector.Data.Subscriber" Role="Subscriber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Store">
+              <PropertyRef Name="StoreId" />
+            </Principal>
+            <Dependent Role="Subscriber">
+              <PropertyRef Name="StoreId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkFlowTransition_Store">
+          <End Type="VSI.EDGEAXConnector.Data.Store" Role="Store" Multiplicity="0..1" />
+          <End Type="VSI.EDGEAXConnector.Data.WorkFlowTransition" Role="WorkFlowTransition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Store">
+              <PropertyRef Name="StoreId" />
+            </Principal>
+            <Dependent Role="WorkFlowTransition">
+              <PropertyRef Name="StoreId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkFlowState_WorkFlow">
+          <End Type="VSI.EDGEAXConnector.Data.WorkFlow" Role="WorkFlow" Multiplicity="1" />
+          <End Type="VSI.EDGEAXConnector.Data.WorkFlowState" Role="WorkFlowState" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WorkFlow">
+              <PropertyRef Name="WorkFlowId" />
+            </Principal>
+            <Dependent Role="WorkFlowState">
+              <PropertyRef Name="WorkFlowID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkFlowTransition_WorkFlowState">
+          <End Type="VSI.EDGEAXConnector.Data.WorkFlowState" Role="WorkFlowState" Multiplicity="1" />
+          <End Type="VSI.EDGEAXConnector.Data.WorkFlowTransition" Role="WorkFlowTransition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WorkFlowState">
+              <PropertyRef Name="WorkFlowStateID" />
+            </Principal>
+            <Dependent Role="WorkFlowTransition">
+              <PropertyRef Name="WorkFlowStateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="DataDirection">
+          <Key>
+            <PropertyRef Name="DataDirectionId" />
+          </Key>
+          <Property Name="DataDirectionId" Type="Int32" Nullable="false" />
+          <Property Name="DataDirectionName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ActionRequest">
+          <Key>
+            <PropertyRef Name="ActionName" />
+            <PropertyRef Name="StoreId" />
+          </Key>
+          <Property Name="ActionRequestId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ActionName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="StoreId" Type="Int32" Nullable="false" />
+          <Property Name="Request" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Store" Relationship="VSI.EDGEAXConnector.Data.FK_ActionRequest_Store" FromRole="ActionRequest" ToRole="Store" />
+        </EntityType>
+        <Association Name="FK_ActionRequest_Store">
+          <End Type="VSI.EDGEAXConnector.Data.Store" Role="Store" Multiplicity="1" />
+          <End Type="VSI.EDGEAXConnector.Data.ActionRequest" Role="ActionRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Store">
+              <PropertyRef Name="StoreId" />
+            </Principal>
+            <Dependent Role="ActionRequest">
+              <PropertyRef Name="StoreId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="JobLogStatus">
+          <Key>
+            <PropertyRef Name="JobLogStatus1" />
+          </Key>
+          <Property Name="JobLogStatus1" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="JobLog" Relationship="VSI.EDGEAXConnector.Data.FK_JobLog_JobLogStatus" FromRole="JobLogStatus" ToRole="JobLog" />
+        </EntityType>
+        <EntityType Name="JobLog">
+          <Key>
+            <PropertyRef Name="JobLogId" />
+          </Key>
+          <Property Name="JobLogId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="JobId" Type="Int64" Nullable="false" />
+          <Property Name="LastExecutionTimeStamp" Type="DateTime" Precision="7" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="StoreId" Type="Int32" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="7" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="7" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Job" Relationship="VSI.EDGEAXConnector.Data.FK_JobLog_Job" FromRole="JobLog" ToRole="Job" />
+          <NavigationProperty Name="JobLogStatus" Relationship="VSI.EDGEAXConnector.Data.FK_JobLog_JobLogStatus" FromRole="JobLog" ToRole="JobLogStatus" />
+        </EntityType>
+        <Association Name="FK_JobLog_Job">
+          <End Type="VSI.EDGEAXConnector.Data.Job" Role="Job" Multiplicity="1" />
+          <End Type="VSI.EDGEAXConnector.Data.JobLog" Role="JobLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Job">
+              <PropertyRef Name="JobID" />
+            </Principal>
+            <Dependent Role="JobLog">
+              <PropertyRef Name="JobId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_JobLog_JobLogStatus">
+          <End Type="VSI.EDGEAXConnector.Data.JobLogStatus" Role="JobLogStatus" Multiplicity="0..1" />
+          <End Type="VSI.EDGEAXConnector.Data.JobLog" Role="JobLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JobLogStatus">
+              <PropertyRef Name="JobLogStatus1" />
+            </Principal>
+            <Dependent Role="JobLog">
+              <PropertyRef Name="Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Archive_RequestResponse">
+          <Key>
+            <PropertyRef Name="RequestResponseId" />
+          </Key>
+          <Property Name="RequestResponseId" Type="Int32" Nullable="false" />
+          <Property Name="StoreId" Type="Int32" Nullable="false" />
+          <Property Name="DataDirectionId" Type="Int32" />
+          <Property Name="EcomTransactionId" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="ApplicationName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MethodName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DataPacket" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RequestInitiatedIP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OutputPacket" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OutputSentAt" Type="DateTime" Precision="3" />
+          <Property Name="IdentifierKey" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IdentifierValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsSuccess" Type="Boolean" />
+          <Property Name="TotalProcessingDuration" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="PaymentConnector">
+          <Key>
+            <PropertyRef Name="PaymentConnectorId" />
+          </Key>
+          <Property Name="PaymentConnectorId" Type="Int32" Nullable="false" />
+          <Property Name="PaymentConnectorName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="ERPCreditCardProcessorName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EComCreditCardProcessorName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="LogMapper">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MethodName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IdentifierKey" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IdentifierPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CountryNames">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CountryName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ThreeLetterRegion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="7" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="7" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Store" Relationship="VSI.EDGEAXConnector.Data.FK_CountryNames_Store" FromRole="CountryNames" ToRole="Store" />
+        </EntityType>
+        <Association Name="FK_CountryNames_Store">
+          <End Type="VSI.EDGEAXConnector.Data.Store" Role="Store" Multiplicity="1" />
+          <End Type="VSI.EDGEAXConnector.Data.CountryNames" Role="CountryNames" Multiplicity="*" />
+        </Association>
+        <EntityType Name="DataDelete">
+          <Key>
+            <PropertyRef Name="DataDeleteId" />
+          </Key>
+          <Property Name="DataDeleteId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RequestId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerAccountNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ContactPersonEmail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ContactPersonId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Int16" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CatalogLogs">
+          <Key>
+            <PropertyRef Name="CatalogId" />
+          </Key>
+          <Property Name="CatalogId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Key" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Value" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="StoreId" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="7" />
+        </EntityType>
+        <EntityType Name="ThirdPartyEnvironmentWithStatus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="EnvironmentName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="AosUrlSetting">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MethodName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="MethodUrl" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ServiceBusRequestLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StoreId" Type="Int32" />
+          <Property Name="EcomTransactionId" Type="Guid" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="MethodName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="MandatoryStateCountry">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ThreeLetterISORegionName" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ShortName" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="FullName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SingleCatalogProductStaging">
+          <Key>
+            <PropertyRef Name="SingleCatalogProductStagingId" />
+          </Key>
+          <Property Name="SingleCatalogProductStagingId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductRecId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SKU" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="StoreViewCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProductJson" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="7" />
+          <Property Name="LastModifiedOn" Type="DateTime" Precision="7" />
+        </EntityType>
+        <EntityType Name="Log">
+          <Key>
+            <PropertyRef Name="LogId" />
+          </Key>
+          <Property Name="LogId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EventLevel" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MachineName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EventMessage" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ErrorSource" Type="String" MaxLength="3000" FixedLength="false" Unicode="true" />
+          <Property Name="ErrorClass" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ErrorMethod" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ErrorMessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="InnerErrorMessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IdentityId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ErrorModule" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StoreId" Type="Int32" Nullable="false" />
+          <Property Name="Scrambled" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="CountryCode">
+          <Key>
+            <PropertyRef Name="CountryCodeId" />
+          </Key>
+          <Property Name="CountryCodeId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TwoLetterCode" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="ThreeLetterCode" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="RequestResponse">
+          <Key>
+            <PropertyRef Name="RequestResponseId" />
+          </Key>
+          <Property Name="RequestResponseId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StoreId" Type="Int32" Nullable="false" />
+          <Property Name="DataDirectionId" Type="Int32" />
+          <Property Name="EcomTransactionId" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="ApplicationName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MethodName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DataPacket" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RequestInitiatedIP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OutputPacket" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OutputSentAt" Type="DateTime" Precision="3" />
+          <Property Name="IdentifierKey" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IdentifierValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsSuccess" Type="Boolean" />
+          <Property Name="TotalProcessingDuration" Type="Decimal" Nullable="false" Precision="20" Scale="5" />
+          <Property Name="Scrambled" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="ThirdPartyMessage">
+          <Key>
+            <PropertyRef Name="ThirdPartyMessageId" />
+          </Key>
+          <Property Name="ThirdPartyMessageId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EntityId" Type="Int32" />
+          <Property Name="ThirdPartyId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ThirdPartyStatus" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TransactionStatus" Type="Int32" Nullable="false" />
+          <Property Name="DestinationStoreKey" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Currency" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AssetId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="OrderType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SalesId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RetryCount" Type="Byte" Nullable="false" />
+          <Property Name="RenewalDate" Type="DateTime" Precision="3" />
+          <Property Name="PacLicense" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="VSIEDGEAXConnectorDataStoreContainer" CdmEntityContainer="IntegrationDBEntities">
+          <EntitySetMapping Name="ApplicationSetting">
+            <EntityTypeMapping TypeName="VSI.EDGEAXConnector.Data.ApplicationSetting">
+              <MappingFragment StoreEntitySet="ApplicationSetting">
+                <ScalarProperty Name="IsUserForDuplicateStore" ColumnName="IsUserForDuplicateStore" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="FieldTypeId" ColumnName="FieldTypeId" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="StoreId" ColumnName="StoreId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+                <ScalarProperty Name="ScreenName" ColumnName="ScreenName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Key" ColumnName="Key" />
+                <ScalarProperty Name="ApplicationSettingId" ColumnName="ApplicationSettingId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ConfigurableObject">
+            <EntityTypeMapping TypeName="VSI.EDGEAXConnector.Data.ConfigurableObject">
+              <MappingFragment StoreEntitySet="ConfigurableObject">
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="StoreId" ColumnName="StoreId" />
+                <ScalarProperty Name="ConnectorKey" ColumnName="ConnectorKey" />
+                <ScalarProperty Name="EntityType" ColumnName="EntityType" />
+                <ScalarProperty Name="ErpValue" ColumnName="ErpValue" />
+                <ScalarProperty Name="ComValue" ColumnName="ComValue" />
+                <ScalarProperty Name="ConfigurableObjectId" ColumnName="ConfigurableObjectId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DeliveryMethod">
+            <EntityTypeMapping TypeName="VSI.EDGEAXConnector.Data.DeliveryMethod">
+              <MappingFragment StoreEntitySet="DeliveryMethod">
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="StoreId" ColumnName="StoreId" />
+                <ScalarProperty Name="ErpKey" ColumnName="ErpKey" />
+                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="DeliveryMethodId" ColumnName="DeliveryMethodId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DimensionSet">
+            <EntityTypeMapping TypeName="VSI.EDGEAXConnector.Data.DimensionSet">
+              <MappingFragment StoreEntitySet="DimensionSet">
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="StoreId" ColumnName="StoreId" />
+                <ScalarProperty Name="AdditionalErpValue" ColumnName="AdditionalErpValue" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="ComValue" ColumnName="ComValue" />
+                <ScalarProperty Name="ErpValue" ColumnName="ErpValue" />
+                <ScalarProperty Name="DimensionSetId" ColumnName="DimensionSetId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EcomType">
+            <EntityTypeMapping TypeName="VSI.EDGEAXConnector.Data.EcomType">
+              <MappingFragment StoreEntitySet="EcomType">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="EcomName" ColumnName="EcomName" />
+                <ScalarProperty Name="EcomTypeId" ColumnName="EcomTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmailSubscriber">
+            <EntityTypeMapping TypeName="VSI.EDGEAXConnector.Data.EmailSubscriber">
+              <MappingFragment StoreEntitySet="EmailSubscriber">
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="StoreId" ColumnName="StoreId" />
+                <ScalarProperty Name="SubscriberId" ColumnName="SubscriberId" />
+                <ScalarProperty Name="TemplateId" ColumnName="TemplateId" />
+                <ScalarProperty Name="EmailSubscriberId" ColumnName="EmailSubscriberId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmailTemplate">
+            <EntityTypeMapping TypeName="VSI.EDGEAXConnector.Data.EmailTemplate">
+              <MappingFragment StoreEntitySet="EmailTemplate">
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="StoreId" ColumnName="StoreId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Footer" ColumnName="Footer" />
+                <ScalarProperty Name="Body" ColumnName="Body" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="EmailTemplateId" ColumnName="EmailTemplateId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Entity">
+            <EntityTypeMapping TypeName="VSI.EDGEAXConnector.Data.Entity">
+              <MappingFragment StoreEntitySet="Entity">
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="WorkFlowId" ColumnName="WorkFlowId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="EntityId" ColumnName="EntityId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EntityFileNameParameter">
+            <EntityTypeMapping TypeName="VSI.EDGEAXConnector.Data.EntityFileNameParameter">
+              <MappingFragment StoreEntitySet="EntityFileNameParameter">
+                <ScalarProperty Name="Postfix" ColumnName="Postfix" />
+                <ScalarProperty Name="Parameters" ColumnName="Parameters" />
+                <ScalarProperty Name="StartingParameter" ColumnName="StartingParameter" />
+                <ScalarProperty Name="Prefix" ColumnName="Prefix" />
+                <ScalarProperty Name="EntityId" ColumnName="EntityId" />
+                <ScalarProperty Name="StoreId" ColumnName="StoreId" />
+                <ScalarProperty Name="EntityFileNameParametersId" ColumnName="EntityFileNameParametersId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ERPType">
+            <EntityTypeMapping TypeName="VSI.EDGEAXConnector.Data.ERPType">
+              <MappingFragment StoreEntitySet="ERPType">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="ERPName" ColumnName="ERPName" />
+                <ScalarProperty Name="ERPTypeId" ColumnName="ERPTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FieldType">
+            <EntityTypeMapping TypeName="VSI.EDGEAXConnector.Data.FieldType">
+              <MappingFragment StoreEntitySet="FieldType">
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="FieldTypeId" ColumnName="FieldTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FieldValue">
+            <EntityTypeMapping TypeName="VSI.EDGEAXConnector.Data.FieldValue">
+              <MappingFragment StoreEntitySet="FieldValue">
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="FieldName" ColumnName="FieldName" />
+                <ScalarProperty Name="ApplicationSettingId" ColumnName="ApplicationSettingId" />
+                <ScalarProperty Name="FiedlValueId" ColumnName="FiedlValueId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IntegrationKey">
+            <EntityTypeMapping TypeName="VSI.EDGEAXConnector.Data.IntegrationKey">
+              <MappingFragment StoreEntitySet="IntegrationKey">
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="StoreId" ColumnName="StoreId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ComKey" ColumnName="ComKey" />
+                <ScalarProperty Name="ErpKey" ColumnName="ErpKey" />
+                <ScalarProperty Name="EntityId" ColumnName="EntityId" />
+                <ScalarProperty Name="IntegrationKeyId" ColumnName="IntegrationKeyId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Job">
+            <EntityTypeMapping TypeName="VSI.EDGEAXConnector.Data.Job">
+              <MappingFragment StoreEntitySet="Job">
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="JobTypeId" ColumnName="JobTypeId" />
+                <ScalarProperty Name="Enabled" ColumnName="Enabled" />
+                <ScalarProperty Name="JobName" ColumnName="JobName" />
+                <ScalarProperty Name="JobID" ColumnName="JobID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JobSchedule">
+            <EntityTypeMapping TypeName="VSI.EDGEAXConnector.Data.JobSchedule">
+              <MappingFragment StoreEntitySet="JobSchedule">
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="StoreId" ColumnName="StoreId" />
+                <ScalarProperty Name="JobStatus" ColumnName="JobStatus" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="IsRepeatable" ColumnName="IsRepeatable" />
+                <ScalarProperty Name="JobInterval" ColumnName="JobInterval" />
+                <ScalarProperty Name="JobId" ColumnName="JobId" />
+                <ScalarProperty Name="JobSchduleId" ColumnName="JobSchduleId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JobType">
+            <EntityTypeMapping TypeName="VSI.EDGEAXConnector.Data.JobType">
+              <MappingFragment StoreEntitySet="JobType">
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="JobTypeId" ColumnName="JobTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MappingTemplate">
+            <EntityTypeMapping TypeName="VSI.EDGEAXConnector.Data.MappingTemplate">
+              <MappingFragment StoreEntitySet="MappingTemplate">
+                <ScalarProperty Name="IngramTemplate" ColumnName="IngramTemplate" />
+                <ScalarProperty Name="ReadMode" ColumnName="ReadMode" />
+                <ScalarProperty Name="StoreId" ColumnName="StoreId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="XML" ColumnName="XML" />
+                <ScalarProperty Name="MappingTemplateTypeId" ColumnName="MappingTemplateTypeId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="SourceEntity" ColumnName="SourceEntity" />
+                <ScalarProperty Name="MappingTemplateId" ColumnName="MappingTemplateId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MappingTypeTemplate">
+            <EntityTypeMapping TypeName="VSI.EDGEAXConnector.Data.MappingTypeTemplate">
+              <MappingFragment StoreEntitySet="MappingTypeTemplate">
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="MappingTypeTemplateId" ColumnName="MappingTypeTemplateId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Organization">
+            <EntityTypeMapping TypeName="VSI.EDGEAXConnector.Data.Organization">
+              <MappingFragment StoreEntitySet="Organization">
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="OrganizationTimeZone" ColumnName="OrganizationTimeZone" />
+                <ScalarProperty Name="ShortCode" ColumnName="ShortCode" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="OrganizationId" ColumnName="OrganizationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PaymentMethod">
+            <EntityTypeMapping TypeName="VSI.EDGEAXConnector.Data.PaymentMethod">
+              <MappingFragment StoreEntitySet="PaymentMethod">
+                <ScalarProperty Name="PaymentConnectorId" ColumnName="PaymentConnectorId" />
+                <ScalarProperty Name="ServiceAccountId" ColumnName="ServiceAccountId" />
+                <ScalarProperty Name="UsePaymentConnector" ColumnName="UsePaymentConnector" />
+                <ScalarProperty Name="IsCreditCard" ColumnName="IsCreditCard" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="StoreId" ColumnName="StoreId" />
+                <ScalarProperty Name="IsPrepayment" ColumnName="IsPrepayment" />
+                <ScalarProperty Name="ErpCode" ColumnName="ErpCode" />
+                <ScalarProperty Name="HasSubMethod" ColumnName="HasSubMethod" />
+                <ScalarProperty Name="ErpValue" ColumnName="ErpValue" />
+                <ScalarProperty Name="ECommerceValue" ColumnName="ECommerceValue" />
+                <ScalarProperty Name="ParentPaymentMethodId" ColumnName="ParentPaymentMethodId" />
+                <ScalarProperty Name="PaymentMethodId" ColumnName="PaymentMethodId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="State">
+            <EntityTypeMapping TypeName="VSI.EDGEAXConnector.Data.State">
+              <MappingFragment StoreEntitySet="State">
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="State1" ColumnName="State" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="StateId" ColumnName="StateId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Store">
+            <EntityTypeMapping TypeName="VSI.EDGEAXConnector.Data.Store">
+              <MappingFragment StoreEntitySet="Store">
+                <ScalarProperty Name="RetailChannelId" ColumnName="RetailChannelId" />
+                <ScalarProperty Name="IsSFTPDirTreeCreated" ColumnName="IsSFTPDirTreeCreated" />
+                <ScalarProperty Name="DuplicateOf" ColumnName="DuplicateOf" />
+                <ScalarProperty Name="ERPTypeId" ColumnName="ERPTypeId" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="StoreKey" ColumnName="StoreKey" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="OrganizationId" ColumnName="OrganizationId" />
+                <ScalarProperty Name="EcomTypeId" ColumnName="EcomTypeId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="StoreId" ColumnName="StoreId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Subscriber">
+            <EntityTypeMapping TypeName="VSI.EDGEAXConnector.Data.Subscriber">
+              <MappingFragment StoreEntitySet="Subscriber">
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="StoreId" ColumnName="StoreId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="SubscriberId" ColumnName="SubscriberId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WorkFlow">
+            <EntityTypeMapping TypeName="VSI.EDGEAXConnector.Data.WorkFlow">
+              <MappingFragment StoreEntitySet="WorkFlow">
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="WorkFlowId" ColumnName="WorkFlowId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WorkFlowState">
+            <EntityTypeMapping TypeName="VSI.EDGEAXConnector.Data.WorkFlowState">
+              <MappingFragment StoreEntitySet="WorkFlowState">
+                <ScalarProperty Name="OrderSequence" ColumnName="OrderSequence" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="WorkFlowID" ColumnName="WorkFlowID" />
+                <ScalarProperty Name="WorkFlowStateID" ColumnName="WorkFlowStateID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WorkFlowTransition">
+            <EntityTypeMapping TypeName="VSI.EDGEAXConnector.Data.WorkFlowTransition">
+              <MappingFragment StoreEntitySet="WorkFlowTransition">
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="StoreId" ColumnName="StoreId" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="WorkFlowStateId" ColumnName="WorkFlowStateId" />
+                <ScalarProperty Name="InstanceId" ColumnName="InstanceId" />
+                <ScalarProperty Name="WorkFlowTransitionId" ColumnName="WorkFlowTransitionId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DataDirection">
+            <EntityTypeMapping TypeName="VSI.EDGEAXConnector.Data.DataDirection">
+              <MappingFragment StoreEntitySet="DataDirection">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="DataDirectionName" ColumnName="DataDirectionName" />
+                <ScalarProperty Name="DataDirectionId" ColumnName="DataDirectionId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ActionRequest">
+            <EntityTypeMapping TypeName="VSI.EDGEAXConnector.Data.ActionRequest">
+              <MappingFragment StoreEntitySet="ActionRequest">
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="Request" ColumnName="Request" />
+                <ScalarProperty Name="StoreId" ColumnName="StoreId" />
+                <ScalarProperty Name="ActionName" ColumnName="ActionName" />
+                <ScalarProperty Name="ActionRequestId" ColumnName="ActionRequestId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JobLogStatus">
+            <EntityTypeMapping TypeName="VSI.EDGEAXConnector.Data.JobLogStatus">
+              <MappingFragment StoreEntitySet="JobLogStatus">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="JobLogStatus1" ColumnName="JobLogStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JobLog">
+            <EntityTypeMapping TypeName="VSI.EDGEAXConnector.Data.JobLog">
+              <MappingFragment StoreEntitySet="JobLog">
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="StoreId" ColumnName="StoreId" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="LastExecutionTimeStamp" ColumnName="LastExecutionTimeStamp" />
+                <ScalarProperty Name="JobId" ColumnName="JobId" />
+                <ScalarProperty Name="JobLogId" ColumnName="JobLogId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Archive_RequestResponse">
+            <EntityTypeMapping TypeName="VSI.EDGEAXConnector.Data.Archive_RequestResponse">
+              <MappingFragment StoreEntitySet="Archive_RequestResponse">
+                <ScalarProperty Name="TotalProcessingDuration" ColumnName="TotalProcessingDuration" />
+                <ScalarProperty Name="IsSuccess" ColumnName="IsSuccess" />
+                <ScalarProperty Name="IdentifierValue" ColumnName="IdentifierValue" />
+                <ScalarProperty Name="IdentifierKey" ColumnName="IdentifierKey" />
+                <ScalarProperty Name="OutputSentAt" ColumnName="OutputSentAt" />
+                <ScalarProperty Name="OutputPacket" ColumnName="OutputPacket" />
+                <ScalarProperty Name="RequestInitiatedIP" ColumnName="RequestInitiatedIP" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="DataPacket" ColumnName="DataPacket" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="MethodName" ColumnName="MethodName" />
+                <ScalarProperty Name="ApplicationName" ColumnName="ApplicationName" />
+                <ScalarProperty Name="EcomTransactionId" ColumnName="EcomTransactionId" />
+                <ScalarProperty Name="DataDirectionId" ColumnName="DataDirectionId" />
+                <ScalarProperty Name="StoreId" ColumnName="StoreId" />
+                <ScalarProperty Name="RequestResponseId" ColumnName="RequestResponseId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PaymentConnector">
+            <EntityTypeMapping TypeName="VSI.EDGEAXConnector.Data.PaymentConnector">
+              <MappingFragment StoreEntitySet="PaymentConnector">
+                <ScalarProperty Name="EComCreditCardProcessorName" ColumnName="EComCreditCardProcessorName" />
+                <ScalarProperty Name="ERPCreditCardProcessorName" ColumnName="ERPCreditCardProcessorName" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="PaymentConnectorName" ColumnName="PaymentConnectorName" />
+                <ScalarProperty Name="PaymentConnectorId" ColumnName="PaymentConnectorId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LogMapper">
+            <EntityTypeMapping TypeName="VSI.EDGEAXConnector.Data.LogMapper">
+              <MappingFragment StoreEntitySet="LogMapper">
+                <ScalarProperty Name="IdentifierPath" ColumnName="IdentifierPath" />
+                <ScalarProperty Name="IdentifierKey" ColumnName="IdentifierKey" />
+                <ScalarProperty Name="MethodName" ColumnName="MethodName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CountryNames">
+            <EntityTypeMapping TypeName="VSI.EDGEAXConnector.Data.CountryNames">
+              <MappingFragment StoreEntitySet="CountryNames">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="ThreeLetterRegion" ColumnName="ThreeLetterRegion" />
+                <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="FK_CountryNames_Store" TypeName="VSI.EDGEAXConnector.Data.FK_CountryNames_Store" StoreEntitySet="CountryNames">
+            <EndProperty Name="CountryNames">
+              <ScalarProperty Name="Id" ColumnName="Id" />
+            </EndProperty>
+            <EndProperty Name="Store">
+              <ScalarProperty Name="StoreId" ColumnName="StoreId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="spDataDelete" FunctionName="VSI.EDGEAXConnector.Data.Store.spDataDelete" />
+          <EntitySetMapping Name="DataDelete">
+            <EntityTypeMapping TypeName="VSI.EDGEAXConnector.Data.DataDelete">
+              <MappingFragment StoreEntitySet="DataDelete">
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ContactPersonId" ColumnName="ContactPersonId" />
+                <ScalarProperty Name="ContactPersonEmail" ColumnName="ContactPersonEmail" />
+                <ScalarProperty Name="CustomerAccountNumber" ColumnName="CustomerAccountNumber" />
+                <ScalarProperty Name="RequestId" ColumnName="RequestId" />
+                <ScalarProperty Name="DataDeleteId" ColumnName="DataDeleteId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CatalogLogs">
+            <EntityTypeMapping TypeName="VSI.EDGEAXConnector.Data.CatalogLogs">
+              <MappingFragment StoreEntitySet="CatalogLogs">
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="StoreId" ColumnName="StoreId" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Key" ColumnName="Key" />
+                <ScalarProperty Name="CatalogId" ColumnName="CatalogId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ThirdPartyEnvironmentWithStatus">
+            <EntityTypeMapping TypeName="VSI.EDGEAXConnector.Data.ThirdPartyEnvironmentWithStatus">
+              <MappingFragment StoreEntitySet="ThirdPartyEnvironmentWithStatus">
+                <ScalarProperty Name="EnvironmentName" ColumnName="EnvironmentName" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AosUrlSetting">
+            <EntityTypeMapping TypeName="VSI.EDGEAXConnector.Data.AosUrlSetting">
+              <MappingFragment StoreEntitySet="AosUrlSetting">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="MethodUrl" ColumnName="MethodUrl" />
+                <ScalarProperty Name="MethodName" ColumnName="MethodName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ServiceBusRequestLog">
+            <EntityTypeMapping TypeName="VSI.EDGEAXConnector.Data.ServiceBusRequestLog">
+              <MappingFragment StoreEntitySet="ServiceBusRequestLog">
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="MethodName" ColumnName="MethodName" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="EcomTransactionId" ColumnName="EcomTransactionId" />
+                <ScalarProperty Name="StoreId" ColumnName="StoreId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MandatoryStateCountry">
+            <EntityTypeMapping TypeName="VSI.EDGEAXConnector.Data.MandatoryStateCountry">
+              <MappingFragment StoreEntitySet="MandatoryStateCountry">
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+                <ScalarProperty Name="ThreeLetterISORegionName" ColumnName="ThreeLetterISORegionName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SingleCatalogProductStaging">
+            <EntityTypeMapping TypeName="VSI.EDGEAXConnector.Data.SingleCatalogProductStaging">
+              <MappingFragment StoreEntitySet="SingleCatalogProductStaging">
+                <ScalarProperty Name="LastModifiedOn" ColumnName="LastModifiedOn" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="ProductJson" ColumnName="ProductJson" />
+                <ScalarProperty Name="StoreViewCode" ColumnName="StoreViewCode" />
+                <ScalarProperty Name="SKU" ColumnName="SKU" />
+                <ScalarProperty Name="ProductRecId" ColumnName="ProductRecId" />
+                <ScalarProperty Name="SingleCatalogProductStagingId" ColumnName="SingleCatalogProductStagingId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Log">
+            <EntityTypeMapping TypeName="VSI.EDGEAXConnector.Data.Log">
+              <MappingFragment StoreEntitySet="Log">
+                <ScalarProperty Name="Scrambled" ColumnName="Scrambled" />
+                <ScalarProperty Name="StoreId" ColumnName="StoreId" />
+                <ScalarProperty Name="ErrorModule" ColumnName="ErrorModule" />
+                <ScalarProperty Name="IdentityId" ColumnName="IdentityId" />
+                <ScalarProperty Name="InnerErrorMessage" ColumnName="InnerErrorMessage" />
+                <ScalarProperty Name="ErrorMessage" ColumnName="ErrorMessage" />
+                <ScalarProperty Name="ErrorMethod" ColumnName="ErrorMethod" />
+                <ScalarProperty Name="ErrorClass" ColumnName="ErrorClass" />
+                <ScalarProperty Name="ErrorSource" ColumnName="ErrorSource" />
+                <ScalarProperty Name="EventMessage" ColumnName="EventMessage" />
+                <ScalarProperty Name="MachineName" ColumnName="MachineName" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="EventLevel" ColumnName="EventLevel" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="LogId" ColumnName="LogId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CountryCode">
+            <EntityTypeMapping TypeName="VSI.EDGEAXConnector.Data.CountryCode">
+              <MappingFragment StoreEntitySet="CountryCode">
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="ThreeLetterCode" ColumnName="ThreeLetterCode" />
+                <ScalarProperty Name="TwoLetterCode" ColumnName="TwoLetterCode" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CountryCodeId" ColumnName="CountryCodeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RequestResponse">
+            <EntityTypeMapping TypeName="VSI.EDGEAXConnector.Data.RequestResponse">
+              <MappingFragment StoreEntitySet="RequestResponse">
+                <ScalarProperty Name="Scrambled" ColumnName="Scrambled" />
+                <ScalarProperty Name="TotalProcessingDuration" ColumnName="TotalProcessingDuration" />
+                <ScalarProperty Name="IsSuccess" ColumnName="IsSuccess" />
+                <ScalarProperty Name="IdentifierValue" ColumnName="IdentifierValue" />
+                <ScalarProperty Name="IdentifierKey" ColumnName="IdentifierKey" />
+                <ScalarProperty Name="OutputSentAt" ColumnName="OutputSentAt" />
+                <ScalarProperty Name="OutputPacket" ColumnName="OutputPacket" />
+                <ScalarProperty Name="RequestInitiatedIP" ColumnName="RequestInitiatedIP" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="DataPacket" ColumnName="DataPacket" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="MethodName" ColumnName="MethodName" />
+                <ScalarProperty Name="ApplicationName" ColumnName="ApplicationName" />
+                <ScalarProperty Name="EcomTransactionId" ColumnName="EcomTransactionId" />
+                <ScalarProperty Name="DataDirectionId" ColumnName="DataDirectionId" />
+                <ScalarProperty Name="StoreId" ColumnName="StoreId" />
+                <ScalarProperty Name="RequestResponseId" ColumnName="RequestResponseId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ThirdPartyMessage">
+            <EntityTypeMapping TypeName="VSI.EDGEAXConnector.Data.ThirdPartyMessage">
+              <MappingFragment StoreEntitySet="ThirdPartyMessage">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="PacLicense" ColumnName="PacLicense" />
+                <ScalarProperty Name="RenewalDate" ColumnName="RenewalDate" />
+                <ScalarProperty Name="RetryCount" ColumnName="RetryCount" />
+                <ScalarProperty Name="SalesId" ColumnName="SalesId" />
+                <ScalarProperty Name="OrderType" ColumnName="OrderType" />
+                <ScalarProperty Name="AssetId" ColumnName="AssetId" />
+                <ScalarProperty Name="Currency" ColumnName="Currency" />
+                <ScalarProperty Name="DestinationStoreKey" ColumnName="DestinationStoreKey" />
+                <ScalarProperty Name="TransactionStatus" ColumnName="TransactionStatus" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="ThirdPartyStatus" ColumnName="ThirdPartyStatus" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="ThirdPartyId" ColumnName="ThirdPartyId" />
+                <ScalarProperty Name="EntityId" ColumnName="EntityId" />
+                <ScalarProperty Name="ThirdPartyMessageId" ColumnName="ThirdPartyMessageId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="False" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

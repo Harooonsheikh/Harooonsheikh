@@ -1,0 +1,104 @@
+﻿<Window x:Class="VSI.EDGEAXConnector.UI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:convertors="clr-namespace:VSI.EDGEAXConnector.UI.Convertors"
+        xmlns:userControl="clr-namespace:VSI.EDGEAXConnector.UI.UserControlls"
+        Title="EdgeAX CommerceLink" WindowState="Maximized" Height="600" Width="800"
+        WindowStyle="None" Style="{DynamicResource ModalWindowStyle}"
+        ShowInTaskbar="True" Name="winMain" >
+
+    <Window.CommandBindings>
+        <CommandBinding Command="Close"
+        Executed="CommandBinding_Executed"/>
+    </Window.CommandBindings>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="24"/>
+            <RowDefinition Height="*"/>
+            <!--<RowDefinition Height="120"/>-->
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0" IsMainMenu="True" Height="24" VerticalAlignment="Center">
+            <MenuItem Header="_Main" Height="24">
+                <MenuItem Header="E_xit" Name='menuExit' Click="menuExit_Click"/>
+            </MenuItem>
+            <MenuItem Header="_Help" Name="menuHelp">
+            </MenuItem>
+            <MenuItem Header="_About Us" Name="menuAbout" Click="menuAbout_Click"/>
+        </Menu>
+        <Border Grid.Row="1" Margin="0,1,0,0" Background="#ffffff">
+            <TabControl TabStripPlacement="Top" BorderThickness="1">
+                <TabItem Header="Mapping" Style="{DynamicResource TabItemStyle}" >
+                    <Border Margin="0,5,0,0">
+                        <TabControl BorderThickness="1">
+                            <!--<TabItem Header="Entities Mapping" Style="{DynamicResource TabItemStyle}">
+                                <userControl:Mapping />
+                            </TabItem>-->
+                            <!--<TabItem Header="Resolvers" Style="{DynamicResource TabItemStyle}">
+                                <userControl:Resolvers />
+                            </TabItem>-->
+                            <TabItem Header="XML Mapping" Style="{DynamicResource TabItemStyle}">
+                                <userControl:XmlFileMapping />
+                            </TabItem>
+                            <!--<TabItem Header="Code Generation" Style="{DynamicResource TabItemStyle}">
+                                <userControl:CodeGenerate />
+                            </TabItem>-->
+                            <TabItem Header="Backup" Style="{DynamicResource TabItemStyle}">
+                                <userControl:Backup />
+                            </TabItem>
+                            <TabItem Header="Maps Location" Style="{DynamicResource TabItemStyle}">
+                                <userControl:MapsLocation />
+                            </TabItem>
+                            <TabItem Header="Mapping Constants" Style="{DynamicResource TabItemStyle}" Visibility="Hidden">
+                                <userControl:MappingConstants />
+                            </TabItem>
+                        </TabControl>
+                    </Border>
+                </TabItem>
+                <TabItem Header="Configuration" Style="{DynamicResource TabItemStyle}">
+                    <Border Margin="0,5,0,0">
+                        <userControl:ConfigurationUI />
+                    </Border>
+                </TabItem>
+                <TabItem Header="Jobs" Style="{DynamicResource TabItemStyle}">
+                    <Border Margin="0,5,0,0">
+                        <userControl:Jobs />
+                    </Border>
+                </TabItem>
+                <TabItem Header="Services" Style="{DynamicResource TabItemStyle}">
+                    <userControl:Services/>
+                </TabItem>
+            </TabControl>
+        </Border>
+        <!--<Border Grid.Row="2" Background="#ffffff">
+            <GroupBox Header="Connector Status" Foreground="Black">
+                <TabControl TabStripPlacement="Bottom" BorderThickness="1">
+                    <TabItem Header="Connector" Style="{DynamicResource TabItemSmallYStyle}">
+                        <StackPanel>
+                            <TextBox TextWrapping="WrapWithOverflow" x:Name="txtConnectorTracking" Foreground="Black">
+                                
+                            </TextBox>
+                            <TextBlock Text="EdgeAXCommerceLink : Creating connection with ECommerce FTP" Foreground="Black"/>
+                            <TextBlock Text="EdgeAXCommerceLink : Processing SalesOrder (100090018)" Foreground="Black"/>
+                            <TextBlock Text="EdgeAXCommerceLink : Creating Customer for SalesOrder (100090018)" Foreground="Black"/>
+                            <TextBlock Text="EdgeAXCommerceLink : Updating Status of SalesOrders" Foreground="Black"/>
+                            <TextBlock Text="........" Foreground="Black"/>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Header="File Service" Style="{DynamicResource TabItemSmallYStyle}">
+                        <StackPanel>
+                            <TextBlock Text="EdgeAXCommerceLinkFileService : Creating connection with ECommerce FTP" Foreground="Black"/>
+                            <TextBlock Text="EdgeAXCommerceLinkFileService : Updating Customer in ECommerce (Updated Customer-201509200229.csv)" Foreground="Black"/>
+                            <TextBlock Text="EdgeAXCommerceLinkFileService : downloading Customer CSV file (customers_20151010090017.csv)" Foreground="Black"/>
+                            <TextBlock Text="EdgeAXCommerceLinkFileService : Updating Customer in ECommerce (Updated Customer-201509200403.csv)" Foreground="Black"/>
+                            <TextBlock Text="........" Foreground="Black"/>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Header="Realtime Service" Style="{DynamicResource TabItemSmallYStyle}">
+                        <TextBlock Text="Realtime Service live status will be here"/>
+                    </TabItem>
+                </TabControl>
+            </GroupBox>
+        </Border>-->
+    </Grid>
+</Window>

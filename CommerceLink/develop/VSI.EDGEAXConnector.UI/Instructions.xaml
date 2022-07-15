@@ -1,0 +1,15 @@
+﻿<Window x:Class="VSI.EDGEAXConnector.UI.Instructions"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Instructions" Height="600" Width="800" ResizeMode="NoResize"
+        Style="{DynamicResource ModalWindowStyle}" 
+        WindowStartupLocation="CenterScreen" ShowInTaskbar="True">
+    <Window.CommandBindings>
+        <CommandBinding Command="Close"
+        Executed="CommandBinding_Executed"/>
+    </Window.CommandBindings>
+    <StackPanel Margin="10">
+        <TextBox Name="txtInstructions" Height="460" Width="780" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+        <Button Content="Close" Style="{DynamicResource BlueButtonStyle}" Foreground="#ffffff" Name="btnClose" Click="btnClose_Click" HorizontalAlignment="Center" Width="100" Height="32" FontSize="12" Margin="10" VerticalAlignment="Bottom" />
+    </StackPanel>
+</Window>

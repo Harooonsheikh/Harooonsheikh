@@ -1,0 +1,109 @@
+<div class="m-subheader">
+    <div class="d-flex align-items-center">
+        <div class="mr-auto">
+            <h3 class="m-subheader__title m-subheader__title--separator">
+                Request Response
+            </h3>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label">
+                Log Type :
+            </label>
+            <select [(ngModel)]="selectedLogType" id="LogType" class="form-control m-input m-input--air"
+                style="box-shadow:0px 0px 0px 0px; width:100px;" (change)="updateDates()">
+                <option value="0" selected>Active</option>
+                <option value="1">Archive</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label">
+                Method :
+            </label>
+            <select [(ngModel)]="selectedMethod" id="Method" #pm="ngModel" class="form-control m-input m-input--air"
+                style="box-shadow:0px 0px 0px 0px;" name="pm">
+                <option value="-1" selected>All</option>
+                <option *ngFor="let pm of MethodKeyValue;" [ngValue]="pm.Key">{{pm.Value}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label">
+                Type :
+            </label>
+            <div class="m-dropdown--align-right m-dropdown--align-push" data-dropdown-toggle="hover" aria-expanded="true">
+                <select [(ngModel)]="selectedType" id="TypeResponse" class="form-control m-input m-input--air">
+                    <option value="-1" selected>All</option>
+                    <option value="1">CLResponseToEcom</option>
+                    <option value="2">EcomRequestToCL</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label">
+                From :
+            </label>
+            <input name="fromDate" [(ngModel)]="startDateFilter" class="form-control m-input" type="date" id="example-date-input">
+
+        </div>
+        <div class="form-group">
+            <label class="form-control-label">
+                To :
+            </label>
+            <input class="form-control m-input" [(ngModel)]="endDateFilter" type="date" id="example-date-input">
+
+        </div>
+        <div class="form-group">
+            <label class="form-control-label">
+                Search :
+            </label>
+            <div>
+                <input name="searchQuery" [(ngModel)]="searchQuery" class="form-control m-input m-input--solid ng-untouched ng-pristine ng-valid"
+                    id="m_form_search" style="background-color:white" name="searchQuery" placeholder="Data Packet">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label">
+            <br>
+            </label>
+            <button type="submit" class="btn btn-primary" style="margin-left: 5px;" (click)="searchFile($event)">
+                Search
+            </button>
+        </div>
+    </div>
+</div>
+<div class="m-content" style="padding-top:15px;">
+    <div class="m-portlet m-portlet--mobile">
+        <div class="m-portlet__body">
+            <!--begin: Datatable -->
+            <div class="m_datatable" id="appLogs"></div>
+            <!--end: Datatable -->
+        </div>
+
+        <div class="modal fade" id="appLogsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div style="max-width:60%;" class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">
+                            {{title}} Details
+                        </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">
+                                &times;
+                            </span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="390">
+                            <p>{{exceptionDetails}}</p>
+                        </div>
+                    </div>
+                    <div style="padding:10px 10px 10px 10px;" class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

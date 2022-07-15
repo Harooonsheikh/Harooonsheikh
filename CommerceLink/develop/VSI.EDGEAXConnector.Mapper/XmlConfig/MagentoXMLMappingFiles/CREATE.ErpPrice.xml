@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ObjectToCSVMapping>
+
+	<!--Price-->
+	<ObjectInfo fullyQualifiedName="VSI.EDGEAXConnector.ERPDataModels.ErpProductPrice" objectCsvMappingName="ErpProductPrice_To_Price_Csv">
+		<CsvHeader>
+			<HeaderItem orderid="0" name="sku" />
+      <HeaderItem orderid="1" name="price" />
+      <HeaderItem orderid="2" name="attribute_set_code" />
+      <HeaderItem orderid="3" name="product_type" />
+		</CsvHeader>
+
+		<DataMember headerItemOrder="0" className="string" instanceName="SKU" isPrimitveType="true" />
+		<DataMember headerItemOrder="1" className="decimal" instanceName="BasePrice" isPrimitveType="true" />
+    <DataMember headerItemOrder="2" className="string" instanceName="" isPrimitveType="true" defaultValue="TeamViewer" />
+    <DataMember headerItemOrder="3" className="string" instanceName="TMV_ProductType" isPrimitveType="true" />
+	</ObjectInfo>
+
+
+</ObjectToCSVMapping>

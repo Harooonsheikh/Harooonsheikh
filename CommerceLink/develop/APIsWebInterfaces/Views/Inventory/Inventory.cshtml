@@ -1,0 +1,70 @@
+﻿@{
+    ViewBag.Title = "Inventory";
+}
+
+<div class="row" style="width:100%;float:left;">
+    <div class="col-md-11">
+        <hr />
+        <div>
+            <p class="headingStyle" style="font-size:large;">Inventory Lookup</p>
+        </div>
+        <hr />
+
+        <div style="display: block">@ViewBag.Message</div>
+
+        @*@using (Html.BeginForm("InventoryLookupByItem", "Inventory", null, FormMethod.Post, new { @class = "form-horizontal", id = "InventoryLookupByItemForm" }))
+        {
+            <div class="row">
+                <div class="col-md-4 form-group" style="float:left; margin:5px">
+                    <label class="control-label col-md-4 small ">Item ID:</label>
+                    <div class="col-md-6 paddingLeftRight0">
+                        @Html.TextBox("itemId", null, new { id = "itemId", Class = "form-control", Value = "81110" })
+                    </div>
+                </div>
+                <div class="col-md-4 form-group" style="float:left; margin:5px">
+                    <label class="control-label col-md-4 small ">Variant ID:</label>
+                    <div class="col-md-6 paddingLeftRight0">
+                        @Html.TextBox("varientId", null, new { id = "variantId", Class = "form-control", Value = "L" })
+                    </div>
+                </div>
+                <div class="col-md-4 form-group" style="float:left; margin:5px">
+                    <label class="control-label col-md-4 small ">&nbsp;</label>
+                    <input type="submit" class="btn btn-success col-md-push-2" value="Get Inventory" id="getInventoryItems" name="command" style="height:32px;">
+                </div>
+            </div>
+        }*@
+
+        @using (Html.BeginForm("InventoryLookupByBarcode", "Inventory", null, FormMethod.Post, new { @class = "form-horizontal", id = "InventoryLookupByBarcodeForm" }))
+        {
+            <div class="row">
+                <div class="col-md-4 form-group" style="float:left; margin:5px">
+                    <label class="control-label col-md-4 small ">Barcodes:</label>
+                    <div class="col-md-6 paddingLeftRight0">
+                        @Html.TextBox("barcodes", null, new { id = "barcodes", Class = "form-control", Value = "2246587365424" })
+                    </div>
+                    <p>For multiple items add comma seprated values e.g. 2246587365424,2246587365769 <p>
+                </div>
+                <div class="col-md-4 form-group" style="float:left; margin:5px">
+                    <label class="control-label col-md-4 small ">&nbsp;</label>
+                    <input type="submit" class="btn btn-success col-md-push-2" value="Get Inventory By Barcodes" id="getInventoryBarcodes" name="command" style="height:32px;">
+                </div>
+            </div>
+        }
+
+    </div>
+</div>
+
+
+
+
+
+<div class="row" style="width:100%;float:left;">
+    <hr />
+    <h3>Output Result:</h3>
+    <hr />
+    <div class="col-md-11" id="divData">
+        <p>@ViewBag.Result</p>
+    </div>
+</div>
+
+

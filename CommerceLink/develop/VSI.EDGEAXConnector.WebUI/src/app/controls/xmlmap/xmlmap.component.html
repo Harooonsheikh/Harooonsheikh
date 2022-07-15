@@ -1,0 +1,195 @@
+<div class="m-portlet m-portlet--mobile">
+        <div class="m-portlet__body">
+            <form (ngSubmit)="onSubmit(f.valid)" #f="ngForm" class="m-login__form m-form">
+                <div class="row">
+                    <div class="col-lg-8" ></div>
+                    <div class="col-lg-4">
+                        <button  type="submit" class="btn btn-primary m-btn--wide pull-right">
+                            Save
+                        </button>
+                        <button style="margin-right:5px;" class="btn btn-primary m-btn--wide pull-right" (click)="Cancel()" type="button">
+                            Back
+                        </button>
+                    </div>
+                </div>
+    
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="form-control-label">
+                                Source Entities :
+                            </label>
+                            <select (change)="loadProperties($event.target.value)" class="form-control">
+                                <option *ngFor="let a of entities" value={{a}} [selected]="a==selectedEntity">{{a}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+    
+                        <div class="form-group">
+                            <label class="form-control-label">
+                                Name :
+                            </label>
+                            <input type="text" required name="mapName" #mapName="ngModel" [ngModel]="map.Name" class="form-control">
+                            <small *ngIf="(mapName.invalid && showError)" class="text-danger">
+                                Name is required.
+                            </small>
+                        </div>
+    
+    
+                    </div>
+                </div>
+            </form>
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            Source Properties :
+                        </label>
+                        <div style="max-height:300px;overflow:auto" class="list-group">
+                            <a style="word-wrap: break-word;" href="#" *ngFor="let prop of properties" [title]="prop.Value" #test (click)="insertProperty(prop.Key)"
+                                class="list-group-item">{{prop.Key}}
+                                <br>
+                                <div style="text-overflow: ellipsis;overflow: hidden;white-space: nowrap; font-size: 80%; font-weight:300; font-family:Poppins; color: grey;">{{prop.Value}}</div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label class="form-control-label">
+                                    Options :
+                                </label>
+                                <div style="max-height:300px;overflow:auto" class="list-group">
+                                    <a *ngFor="let action of actions" href="#" (click)="insertActions(action.Key)" class="list-group-item">{{action.Key}}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" *ngIf="(mapType=='CREATE') ||(map.SourceEntity!='' && mapType=='READ')">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label class="form-control-label">
+                                    Other Template Files Source :
+                                </label>
+                                <div class="list-group">
+                                    <a style="word-wrap: break-word;" href="#" *ngFor="let c of selectedTypeTemplates" (click)="insertTemplate(c.Key)" class="list-group-item">{{c.Key}}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label class="form-control-label">
+                                    XML :
+                                </label>
+                                <!-- <textarea  ace-editor [(text)]="text" [theme]="eclipse" rows="30" id="xmlTextArea" class="form-control"></textarea> -->
+                                <!-- <textarea  rows="30" id="xmlTextArea" class="form-control"></textarea> -->
+    
+                                <div ace-editor [(text)]="map.XML" [theme]="'eclipse'" #editor style="min-height: 600px; width:100%; overflow: auto;" class="form-control"
+                                    rows="30">
+    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" *ngIf="mapType=='READ'">
+                        <div class="col-lg-12">
+                            Note : If use constant-value attribute then remove source-path attribute.
+                            <br> To read nested properties use Properties tag inside Target tag.
+                            <br> e.g &lt; target > &lt;Properties> &lt;/Properties> &lt;/Target>
+                        </div>
+                    </div>
+                    <u>
+                        <a (click)="ShowModal()" href="#">Read Instructions</a>
+                    </u>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--begin::Modal-->
+    <div class="modal fade" id="readInstructions" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div style="max-width:60%;" class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">
+                        XML Template Engine Instructions
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">
+                            &times;
+                        </span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="390">
+                        <p> Instructions for XML Creation Template:
+                            <br/> ========================================
+                        </p>
+                        <ol>
+                            <li>Constant Value constant=”true”</li>
+                            <li>Default Value default-value=”value”</li>
+                            <li>Show Hide Node show-node=”true/false” also support conditional expression</li>
+                            <li>Multiple files based template file-source=”file-path” data-source=”object-property”</li>
+                            <li>Custom Attributes (node name must be customAttributes)</li>
+                            <li>Mapping of specific node from customAttributes list via key-name
+                                <ol>
+                                    <li>
+                                        Add custom-attribute-value="true" attribute on node and write KeyName as node inner text e.g. &lt;min-order-quantity default-value="1"
+                                        custom-attribute-value="true">minOrderQuantity&lt;/min-order-quantity>
+    
+                                    </li>
+                                    OR
+                                    <li>
+                                        (sourceObject.CustomAttributes.Find(s =>;s.Key.Equals("key-name")).Value)
+                                    </li>
+    
+                                </ol>
+                                <br>
+                                <b>Note:</b> 1 is prefered because it run-time cost is low 2 create delay but for condition 2 is
+                                prefered e.g. &lt;searchable-flag default-value="true" expression="true">sourceObject.CustomAttributes.Find(s
+                                =&gt;s.Key.Equals("searchable")).Value == "0" ? "false":"true"&lt;/searchable-flag>
+                            </li>
+                            <br>
+                            <li>
+                                List based repeated area repeat=”true/false” data-source=”list-name”
+                            </li>
+                            <li>
+                                Must use sourceObject before any property in expression e.g. sourceObject.taxvat == null ? &quot;0&quot; : sourceObject.taxvat
+                            </li>
+                            <li>
+                                Attribute Expression also applicable e.g. attribute-id="{{
+                                <span>ConfigurationHelper.TaxGroup</span>}}"'
+                            </li>
+                            <li>
+                                Must use data-object with application expression if you are using any object property in expression e.g. &lt;shared-variation-attribute
+                                data-object="ErpProductDimensionSet~DimensionKey" attribute-id='{{
+                                <span>ConfigurationHelper.DimensionSets.Find(d => d.ErpValue.Equals(sourceObject.DimensionKey)).ComValue</span>}}'
+                                />
+    
+                            </li>
+                            <li>
+                                To get any ApplicationSettings table's value use ConfigurationHelper.Key e.g.
+                                <br>For Attribute Value:
+                                <br> &lt;product-lineitem tax-group-id="{{
+                                <span>ConfigurationHelper.TaxGroup</span>}}">&lt;/product-lineitem>
+                                <br>For Node Data Value:
+                                <br> &lt;product-lineitem> &lt;tax-group>ConfigurationHelper.TaxGroup&lt;/tax-group> &lt;/product-lineitem>
+    
+                            </li>
+                        </ol>
+    
+                    </div>
+                </div>
+                <div style="padding:10px 10px 10px 10px;" class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--end::Modal-->

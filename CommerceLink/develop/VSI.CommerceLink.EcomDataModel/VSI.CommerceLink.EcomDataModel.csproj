@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AE4FC1E6-FD9E-46D5-B9E5-A3302FF7DF81}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VSI.CommerceLink.EcomDataModel</RootNamespace>
+    <AssemblyName>VSI.CommerceLink.EcomDataModel</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'INT|AnyCPU'">
+    <OutputPath>bin\INT\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'BEN|AnyCPU'">
+    <OutputPath>bin\BEN\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EcomAddress.cs" />
+    <Compile Include="EcomAddressType.cs" />
+    <Compile Include="EcomAddUpdateCartLine.cs" />
+    <Compile Include="EcomAffiliation.cs" />
+    <Compile Include="EcomCart.cs" />
+    <Compile Include="EcomCartLine.cs" />
+    <Compile Include="EcomCommerceProperty.cs" />
+    <Compile Include="EcomCommercePropertyValue.cs" />
+    <Compile Include="EcomContactPerson.cs" />
+    <Compile Include="EcomCustomer.cs" />
+    <Compile Include="EcomCustomerAttribute.cs" />
+    <Compile Include="EcomCustomerOrderInfo.cs" />
+    <Compile Include="EcomDeliverySpecification.cs" />
+    <Compile Include="EcomDiscountInfo.cs" />
+    <Compile Include="EcomDiscountLine.cs" />
+    <Compile Include="EcomItemInfo.cs" />
+    <Compile Include="EcomRichMediaLocations.cs" />
+    <Compile Include="EcomRichMediaLocationsRichMediaLocation.cs" />
+    <Compile Include="EcomSalesLine.cs" />
+    <Compile Include="EcomSalesOrder.cs" />
+    <Compile Include="EcomTaxInfo.cs" />
+    <Compile Include="Enum\EcomCalculationModes.cs" />
+    <Compile Include="Enum\EcomCustomerType.cs" />
+    <Compile Include="Enum\EcomRetailAffiliationType.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Request\EcomAddUpdateCartLinesRequest.cs" />
+    <Compile Include="Request\EcomBaseRequest.cs" />
+    <Compile Include="Request\EcomCartLinesRequest.cs" />
+    <Compile Include="Request\EcomCartRequest.cs" />
+    <Compile Include="Request\EcomChangeContractPaymentMethodRequest.cs" />
+    <Compile Include="Request\EcomCloseExistingOrderRequest.cs" />
+    <Compile Include="EcomContractLine.cs" />
+    <Compile Include="EcomCoupon.cs" />
+    <Compile Include="Request\EcomCreateContractNewPaymentMethod.cs" />
+    <Compile Include="EcomCreateContractNewPaymentMethodCustomer.cs" />
+    <Compile Include="Request\EcomCustomerContactPersonCreateRequest.cs" />
+    <Compile Include="Request\EcomCustomerCreateRequest.cs" />
+    <Compile Include="Request\EcomCartMergeRequest.cs" />
+    <Compile Include="Request\CLSynchronizeServiceAccountIdRequest.cs" />
+    <Compile Include="Request\EcomCustomerUpdateRequest.cs" />
+    <Compile Include="Request\EcomLicenseRequest.cs" />
+    <Compile Include="Request\EcomProcessContractReactivateRequest.cs" />
+    <Compile Include="Request\EcomProcessContractTerminateRequest.cs" />
+    <Compile Include="Request\EcomProductsLicenseCreation.cs" />
+    <Compile Include="EcomTenderLine.cs" />
+    <Compile Include="Request\EcomUpdateSubscriptionContractRequest.cs" />
+    <Compile Include="Request\MergeSalesOrderCustomerResellerRequest.cs" />
+    <Compile Include="Request\MergeCustomerResellerRequest.cs" />
+    <Compile Include="Response\BaseResponse.cs" />
+    <Compile Include="Response\CLSynchronizeServiceAccountIdResponse.cs" />
+    <Compile Include="Response\CLContactPersonResponse.cs" />
+    <Compile Include="Response\EcomUpdateSubscriptionContractResponse.cs" />
+    <Compile Include="Response\MergeCustomerResellerResponse.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VSI.EDGEAXConnector.ERPDataModels\VSI.EDGEAXConnector.ERPDataModels.csproj">
+      <Project>{DB86513C-43FA-4861-BFBE-4F4E48D62392}</Project>
+      <Name>VSI.EDGEAXConnector.ERPDataModels</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

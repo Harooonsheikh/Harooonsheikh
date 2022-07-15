@@ -1,0 +1,125 @@
+<!-- BEGIN: Subheader -->
+
+<!-- END: Subheader -->
+
+
+
+<div class="m-portlet m-portlet--mobile">
+    <div class="m-portlet__head">
+        <div class="m-portlet__head-caption">
+            <div class="m-portlet__head-title">
+                <h3 class="m-portlet__head-text">
+                    Jobs History
+                    <small>
+                        <!-- CommerceLink Jobs Logs -->
+                    </small>
+                </h3>
+            </div>
+        </div>
+        <div class="form-group m-form__group row align-items-center">
+            <div class="col-md-6">
+                <div style="margin-top:1.2rem;" class="m-dropdown m-dropdown--inline m-dropdown--arrow" data-dropdown-toggle="click" aria-expanded="true">
+
+                    <a *ngIf="currentEntityId==0" style="text-align:left" class="m-dropdown__toggle btn btn-default dropdown-toggle" style="width:350px;color:black;text-align:left"
+                        href="#">
+                        Filter By : All
+                    </a>
+                    <a *ngIf="currentEntityId==2" class="m-dropdown__toggle btn btn-default dropdown-toggle" style="width:350px;color:black;text-align:left"
+                        href="#">
+                        Filter By : Catalog
+                    </a>
+                    <a *ngIf="currentEntityId==6" class="m-dropdown__toggle btn btn-default dropdown-toggle" style="width:350px;color:black;text-align:left"
+                        href="#">
+                        Filter By : Inventory
+                    </a>
+                    <a *ngIf="currentEntityId==14" class="m-dropdown__toggle btn btn-default dropdown-toggle" style="width:350px;color:black;text-align:left"
+                        href="#">
+                        Filter By : Price Book
+                    </a>
+                    <a *ngIf="currentEntityId==13" class="m-dropdown__toggle btn btn-default dropdown-toggle" style="width:350px;color:black;text-align:left"
+                        href="#"> Filter By : Discount
+                    </a>
+
+
+                    <div class="m-dropdown__wrapper">
+                        <span class="m-dropdown__arrow m-dropdown__arrow--left"></span>
+                        <div class="m-dropdown__inner">
+                            <div class="m-dropdown__body">
+                                <div class="m-dropdown__content">
+                                    <ul class="m-nav">
+                                        <li class="m-nav__section m-nav__section--first">
+                                            <span class="m-nav__section-text">
+                                                Filter By Job:
+                                            </span>
+                                        </li>
+
+                                        <li class="m-nav__item">
+                                            <a (click)="setFilter(0)" class="m-nav__link" href="">
+                                                <i class="m-nav__link-icon flaticon-share"></i>
+                                                <span class="m-nav__link-text">
+                                                    All
+                                                </span>
+                                            </a>
+                                        </li>
+
+                                        <li class="m-nav__item">
+                                            <a (click)="setFilter(2)" class="m-nav__link" href="">
+                                                <i class="m-nav__link-icon flaticon-share"></i>
+                                                <span class="m-nav__link-text">
+                                                    Catalog
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li class="m-nav__item">
+                                            <a (click)="setFilter(6)" class="m-nav__link" href="">
+                                                <i class="m-nav__link-icon flaticon-share"></i>
+                                                <span class="m-nav__link-text">
+                                                    Inventory
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li class="m-nav__item">
+                                            <a (click)="setFilter(14)" class="m-nav__link" href="">
+                                                <i class="m-nav__link-icon flaticon-share"></i>
+                                                <span class="m-nav__link-text">
+                                                    Price Book
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li class="m-nav__item">
+                                            <a (click)="setFilter(13)" class="m-nav__link" href="">
+                                                <i class="m-nav__link-icon flaticon-share"></i>
+                                                <span class="m-nav__link-text">
+                                                    Discount
+                                                </span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6" style="margin-top:1.2rem;">
+                <div class="m-input-icon m-input-icon--left">
+                    <input (keyup)="searchFile($event)" name="searchQuery" [(ngModel)]="searchQuery" class="form-control m-input m-input--solid"
+                        placeholder="File Name" id="m_form_search">
+                    <span (click)="searchFile($event)" style="cursor: pointer; cursor: hand;" class="m-input-icon__icon m-input-icon__icon--left">
+                        <span>
+                            <i class="la la-search"></i>
+                        </span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="m-portlet__body">
+        <!--begin: Search Form -->
+
+        <!--end: Search Form -->
+        <!--begin: Datatable -->
+        <div class="m_datatable" id="fileLog"></div>
+        <!--end: Datatable -->
+    </div>
+</div>
