@@ -1,9 +1,0 @@
-Do not execute SQL Script [Obsolete] 1-ApplicationSettings-Changes.sql
-
-Execute SQL Script 2-Application Settings and Tables.sql before creating new store from Web UI
-
-Execute remaining SQL Scripts after creating new store form Web UI
-
-Execute 7-Ingram Distributor for BEN (Execute only one time).sql only one time on BEN to configure distributors
-
-SQL Scripts in folder "Email Notification Fix for INT and BEN Only" are for INT and BEN only. Do not execute these SQL Scripts on Production database

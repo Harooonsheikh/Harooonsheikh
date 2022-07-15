@@ -1,2 +1,0 @@
-EXEC spRequestResponse_ScrambleData
-EXEC spLog_ScrambleData

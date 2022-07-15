@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<QUOTATIONREASONGROUPS xmlns="http://www.demandware.com/xml/impex/quotationreasongroups/2006-10-31">
-<QUOTATIONREASONGROUP>
-	<GROUP repeat="true" data-source="ERPQuotationReasonGroups~erpQuotationReasonGroup">
-		<DESCRIPTION>ERPQuotationReasonGroup~DESCRIPTION</DESCRIPTION>
-		<REASONID>ERPQuotationReasonGroup~REASONID</REASONID>
-	</GROUP>
-</QUOTATIONREASONGROUP>
-</QUOTATIONREASONGROUPS>

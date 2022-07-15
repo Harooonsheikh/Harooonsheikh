@@ -1,1 +1,0 @@
-Update LogMapper SET IdentifierKey = 'CustomerAccountNumber' , IdentifierPath = '$.CustomerAccountNumber' WHERE MethodName = 'MergeUpdateCustomerContactPerson'

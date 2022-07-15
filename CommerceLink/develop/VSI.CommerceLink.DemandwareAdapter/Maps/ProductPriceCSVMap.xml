@@ -1,5 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<MapTemplate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <Map FieldName="sku" Heading="sku" />
-  <Map FieldName="price" Heading="price" />
-</MapTemplate>
